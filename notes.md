@@ -85,3 +85,9 @@ func main() {
 ```
 
 https://go.dev/play/p/wge8tWLEQNM
+
+## Section 4
+
+### Variables
+
+https://go.dev/play/p/C5k8w07Fh7Y
