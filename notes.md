@@ -91,3 +91,5 @@ https://go.dev/play/p/wge8tWLEQNM
 ### Variables
 
 https://go.dev/play/p/C5k8w07Fh7Y
+
+https://go.dev/play/p/uvggBjVF47O
