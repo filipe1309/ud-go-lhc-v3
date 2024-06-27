@@ -100,3 +100,8 @@ https://en.wikipedia.org/wiki/Primitive_data_type
 https://pkg.go.dev/builtin
 
 https://go.dev/blog/constants
+
+We DECLARE a VARIABLE of a certain TYPE
+- is can only hold VALUES of that TYPE
+- Go is statically typed
+
