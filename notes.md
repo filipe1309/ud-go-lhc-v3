@@ -88,8 +88,15 @@ https://go.dev/play/p/wge8tWLEQNM
 
 ## Section 4
 
-### Variables
 
 https://go.dev/play/p/C5k8w07Fh7Y
 
 https://go.dev/play/p/uvggBjVF47O
+
+https://en.wikipedia.org/wiki/Numeral_system
+
+https://en.wikipedia.org/wiki/Primitive_data_type
+
+https://pkg.go.dev/builtin
+
+https://go.dev/blog/constants
