@@ -180,3 +180,15 @@ go help mod
 ```
 
 "When thr bird and the book disagree, believe the bird" quote by James Audubon
+
+## Section 9 - Hands-on exercises
+
+`go install` command compiles and installs the package in the `$GOPATH/bin` directory.
+```sh
+go install
+```
+
+```sh
+go get github.com/GoesToEleven/puppy@v1.2.0 # get a specific version
+go get github.com/GoesToEleven/puppy@latest # get the latest version or update to the latest version
+```
