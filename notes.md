@@ -105,3 +105,9 @@ We DECLARE a VARIABLE of a certain TYPE
 - is can only hold VALUES of that TYPE
 - Go is statically typed
 
+## Section 5
+
+https://go.dev/tour/list
+
+https://go.dev/play/p/jZUmqIhqaIC
+
