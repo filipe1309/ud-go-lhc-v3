@@ -192,3 +192,66 @@ go install
 go get github.com/GoesToEleven/puppy@v1.2.0 # get a specific version
 go get github.com/GoesToEleven/puppy@latest # get the latest version or update to the latest version
 ```
+## Section 11 - Control flow
+
+- Sequence
+- Conditional
+- Loop
+
+The Stack = LIFO (Last In First Out), is faster and requires less overhead than the Heap.
+The Heap = is slower and requires more overhead than the Stack, but is more flexible.
+
+Go programs try to allocate as much memory as possible on the stack, because it is faster and requires less overhead.
+However, whaen a program needs to store a large amount of data, or data with a longer lifetime than the stack, it must use the heap.
+
+"comma ok idiom" is used to check if a value is present in a map.
+```go
+if value, ok := myMap[key]; ok {
+  fmt.Println(value)
+}
+```
+
+`select` statement is used to wait on multiple channels for concurrent communication.
+```go
+channel1 := make(chan string)
+channel2 := make(chan string)
+
+go func() {
+  time.Sleep(1 * time.Second)
+  channel1 <- "one"
+}()
+
+go func() {
+  time.Sleep(2 * time.Second)
+  channel2 <- "two"
+}()
+
+select {
+  case msg1 := <-channel1:
+    fmt.Println("received", msg1)
+  case msg2 := <-channel2:
+    fmt.Println("received", msg2)
+  default:
+    fmt.Println("no activity")
+}
+```
+
+`for range` loop is used to iterate over a slice, array, string, map, or channel.
+```go
+// Slice example
+mySlice := []int{1, 2, 3, 4, 5} // slice of integers
+for index, value := range mySlice {
+  fmt.Println(index, value)
+}
+
+// Map example
+myMap := map[string]int{
+  "a": 1, 
+  "b": 2, 
+  "c": 3
+} // map of strings to integers
+for key, value := range myMap {
+  fmt.Println(key, value)
+}
+```
+
