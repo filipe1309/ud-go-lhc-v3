@@ -118,3 +118,44 @@ https://go.dev/play/p/RoPv2HjoALg
 
 > "Persistently, Patiently you are bound to succeed" quote by Todd McLeod
 
+## Section 7
+
+`go mod init` command is used to initialize a new module, creating a new go.mod file in the current directory.
+```sh
+go mod init github.com/filipe1309/ud-go-lhc-v3
+```
+
+`go run` command compiles and runs the program.
+```sh
+go run main.go
+# OR
+go run ./... # run all files in the current directory
+```
+
+`go build` command compiles the program into an executable file.
+```sh
+go build
+```
+
+Cross-compiling
+
+```sh
+go env GOARCH GOOS # to see the current architecture and OS, ex: arm64 darwin
+GOOS=windows go build -o myprogram.exe
+GOOS=linux go build
+GOOS=darwin go build
+```
+
+Environment variables
+
+```sh
+go env # to see all environment variables
+go env GOROOT # to see the Go root directory
+go env GOPATH # to see the Go path directory
+```
+
+`go install` command compiles and installs the package in the `bin` directory.
+```sh
+go install
+```
+
