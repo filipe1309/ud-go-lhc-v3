@@ -121,4 +121,13 @@ func main() {
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valOne, valOne, valOne)
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valTwo, valTwo, valTwo)
 	fmt.Printf("Decimal: %d \t Binary: %b \t Hexadecimal: %#X\n", valThree, valThree, valThree)
+
+	/*======================= Class 29 =======================*/
+	// Hands-on exercise #13 - Signed and Unsigned integers
+	fmt.Println("\nClass 29")
+	var mySignedVar int8 = 127
+	fmt.Printf("mySignedVar \t Decimal: %d \t Binary: %b\n", mySignedVar, mySignedVar)
+	var myUnsignedVar uint8 = 255
+	fmt.Printf("myUnsignedVar \t Decimal: %d \t Binary: %b\n", myUnsignedVar, myUnsignedVar)
+
 }
