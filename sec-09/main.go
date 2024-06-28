@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/filipe1309/my-go-library"
 	"github.com/GoesToEleven/puppy"
+	"github.com/filipe1309/my-go-library"
 )
 
 var myVarAtPackageLevel = "My var at package level"
+
 const myConstAtPackageLevel = "My const at package level"
 
 func main() {
@@ -33,5 +34,3 @@ func class60() {
 	fmt.Println("\nClass 60")
 	fmt.Printf("puppy.Barks(): %v\n", puppy.Barks())
 }
-
-
