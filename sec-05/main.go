@@ -93,8 +93,8 @@ func class25() {
 	*/
 }
 
-	// zero value, :=, type specificity, blank identifier
-	func class26() {
+// zero value, :=, type specificity, blank identifier
+func class26() {
 	fmt.Println("\nClass 26")
 
 	// var for zero value
@@ -128,8 +128,8 @@ func class27() {
 	fmt.Printf("Value: %v \t\t Type: %T\n", myFloat, myFloat)
 }
 
-	// Hands-on exercise #12
-	// Printf binary, decimal & hexadecimal
+// Hands-on exercise #12
+// Printf binary, decimal & hexadecimal
 func class28() {
 	fmt.Println("\nClass 28")
 	valOne, valTwo, valThree := 747, 911, 90210
