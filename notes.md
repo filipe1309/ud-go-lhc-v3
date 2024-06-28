@@ -169,6 +169,8 @@ go install
 `go get` command is used to download packages and dependencies.
 ```sh
 go get github.com/filipe1309/ud-go-lhc-v3
+
+go get github.com/filipe1309my-go-library@latest
 ```
 
 `go help` command is used to get help for the go command.
@@ -176,3 +178,5 @@ go get github.com/filipe1309/ud-go-lhc-v3
 go help
 go help mod
 ```
+
+"When thr bird and the book disagree, believe the bird" quote by James Audubon
