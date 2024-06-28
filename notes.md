@@ -125,6 +125,11 @@ https://go.dev/play/p/RoPv2HjoALg
 go mod init github.com/filipe1309/ud-go-lhc-v3
 ```
 
+`go mod tidy` command is used to add missing and remove unused modules.
+```sh
+go mod tidy
+```
+
 `go run` command compiles and runs the program.
 ```sh
 go run main.go
@@ -159,3 +164,15 @@ go env GOPATH # to see the Go path directory
 go install
 ```
 
+## Section 8 - go mod and dependency management
+
+`go get` command is used to download packages and dependencies.
+```sh
+go get github.com/filipe1309/ud-go-lhc-v3
+```
+
+`go help` command is used to get help for the go command.
+```sh
+go help
+go help mod
+```
