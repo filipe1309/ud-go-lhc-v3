@@ -79,4 +79,27 @@ func main() {
 		EB		 1152921504606846976
 		int		18446744073709551615
 	*/
+
+	// Class 26 - zero value, :=, type specificity, blank identifier
+	fmt.Println("\nClass 26")
+
+	// var for zero value
+	var zero int
+	fmt.Println(zero)
+
+	// := for short declaration
+	short := 42
+	fmt.Println(short)
+
+	// multiple initializations
+	var first, second int = 1, 2
+	fmt.Println(first, second)
+
+	// var when specificity is required
+	var third float32 = 3.0
+	fmt.Printf("%v, %T\n", third, third)
+
+	// blank identifier
+	_, fourth := 4, 5
+	fmt.Println(fourth)
 }
