@@ -17,7 +17,24 @@ const (
 	c6
 )
 
+type ByteSize int
+
+const (
+	_           = iota // ignore first value by assigning to blank identifier
+	KB ByteSize = 1 << (10 * iota) // 1024 Bytes
+	MB // 1024 KB
+	GB // 1024 MB
+	TB // 1024 GB
+	PB // 1024 TB
+	EB // 1024 PB
+	// ZB // 1024 EB
+	// YB // 1024 ZB
+)
+
 func main() {
+	// Class 24
+	fmt.Println("\nClass 24")
+
 	fmt.Println(c0, c1, c2)
 	fmt.Println(c3, c4, c5, c6)
 	
@@ -44,4 +61,23 @@ func main() {
 	fmt.Printf("%d \t %b\n", 1<<five, 1<<five)
 	fmt.Printf("%d \t %b\n", 1<<6, 1<<6)
 	fmt.Printf("%d \t %b\n", 1<<six, 1<<six)
+
+
+	// Class 25
+	fmt.Println("\nClass 25")
+
+	fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
+	fmt.Printf("MB dec: %d \t\t bin: %b\n", MB, MB)
+	fmt.Printf("GB dec: %d \t\t bin: %b\n", GB, GB)
+	fmt.Printf("TB dec: %d \t\t bin: %b\n", TB, TB)
+	fmt.Printf("PB dec: %d \t bin: %b\n", PB, PB)
+	fmt.Printf("EB dec: %d \t bin: %b\n", EB, EB)
+	// fmt.Printf("ZB: %d \t %b\n", ZB, ZB)
+	// fmt.Printf("YB: %d \t %b\n", YB, YB)
+
+	/*
+	PB		    1125899906842624
+	EB		 1152921504606846976
+	int		18446744073709551615
+	*/
 }
