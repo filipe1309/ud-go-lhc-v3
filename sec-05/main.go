@@ -20,13 +20,13 @@ const (
 type ByteSize int
 
 const (
-	_           = iota // ignore first value by assigning to blank identifier
+	_           = iota             // ignore first value by assigning to blank identifier
 	KB ByteSize = 1 << (10 * iota) // 1024 Bytes
-	MB // 1024 KB
-	GB // 1024 MB
-	TB // 1024 GB
-	PB // 1024 TB
-	EB // 1024 PB
+	MB                             // 1024 KB
+	GB                             // 1024 MB
+	TB                             // 1024 GB
+	PB                             // 1024 TB
+	EB                             // 1024 PB
 	// ZB // 1024 EB
 	// YB // 1024 ZB
 )
@@ -37,13 +37,13 @@ func main() {
 
 	fmt.Println(c0, c1, c2)
 	fmt.Println(c3, c4, c5, c6)
-	
+
 	const (
 		_ = iota
 		one
 		two
-		three 
-		four 
+		three
+		four
 		five
 		six
 	)
@@ -62,7 +62,6 @@ func main() {
 	fmt.Printf("%d \t %b\n", 1<<6, 1<<6)
 	fmt.Printf("%d \t %b\n", 1<<six, 1<<six)
 
-
 	// Class 25
 	fmt.Println("\nClass 25")
 
@@ -76,8 +75,8 @@ func main() {
 	// fmt.Printf("YB: %d \t %b\n", YB, YB)
 
 	/*
-	PB		    1125899906842624
-	EB		 1152921504606846976
-	int		18446744073709551615
+		PB		    1125899906842624
+		EB		 1152921504606846976
+		int		18446744073709551615
 	*/
 }
