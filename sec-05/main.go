@@ -32,7 +32,23 @@ const (
 )
 
 func main() {
-	/*======================= Class 24 =======================*/
+	class24()
+	class25()
+	class26()
+	class27()
+	class28()
+	class29()
+
+	
+
+	
+
+	
+
+
+}
+
+func class24() {
 	fmt.Println("\nClass 24")
 
 	fmt.Println(c0, c1, c2)
@@ -61,25 +77,29 @@ func main() {
 	fmt.Printf("%d \t %b\n", 1<<five, 1<<five)
 	fmt.Printf("%d \t %b\n", 1<<6, 1<<6)
 	fmt.Printf("%d \t %b\n", 1<<six, 1<<six)
+}
 
-	/*======================= Class 25 =======================*/
-	fmt.Println("\nClass 25")
+func class25() {
+/*======================= Class 25 =======================*/
+fmt.Println("\nClass 25")
 
-	fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
-	fmt.Printf("MB dec: %d \t\t bin: %b\n", MB, MB)
-	fmt.Printf("GB dec: %d \t\t bin: %b\n", GB, GB)
-	fmt.Printf("TB dec: %d \t\t bin: %b\n", TB, TB)
-	fmt.Printf("PB dec: %d \t bin: %b\n", PB, PB)
-	fmt.Printf("EB dec: %d \t bin: %b\n", EB, EB)
-	// fmt.Printf("ZB: %d \t %b\n", ZB, ZB)
-	// fmt.Printf("YB: %d \t %b\n", YB, YB)
+fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
+fmt.Printf("MB dec: %d \t\t bin: %b\n", MB, MB)
+fmt.Printf("GB dec: %d \t\t bin: %b\n", GB, GB)
+fmt.Printf("TB dec: %d \t\t bin: %b\n", TB, TB)
+fmt.Printf("PB dec: %d \t bin: %b\n", PB, PB)
+fmt.Printf("EB dec: %d \t bin: %b\n", EB, EB)
+// fmt.Printf("ZB: %d \t %b\n", ZB, ZB)
+// fmt.Printf("YB: %d \t %b\n", YB, YB)
 
-	/*
-		PB		    1125899906842624
-		EB		 1152921504606846976
-		int		18446744073709551615
-	*/
+/*
+	PB		    1125899906842624
+	EB		 1152921504606846976
+	int		18446744073709551615
+*/
+}
 
+func class26() {
 	/*======================= Class 26 =======================*/
 	// zero value, :=, type specificity, blank identifier
 	fmt.Println("\nClass 26")
@@ -103,8 +123,10 @@ func main() {
 	// blank identifier
 	_, fourth := 4, 5
 	fmt.Println(fourth)
+}
 
-	/*======================= Class 27 =======================*/
+func class27() {
+/*======================= Class 27 =======================*/
 	// Hands-on exercise #11 - printf verbs to show values and types
 	fmt.Println("\nClass 27")
 
@@ -112,8 +134,10 @@ func main() {
 	fmt.Printf("Value: %v \t Type: %T\n", myString, myString)
 	fmt.Printf("Value: %v \t\t Type: %T\n", myInt, myInt)
 	fmt.Printf("Value: %v \t\t Type: %T\n", myFloat, myFloat)
+}
 
-	/*======================= Class 28 =======================*/
+func class28() {
+/*======================= Class 28 =======================*/
 	// Hands-on exercise #12 - Printf binary, decimal & hexadecimal
 	fmt.Println("\nClass 28")
 
@@ -121,7 +145,9 @@ func main() {
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valOne, valOne, valOne)
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valTwo, valTwo, valTwo)
 	fmt.Printf("Decimal: %d \t Binary: %b \t Hexadecimal: %#X\n", valThree, valThree, valThree)
+}
 
+func class29() {
 	/*======================= Class 29 =======================*/
 	// Hands-on exercise #13 - Signed and Unsigned integers
 	fmt.Println("\nClass 29")
