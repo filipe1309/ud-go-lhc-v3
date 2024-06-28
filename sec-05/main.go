@@ -32,7 +32,7 @@ const (
 )
 
 func main() {
-	// Class 24
+	/*======================= Class 24 =======================*/
 	fmt.Println("\nClass 24")
 
 	fmt.Println(c0, c1, c2)
@@ -62,7 +62,7 @@ func main() {
 	fmt.Printf("%d \t %b\n", 1<<6, 1<<6)
 	fmt.Printf("%d \t %b\n", 1<<six, 1<<six)
 
-	// Class 25
+	/*======================= Class 25 =======================*/
 	fmt.Println("\nClass 25")
 
 	fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
@@ -80,7 +80,8 @@ func main() {
 		int		18446744073709551615
 	*/
 
-	// Class 26 - zero value, :=, type specificity, blank identifier
+	/*======================= Class 26 =======================*/
+	// zero value, :=, type specificity, blank identifier
 	fmt.Println("\nClass 26")
 
 	// var for zero value
@@ -102,4 +103,22 @@ func main() {
 	// blank identifier
 	_, fourth := 4, 5
 	fmt.Println(fourth)
+
+	/*======================= Class 27 =======================*/
+	// Hands-on exercise #11 - printf verbs to show values and types
+	fmt.Println("\nClass 27")
+
+	myString, myInt, myFloat := "Hello, World!", 42, 42.42
+	fmt.Printf("Value: %v \t Type: %T\n", myString, myString)
+	fmt.Printf("Value: %v \t\t Type: %T\n", myInt, myInt)
+	fmt.Printf("Value: %v \t\t Type: %T\n", myFloat, myFloat)
+
+	/*======================= Class 28 =======================*/
+	// Hands-on exercise #12 - Printf binary, decimal & hexadecimal
+	fmt.Println("\nClass 28")
+
+	valOne, valTwo, valThree := 747, 911, 90210
+	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valOne, valOne, valOne)
+	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valTwo, valTwo, valTwo)
+	fmt.Printf("Decimal: %d \t Binary: %b \t Hexadecimal: %#X\n", valThree, valThree, valThree)
 }
