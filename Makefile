@@ -2,6 +2,10 @@
 test:
 	@echo "🟢 Running tests..."
 
+build:
+	@echo "🔨 Building code..."
+	go build sec-$(SEC)/main.go
+
 # run node
 # example: make run SEC=03
 run:
