@@ -113,3 +113,8 @@ https://go.dev/play/p/jZUmqIhqaIC
 
 https://go.dev/play/p/RoPv2HjoALg
 
+
+## Section 6
+
+> "Persistently, Patiently you are bound to succeed" quote by Todd McLeod
+
