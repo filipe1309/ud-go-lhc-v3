@@ -38,16 +38,10 @@ func main() {
 	class27()
 	class28()
 	class29()
-
-	
-
-	
-
-	
-
-
 }
 
+// Hands-on exercise #8
+// iota
 func class24() {
 	fmt.Println("\nClass 24")
 
@@ -79,29 +73,28 @@ func class24() {
 	fmt.Printf("%d \t %b\n", 1<<six, 1<<six)
 }
 
+// Hands-on exercise #9
+// Measuring bits with bitwise operations
 func class25() {
-/*======================= Class 25 =======================*/
-fmt.Println("\nClass 25")
+	fmt.Println("\nClass 25")
+	fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
+	fmt.Printf("MB dec: %d \t\t bin: %b\n", MB, MB)
+	fmt.Printf("GB dec: %d \t\t bin: %b\n", GB, GB)
+	fmt.Printf("TB dec: %d \t\t bin: %b\n", TB, TB)
+	fmt.Printf("PB dec: %d \t bin: %b\n", PB, PB)
+	fmt.Printf("EB dec: %d \t bin: %b\n", EB, EB)
+	// fmt.Printf("ZB: %d \t %b\n", ZB, ZB)
+	// fmt.Printf("YB: %d \t %b\n", YB, YB)
 
-fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
-fmt.Printf("MB dec: %d \t\t bin: %b\n", MB, MB)
-fmt.Printf("GB dec: %d \t\t bin: %b\n", GB, GB)
-fmt.Printf("TB dec: %d \t\t bin: %b\n", TB, TB)
-fmt.Printf("PB dec: %d \t bin: %b\n", PB, PB)
-fmt.Printf("EB dec: %d \t bin: %b\n", EB, EB)
-// fmt.Printf("ZB: %d \t %b\n", ZB, ZB)
-// fmt.Printf("YB: %d \t %b\n", YB, YB)
-
-/*
-	PB		    1125899906842624
-	EB		 1152921504606846976
-	int		18446744073709551615
-*/
+	/*
+	   PB		    1125899906842624
+	   EB		 1152921504606846976
+	   int		18446744073709551615
+	*/
 }
 
-func class26() {
-	/*======================= Class 26 =======================*/
 	// zero value, :=, type specificity, blank identifier
+	func class26() {
 	fmt.Println("\nClass 26")
 
 	// var for zero value
@@ -125,31 +118,29 @@ func class26() {
 	fmt.Println(fourth)
 }
 
+// Hands-on exercise #11
+// Printf verbs to show values and types
 func class27() {
-/*======================= Class 27 =======================*/
-	// Hands-on exercise #11 - printf verbs to show values and types
 	fmt.Println("\nClass 27")
-
 	myString, myInt, myFloat := "Hello, World!", 42, 42.42
 	fmt.Printf("Value: %v \t Type: %T\n", myString, myString)
 	fmt.Printf("Value: %v \t\t Type: %T\n", myInt, myInt)
 	fmt.Printf("Value: %v \t\t Type: %T\n", myFloat, myFloat)
 }
 
+	// Hands-on exercise #12
+	// Printf binary, decimal & hexadecimal
 func class28() {
-/*======================= Class 28 =======================*/
-	// Hands-on exercise #12 - Printf binary, decimal & hexadecimal
 	fmt.Println("\nClass 28")
-
 	valOne, valTwo, valThree := 747, 911, 90210
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valOne, valOne, valOne)
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valTwo, valTwo, valTwo)
 	fmt.Printf("Decimal: %d \t Binary: %b \t Hexadecimal: %#X\n", valThree, valThree, valThree)
 }
 
+// Hands-on exercise #13
+// Signed and Unsigned integers
 func class29() {
-	/*======================= Class 29 =======================*/
-	// Hands-on exercise #13 - Signed and Unsigned integers
 	fmt.Println("\nClass 29")
 	var mySignedVar int8 = 127
 	fmt.Printf("mySignedVar \t Decimal: %d \t Binary: %b\n", mySignedVar, mySignedVar)
