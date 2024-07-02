@@ -15,7 +15,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class76()
-	class79()
+	class80(class79())
 }
 
 func class76() {
@@ -59,10 +59,10 @@ func class78() {
 	fmt.Println("This is where initialization for my program occurs")
 }
 
-func class79() {
+func class79() (x, y int){
 	fmt.Println("\nClass 79")
-	x := rand.Intn(10)
-	y := rand.Intn(10)
+	x = rand.Intn(10)
+	y = rand.Intn(10)
 	fmt.Printf("x: %v, y: %v\n", x, y)
 
 	if x < 4 && y < 4 {
@@ -74,6 +74,24 @@ func class79() {
 	} else if y != 5 {
 		fmt.Println("y is not 5")
 	} else {
+		fmt.Println("none of the previous cases were met")
+	}
+
+	return
+}
+
+func class80(x, y int) {
+	fmt.Println("\nClass 80")
+	switch {
+	case x < 4 && y < 4:
+		fmt.Println("x and y are both less than 4")
+	case x > 6 && y > 6:
+		fmt.Println("x and y are both greater than 6")
+	case x >= 4 && x <= 6:
+		fmt.Println("x is greater than or equal to 4 and less than or equal to 6")
+	case y != 5:
+		fmt.Println("y is not 5")
+	default:
 		fmt.Println("none of the previous cases were met")
 	}
 }
