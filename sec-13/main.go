@@ -17,6 +17,7 @@ func main() {
 	class99()
 	class100()
 	class101()
+	class102()
 }
 
 func class95() {
@@ -131,4 +132,15 @@ func class101() {
 	fmt.Println("[:] - xi[:] is the same as xi[0:len(xi)]")
 	fmt.Printf("xi[:] - %#v\n", xi[:])
 	fmt.Println("-------------------")
+}
+
+func class102() {
+	fmt.Println("\nClass 102 - Slice - deleting from a slice")
+	xi := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Printf("xi - %#v\n", xi)
+	fmt.Println("-------------------")
+
+	fmt.Println("Deleting element at index position 4")
+	xi = append(xi[:4], xi[5:]...)
+	fmt.Printf("xi - %#v\n", xi)
 }
