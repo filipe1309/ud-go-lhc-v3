@@ -25,6 +25,7 @@ func main() {
 	class87()
 	class89(class88())
 	class90()
+	class91()
 }
 
 func class76() {
@@ -226,4 +227,13 @@ func class90() {
 			c++
 		}
 	}
+}
+
+func class91() {
+	fmt.Println("\nClass 91")
+	fmt.Printf("true && true: \t%v\n", true && true)
+	fmt.Printf("true && false: \t%v\n", true && false)
+	fmt.Printf("true || true: \t%v\n", true || true)
+	fmt.Printf("true || false: \t%v\n", true || false)
+	fmt.Printf("!true: \t\t%v\n", !true)
 }
