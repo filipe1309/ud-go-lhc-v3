@@ -15,6 +15,7 @@ func main() {
 	class96()
 	class98()
 	class99()
+	class100()
 }
 
 func class95() {
@@ -98,4 +99,12 @@ func class99() {
 	for i := 0; i < len(xs); i++ {
 		fmt.Printf("index: %v, value: %v\n", i, xs[i])
 	}
+}
+
+func class100() {
+	fmt.Println("\nClass 100 - Slice - append to a slice")
+	xi := []int{42, 43, 44}
+	fmt.Println(xi)
+	xi = append(xi, 45, 46, 47)
+	fmt.Println(xi)
 }
