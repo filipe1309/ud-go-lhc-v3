@@ -23,6 +23,7 @@ func main() {
 	class85()
 	class86()
 	class87()
+	class88()
 }
 
 func class76() {
@@ -182,8 +183,19 @@ func class86() {
 
 func class87() {
 	fmt.Println("\nClass 87")
-	x := []int{42, 43, 44, 45, 46, 47}
+	x := []int{42, 43, 44, 45, 46, 47} // slice
 	for i ,v := range x {
 		fmt.Printf("i: %v, v: %v\n", i, v)
+	}
+}
+
+func class88() {
+	fmt.Println("\nClass 88")
+	x := map[string]int{ // map
+		"James": 42,
+		"Moneypenny": 32,
+	}
+	for k, v := range x {
+		fmt.Printf("k: %v, v: %v\n", k, v)
 	}
 }
