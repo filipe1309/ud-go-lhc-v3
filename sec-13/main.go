@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class95()
 	class96()
+	class98()
 }
 
 func class95() {
@@ -60,4 +61,18 @@ func class96() {
 	fmt.Printf("length: %v\n", len(as))
 	fmt.Printf("type: %T\n", as)
 	fmt.Printf("array: %v\n", as)
+}
+
+func class98() {
+	fmt.Println("\nClass 98 - Hands-on exercise #41")
+	// slice literal
+	xs := []string{"Almond Biscotti Café", "Banana Pudding ", "Balsamic Strawberry (GF)", "Bittersweet Chocolate (GF)", "Blueberry Pancake (GF)", "Bourbon Turtle (GF)", "Browned Butter Cookie Dough", "Chocolate Covered Black Cherry (GF)", "Chocolate Fudge Brownie", "Chocolate Peanut Butter (GF)", "Coffee (GF)", "Cookies & Cream", "Fresh Basil (GF)", "Garden Mint Chip (GF)", "Lavender Lemon Honey (GF)", "Lemon Bar", "Madagascar Vanilla (GF)", "Matcha (GF)", "Midnight Chocolate Sorbet (GF, V)", "Non-Dairy Chocolate Peanut Butter (GF, V)", "Non-Dairy Coconut Matcha (GF, V)", "Non-Dairy Sunbutter Cinnamon (GF, V)", "Orange Cream (GF) ", "Peanut Butter Cookie Dough", "Raspberry Sorbet (GF, V)", "Salty Caramel (GF)", "Slate Slate Different", "Strawberry Lemonade Sorbet (GF, V)", "Vanilla Caramel Blondie", "Vietnamese Cinnamon (GF)", "Wolverine Tracks (GF)"}
+	fmt.Printf("length: %v\n", len(xs))
+	fmt.Printf("type: %T\n", xs)
+	fmt.Printf("slice: %v\n", xs)
+
+	// slice
+	for i, v := range xs {
+		fmt.Printf("index: %v, value: %v\n", i, v)
+	}
 }
