@@ -26,6 +26,7 @@ func main() {
 	class89(class88())
 	class90()
 	class91()
+	class92()
 }
 
 func class76() {
@@ -236,4 +237,46 @@ func class91() {
 	fmt.Printf("true || true: \t%v\n", true || true)
 	fmt.Printf("true || false: \t%v\n", true || false)
 	fmt.Printf("!true: \t\t%v\n", !true)
+}
+
+func class92() {
+	fmt.Println("\nClass 92")
+	// https://go.dev/play/p/DpZ_FLfn5s
+	x := "James Bond"
+	
+	if x == "James Bond" {
+		fmt.Println(x)
+	}
+
+	// https://go.dev/play/p/IDnrJpE7vT
+	x2 := "Moneypenny"
+
+	if x2 == "Moneypenny" {
+		fmt.Println(x2)
+	} else if x2 == "James Bond" {
+		fmt.Println("BONDDONBONDONBOND", x2)
+	} else {
+		fmt.Println("neither")
+	}
+
+	// https://go.dev/play/p/YpPgkWGqKY
+	switch {
+	case false:
+		fmt.Println("should not print")
+	case true:
+		fmt.Println("should print")
+	}
+
+	// https://go.dev/play/p/Dj-yYGkAB4F
+	favSport := "surfing"
+	switch favSport {
+	case "skiing":
+		fmt.Println("go to the mountains!")
+	case "swimming":
+		fmt.Println("go to the pool!")
+	case "surfing":
+		fmt.Println("go to hawaii!")
+	case "wingsuit flying":
+		fmt.Println("Living dangerously!")
+	}
 }
