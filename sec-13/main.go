@@ -18,6 +18,7 @@ func main() {
 	class100()
 	class101()
 	class102()
+	class103()
 }
 
 func class95() {
@@ -143,4 +144,25 @@ func class102() {
 	fmt.Println("Deleting element at index position 4")
 	xi = append(xi[:4], xi[5:]...)
 	fmt.Printf("xi - %#v\n", xi)
+}
+
+func class103() {
+	fmt.Println("\nClass 103 - Slice - make")
+	si := []string{"a", "b", "c"}
+	fmt.Printf("si - %#v\n", si)
+	fmt.Printf("length - %v\n", len(si))
+	fmt.Printf("capacity - %v\n", cap(si))
+
+	xi := make([]int, 0, 10) // length 0, capacity 10
+	fmt.Printf("xi - %#v\n", xi)
+	fmt.Printf("length - %v\n", len(xi))
+	fmt.Printf("capacity - %v\n", cap(xi))
+	xi = append(xi, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+	fmt.Printf("xi - %#v\n", xi)
+	fmt.Printf("length - %v\n", len(xi))
+	fmt.Printf("capacity - %v\n", cap(xi))
+	xi = append(xi, 10, 11, 12, 13)
+	fmt.Printf("xi - %#v\n", xi)
+	fmt.Printf("length - %v\n", len(xi))
+	fmt.Printf("capacity - %v\n", cap(xi)) // capacity doubled because it reached its limit
 }
