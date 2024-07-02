@@ -165,7 +165,7 @@ func class84() {
 func class85() {
 	fmt.Println("\nClass 85")
 
-	for i := 0; i < 10; i++{
+	for i := 0; i < 10; i++ {
 		if i%2 == 0 {
 			continue
 		}
@@ -187,7 +187,7 @@ func class86() {
 func class87() {
 	fmt.Println("\nClass 87")
 	x := []int{42, 43, 44, 45, 46, 47} // slice
-	for i ,v := range x {
+	for i, v := range x {
 		fmt.Printf("i: %v, v: %v\n", i, v)
 	}
 }
@@ -195,7 +195,7 @@ func class87() {
 func class88() map[string]int {
 	fmt.Println("\nClass 88")
 	x := map[string]int{ // map
-		"James": 42,
+		"James":      42,
 		"Moneypenny": 32,
 	}
 	for k, v := range x {
@@ -243,7 +243,7 @@ func class92() {
 	fmt.Println("\nClass 92")
 	// https://go.dev/play/p/DpZ_FLfn5s
 	x := "James Bond"
-	
+
 	if x == "James Bond" {
 		fmt.Println(x)
 	}
