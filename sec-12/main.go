@@ -23,7 +23,7 @@ func main() {
 	class85()
 	class86()
 	class87()
-	class88()
+	class89(class88())
 }
 
 func class76() {
@@ -189,7 +189,7 @@ func class87() {
 	}
 }
 
-func class88() {
+func class88() map[string]int {
 	fmt.Println("\nClass 88")
 	x := map[string]int{ // map
 		"James": 42,
@@ -197,5 +197,21 @@ func class88() {
 	}
 	for k, v := range x {
 		fmt.Printf("k: %v, v: %v\n", k, v)
+	}
+	return x
+}
+
+func class89(x map[string]int) {
+	fmt.Println("\nClass 89")
+	age := x["James"]
+	fmt.Printf("James age: %v\n", age)
+	if v, ok := x["James"]; ok {
+		fmt.Printf("James exists in the map, v: %v, ok: %v\n", v, ok)
+	}
+
+	age = x["Q"]
+	fmt.Printf("Q age: %v\n", age)
+	if v, ok := x["Q"]; !ok {
+		fmt.Printf("Q does not exist in the map, v: %v, ok: %v\n", v, ok)
 	}
 }
