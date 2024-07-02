@@ -22,6 +22,17 @@ func class76() {
 		fmt.Println("between 201 and 250")
 	}
 
+	switch {
+		case x <= 100:
+			fmt.Println("between 0 and 100")
+		case x <= 200:
+			fmt.Println("between 101 and 200")
+		default:
+			fmt.Println("between 201 and 250")
+	}
+
+
+
 	// rand.Intn(3) returns a random number between 0 and 2
 	fmt.Println("rand.Intn(3):", rand.Intn(3))
 	fmt.Println("rand.Intn(3):", rand.Intn(3))
@@ -33,4 +44,6 @@ func class76() {
 	fmt.Println("rand.Intn(3):", rand.Intn(3))
 	fmt.Println("rand.Intn(3):", rand.Intn(3))
 	fmt.Println("rand.Intn(3):", rand.Intn(3))
+
+
 }
