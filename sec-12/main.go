@@ -19,6 +19,7 @@ func main() {
 	class81()
 	class82()
 	class83()
+	class84()
 }
 
 func class76() {
@@ -137,6 +138,18 @@ func class83() {
 	fmt.Println("\nClass 83")
 	x := 0
 	for x < 10 {
+		fmt.Println(x)
+		x++
+	}
+}
+
+func class84() {
+	fmt.Println("\nClass 84")
+	x := 0
+	for {
+		if x == 10 {
+			break
+		}
 		fmt.Println(x)
 		x++
 	}
