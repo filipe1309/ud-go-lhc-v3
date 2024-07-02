@@ -19,6 +19,7 @@ func main() {
 	class101()
 	class102()
 	class103()
+	class104()
 }
 
 func class95() {
@@ -165,4 +166,21 @@ func class103() {
 	fmt.Printf("xi - %#v\n", xi)
 	fmt.Printf("length - %v\n", len(xi))
 	fmt.Printf("capacity - %v\n", cap(xi)) // capacity doubled because it reached its limit
+}
+
+func class104() {
+	fmt.Println("\nClass 104 - Slice - multi-dimensional slice")
+	xxs := [][]string{
+		{"James", "Bond", "Shaken, not stirred"},
+		{"Miss", "Moneypenny", "Helloooooo, James."},
+	}
+	fmt.Printf("xs - %#v\n", xxs)
+	fmt.Println("-------------------")
+
+	for i, v := range xxs {
+		fmt.Printf("index: %v\n", i)
+		for j, vv := range v {
+			fmt.Printf("\tindex: %v, value: %v\n", j, vv)
+		}
+	}
 }
