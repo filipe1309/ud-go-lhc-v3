@@ -20,6 +20,7 @@ func main() {
 	class102()
 	class103()
 	class104()
+	class105()
 }
 
 func class95() {
@@ -183,4 +184,21 @@ func class104() {
 			fmt.Printf("\tindex: %v, value: %v\n", j, vv)
 		}
 	}
+}
+
+func class105() {
+	fmt.Println("\nClass 105 - Slice - slice internals & underlying array - 01")
+	a := []int{1, 2, 3, 4, 5}
+	b := a
+
+	fmt.Printf("a - %#v\n", a)
+	fmt.Printf("b - %#v\n", b)
+	fmt.Println("-------------------")
+
+	a[0] = 42
+
+	fmt.Printf("a - %#v\n", a)
+	fmt.Printf("b - %#v\n", b)
+	fmt.Println("-------------------")
+	
 }
