@@ -31,15 +31,13 @@ func class76() {
 	}
 
 	switch {
-		case x <= 100:
-			fmt.Println("between 0 and 100")
-		case x <= 200:
-			fmt.Println("between 101 and 200")
-		default:
-			fmt.Println("between 201 and 250")
+	case x <= 100:
+		fmt.Println("between 0 and 100")
+	case x <= 200:
+		fmt.Println("between 101 and 200")
+	default:
+		fmt.Println("between 201 and 250")
 	}
-
-
 
 	// rand.Intn(3) returns a random number between 0 and 2
 	fmt.Println("rand.Intn(3):", rand.Intn(3))
@@ -59,7 +57,7 @@ func class78() {
 	fmt.Println("This is where initialization for my program occurs")
 }
 
-func class79() (x, y int){
+func class79() (x, y int) {
 	fmt.Println("\nClass 79")
 	x = rand.Intn(10)
 	y = rand.Intn(10)
