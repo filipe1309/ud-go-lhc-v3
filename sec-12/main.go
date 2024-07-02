@@ -21,6 +21,7 @@ func main() {
 	class83()
 	class84()
 	class85()
+	class86()
 }
 
 func class76() {
@@ -164,5 +165,16 @@ func class85() {
 			continue
 		}
 		fmt.Println(i)
+	}
+}
+
+func class86() {
+	fmt.Println("\nClass 86")
+
+	for i := 0; i < 5; i++ {
+		fmt.Printf("i: %v\n", i)
+		for j := 0; j < 5; j++ {
+			fmt.Printf("\tj: %v\n", j)
+		}
 	}
 }
