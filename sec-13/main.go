@@ -14,6 +14,7 @@ func main() {
 	class95()
 	class96()
 	class98()
+	class99()
 }
 
 func class95() {
@@ -74,5 +75,27 @@ func class98() {
 	// slice
 	for i, v := range xs {
 		fmt.Printf("index: %v, value: %v\n", i, v)
+	}
+}
+
+func class99() {
+	fmt.Println("\nClass 99 - Slice - for range & access values by index position")
+	xs := []string{"Almond Biscotti Café", "Banana Pudding ", "Balsamic Strawberry (GF)"}
+	fmt.Printf("length: %v\n", len(xs))
+	fmt.Printf("type: %T\n", xs)
+	fmt.Printf("slice: %v\n", xs)
+
+	// blank identifier _ to not use a returned value
+	for _, v := range xs {
+		fmt.Printf("value: %v\n", v)
+	}
+
+	fmt.Println(xs[0])
+	fmt.Println(xs[1])
+	fmt.Println(xs[2])
+	// fmt.Println(xs[3]) // index out of range
+
+	for i := 0; i < len(xs); i++ {
+		fmt.Printf("index: %v, value: %v\n", i, xs[i])
 	}
 }
