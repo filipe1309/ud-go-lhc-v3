@@ -21,6 +21,7 @@ func main() {
 	class103()
 	class104()
 	class105()
+	class106()
 }
 
 func class95() {
@@ -200,5 +201,21 @@ func class105() {
 	fmt.Printf("a - %#v\n", a)
 	fmt.Printf("b - %#v\n", b)
 	fmt.Println("-------------------")
-	
+}
+
+func class106() {
+	fmt.Println("\nClass 105 - Slice - slice internals & underlying array - 01")
+	a := []int{1, 2, 3, 4, 5}
+	b := make([]int, len(a))
+	copy(b, a) // copy(dst, src)
+
+	fmt.Printf("a - %#v\n", a)
+	fmt.Printf("b - %#v\n", b)
+	fmt.Println("-------------------")
+
+	a[0] = 42
+
+	fmt.Printf("a - %#v\n", a)
+	fmt.Printf("b - %#v\n", b)
+	fmt.Println("-------------------")
 }
