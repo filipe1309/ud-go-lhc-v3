@@ -122,11 +122,11 @@ func class101() {
 	xi := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 	fmt.Printf("xi - %#v\n", xi)
 	fmt.Println("-------------------")
-	
+
 	fmt.Println("[inclusive:exclusive]")
 	fmt.Printf("xi[0:4] - %#v\n", xi[0:4])
 	fmt.Println("-------------------")
-	
+
 	fmt.Println("[:exclusive] - xi[:7] is the same as xi[0:7]")
 	fmt.Printf("xi[:7] - %#v\n", xi[:7])
 	fmt.Println("-------------------")
