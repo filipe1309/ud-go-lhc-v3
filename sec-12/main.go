@@ -22,6 +22,7 @@ func main() {
 	class84()
 	class85()
 	class86()
+	class87()
 }
 
 func class76() {
@@ -176,5 +177,13 @@ func class86() {
 		for j := 0; j < 5; j++ {
 			fmt.Printf("\tj: %v\n", j)
 		}
+	}
+}
+
+func class87() {
+	fmt.Println("\nClass 87")
+	x := []int{42, 43, 44, 45, 46, 47}
+	for i ,v := range x {
+		fmt.Printf("i: %v, v: %v\n", i, v)
 	}
 }
