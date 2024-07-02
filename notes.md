@@ -263,3 +263,11 @@ shasum -a 256 sec-12/SNOWY-EVENING.txt
 # 7c6c8937b2a120af15849db05c9f46326761e0eec852a2e973b1e0b6acd59a01  sec-12/SNOWY-EVENING.txt
 ```
 
+## Section 13 - Grouping data vaues - array & slice
+
+https://go.dev/play/p/f-7aufl2DO
+
+https://go.dev/play/p/_tZD1mCUjej
+
+
+
