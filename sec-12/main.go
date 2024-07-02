@@ -24,6 +24,7 @@ func main() {
 	class86()
 	class87()
 	class89(class88())
+	class90()
 }
 
 func class76() {
@@ -205,7 +206,7 @@ func class89(x map[string]int) {
 	fmt.Println("\nClass 89")
 	age := x["James"]
 	fmt.Printf("James age: %v\n", age)
-	if v, ok := x["James"]; ok {
+	if v, ok := x["James"]; ok { // comma ok idiom
 		fmt.Printf("James exists in the map, v: %v, ok: %v\n", v, ok)
 	}
 
@@ -213,5 +214,16 @@ func class89(x map[string]int) {
 	fmt.Printf("Q age: %v\n", age)
 	if v, ok := x["Q"]; !ok {
 		fmt.Printf("Q does not exist in the map, v: %v, ok: %v\n", v, ok)
+	}
+}
+
+func class90() {
+	fmt.Println("\nClass 90")
+	c := 1
+	for i := 0; i < 100; i++ { // statement statement idiom
+		if x := rand.Intn(5); x == 3 {
+			fmt.Printf("i: %v \t x: %v, \t #: %v\n", i, x, c)
+			c++
+		}
 	}
 }
