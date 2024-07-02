@@ -270,4 +270,7 @@ https://go.dev/play/p/f-7aufl2DO
 https://go.dev/play/p/_tZD1mCUjej
 
 
+Everything is passed by value in Go.
+
+https://go.dev/play/p/ZBz2jFnL8oc
 

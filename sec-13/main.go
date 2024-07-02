@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func init() {
@@ -22,6 +23,7 @@ func main() {
 	class104()
 	class105()
 	class106()
+	class107()
 }
 
 func class95() {
@@ -204,7 +206,7 @@ func class105() {
 }
 
 func class106() {
-	fmt.Println("\nClass 105 - Slice - slice internals & underlying array - 01")
+	fmt.Println("\nClass 105 - Slice - slice internals & underlying array - 02")
 	a := []int{1, 2, 3, 4, 5}
 	b := make([]int, len(a))
 	copy(b, a) // copy(dst, src)
@@ -218,4 +220,47 @@ func class106() {
 	fmt.Printf("a - %#v\n", a)
 	fmt.Printf("b - %#v\n", b)
 	fmt.Println("-------------------")
+}
+
+func class107() {
+	fmt.Println("\nClass 107 - Slice - slice internals & underlying array - 03")
+	n := []float64{3, 1, 4, 2}
+	fmt.Println("before medianOne", n)
+
+	fmt.Println(medianOne(n))
+	fmt.Println("after medianOne", n)
+
+	y := []float64{3, 1, 4, 2}
+	fmt.Println(medianTwo(y))
+	fmt.Println("after medianTwo", y)
+}
+
+// uses the same underlying array
+// everything is pass by value in go
+// the value is being passed into thie func
+// and then assigned to x
+func medianOne(x []float64) float64 {
+	sort.Float64s(x)
+	i := len(x) / 2
+	if len(x)%2 == 1 {
+		return x[i/2]
+	}
+	return (x[i-1] + x[i]) / 2
+}
+
+func medianTwo(x []float64) float64 {
+	// allocate a new underlying array
+	n := make([]float64, len(x))
+	copy(n, x)
+
+	sort.Float64s(n)
+	i := len(n) / 2
+	if len(n)%2 == 1 {
+		return n[i/2]
+		// when you divide
+		// you get the whole number quotient
+		// without the remainder modulus
+		// https://go.dev/play/p/2r5WrelUEh7
+	}
+	return (n[i-1] + n[i]) / 2
 }
