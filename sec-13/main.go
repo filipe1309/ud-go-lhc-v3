@@ -4,12 +4,19 @@ import (
 	"fmt"
 )
 
+func init() {
+	fmt.Println("Init function")
+	fmt.Println("Section 13 - Grouping data values - array & slice")
+}
+
 func main() {
-	fmt.Println("Section 13 - Main function")
+	fmt.Println("Main function")
 	class95()
+	class96()
 }
 
 func class95() {
+	fmt.Println("\nClass 95 - Array - an introduction to arrays")
 	// array literal
 	a := [3]int{42, 43, 44}
 	fmt.Printf("%v of type %T\n", a, a)
@@ -45,4 +52,12 @@ func class95() {
 		fmt.Println(len(ni2))
 		fmt.Println(len(ns))
 	}
+}
+
+func class96() {
+	fmt.Println("\nClass 96 - Hands-on exercise #40")
+	as := [...]string{"Almond Biscotti Café", "Banana Pudding ", "Balsamic Strawberry (GF)", "Bittersweet Chocolate (GF)", "Blueberry Pancake (GF)", "Bourbon Turtle (GF)", "Browned Butter Cookie Dough", "Chocolate Covered Black Cherry (GF)", "Chocolate Fudge Brownie", "Chocolate Peanut Butter (GF)", "Coffee (GF)", "Cookies & Cream", "Fresh Basil (GF)", "Garden Mint Chip (GF)", "Lavender Lemon Honey (GF)", "Lemon Bar", "Madagascar Vanilla (GF)", "Matcha (GF)", "Midnight Chocolate Sorbet (GF, V)", "Non-Dairy Chocolate Peanut Butter (GF, V)", "Non-Dairy Coconut Matcha (GF, V)", "Non-Dairy Sunbutter Cinnamon (GF, V)", "Orange Cream (GF) ", "Peanut Butter Cookie Dough", "Raspberry Sorbet (GF, V)", "Salty Caramel (GF)", "Slate Slate Different", "Strawberry Lemonade Sorbet (GF, V)", "Vanilla Caramel Blondie", "Vietnamese Cinnamon (GF)", "Wolverine Tracks (GF)"}
+	fmt.Printf("length: %v\n", len(as))
+	fmt.Printf("type: %T\n", as)
+	fmt.Printf("array: %v\n", as)
 }
