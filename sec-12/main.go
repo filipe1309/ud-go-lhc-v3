@@ -16,6 +16,8 @@ func main() {
 	fmt.Println("Main function")
 	class76()
 	class80(class79())
+	class81()
+	class82()
 }
 
 func class76() {
@@ -80,6 +82,16 @@ func class79() (x, y int) {
 
 func class80(x, y int) {
 	fmt.Println("\nClass 80")
+	class80Switch(x, y)
+	for i := 0; i < 100; i++ {
+		x = rand.Intn(10)
+		y = rand.Intn(10)
+		fmt.Printf("x: %v, y: %v\n", x, y)
+		class80Switch(x, y)
+	}
+}
+
+func class80Switch(x, y int) {
 	switch {
 	case x < 4 && y < 4:
 		fmt.Println("x and y are both less than 4")
@@ -91,5 +103,31 @@ func class80(x, y int) {
 		fmt.Println("y is not 5")
 	default:
 		fmt.Println("none of the previous cases were met")
+	}
+}
+
+func class81() {
+	fmt.Println("\nClass 81")
+	for i := 0; i < 100; i++ {
+		fmt.Println(i)
+	}
+}
+
+func class82() {
+	fmt.Println("\nClass 82")
+	for i := 0; i < 42; i++ {
+		x := rand.Intn(5)
+		switch x {
+		case 0:
+			fmt.Printf("%v: \t x is %v\n", i, x)
+		case 1:
+			fmt.Printf("%v: \t x is %v\n", i, x)
+		case 2:
+			fmt.Printf("%v: \t x is %v\n", i, x)
+		case 3:
+			fmt.Printf("%v: \t x is %v\n", i, x)
+		case 4:
+			fmt.Printf("%v: \t x is %v\n", i, x)
+		}
 	}
 }
