@@ -18,6 +18,7 @@ func main() {
 	class80(class79())
 	class81()
 	class82()
+	class83()
 }
 
 func class76() {
@@ -129,5 +130,14 @@ func class82() {
 		case 4:
 			fmt.Printf("%v: \t x is %v\n", i, x)
 		}
+	}
+}
+
+func class83() {
+	fmt.Println("\nClass 83")
+	x := 0
+	for x < 10 {
+		fmt.Println(x)
+		x++
 	}
 }
