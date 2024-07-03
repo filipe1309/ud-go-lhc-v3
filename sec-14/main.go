@@ -14,6 +14,7 @@ func main() {
 	class108()
 	class109()
 	class110()
+	class111()
 }
 
 func class108() {
@@ -47,4 +48,17 @@ func class110() {
 	fmt.Println(slice[5:])
 	fmt.Println(slice[2:7])
 	fmt.Println(slice[1:6])
+}
+
+func class111() {
+	fmt.Println("\nClass 111 - Hands-on exercise #45")
+	slice := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
+	fmt.Println(slice)
+	slice = append(slice, 52)
+	fmt.Println(slice)
+	slice = append(slice, 53, 54, 55)
+	fmt.Println(slice)
+	y := []int{56, 57, 58, 59, 60}
+	slice = append(slice, y...)
+	fmt.Println(slice)
 }
