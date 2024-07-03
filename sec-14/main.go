@@ -25,7 +25,7 @@ func class108() {
 	// composite literal
 	arr := [5]int{}
 	for i := 0; i < 5; i++ {
-		arr[i] = i*2
+		arr[i] = i * 2
 	}
 
 	for i, v := range arr {
@@ -66,7 +66,6 @@ func class111() {
 	fmt.Println(slice)
 }
 
-
 func class112() {
 	fmt.Println("\nClass 112 - Hands-on exercise #46")
 	x := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
@@ -78,19 +77,19 @@ func class112() {
 func class113() {
 	fmt.Println("\nClass 113 - Hands-on exercise #47")
 	states := make([]string, 0, 50)
-	states = append(states, 
-		"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", 
+	states = append(states,
+		"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii",
 		"Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
 		"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
 		"North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
 		"Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming")
-	
-		fmt.Printf("lenght: %v\n", len(states))
-		fmt.Printf("capacity: %v\n", cap(states))
 
-		for i := 0; i < len(states); i++ {
-			fmt.Printf("%v: %v\n", i, states[i])
-		}
+	fmt.Printf("lenght: %v\n", len(states))
+	fmt.Printf("capacity: %v\n", cap(states))
+
+	for i := 0; i < len(states); i++ {
+		fmt.Printf("%v: %v\n", i, states[i])
+	}
 }
 
 func class114() {
