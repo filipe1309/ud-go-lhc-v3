@@ -16,6 +16,7 @@ func main() {
 	class110()
 	class111()
 	class112()
+	class113()
 }
 
 func class108() {
@@ -71,4 +72,22 @@ func class112() {
 	// delete 45, 46, 47
 	x = append(x[:3], x[6:]...)
 	fmt.Println(x)
+}
+
+func class113() {
+	fmt.Println("\nClass 113 - Hands-on exercise #47")
+	states := make([]string, 0, 50)
+	states = append(states, 
+		"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", 
+		"Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+		"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
+		"North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+		"Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming")
+	
+		fmt.Printf("lenght: %v\n", len(states))
+		fmt.Printf("capacity: %v\n", cap(states))
+
+		for i := 0; i < len(states); i++ {
+			fmt.Printf("%v: %v\n", i, states[i])
+		}
 }
