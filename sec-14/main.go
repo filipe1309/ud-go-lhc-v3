@@ -17,6 +17,7 @@ func main() {
 	class111()
 	class112()
 	class113()
+	class114()
 }
 
 func class108() {
@@ -90,4 +91,20 @@ func class113() {
 		for i := 0; i < len(states); i++ {
 			fmt.Printf("%v: %v\n", i, states[i])
 		}
+}
+
+func class114() {
+	fmt.Println("\nClass 114 - Hands-on exercise #48")
+	// a slice of a slice of string
+	xxs := [][]string{
+		{"James", "Bond", "Shaken, not stirred"},
+		{"Miss", "Moneypenny", "I'm 008."},
+	}
+
+	for i, xs := range xxs {
+		fmt.Printf("record: %v\n", i)
+		for j, v := range xs {
+			fmt.Printf("\tindex	: %v\t value: %v\n", j, v)
+		}
+	}
 }
