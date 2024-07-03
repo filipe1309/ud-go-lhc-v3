@@ -15,6 +15,7 @@ func main() {
 	class109()
 	class110()
 	class111()
+	class112()
 }
 
 func class108() {
@@ -61,4 +62,13 @@ func class111() {
 	y := []int{56, 57, 58, 59, 60}
 	slice = append(slice, y...)
 	fmt.Println(slice)
+}
+
+
+func class112() {
+	fmt.Println("\nClass 112 - Hands-on exercise #46")
+	x := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
+	// delete 45, 46, 47
+	x = append(x[:3], x[6:]...)
+	fmt.Println(x)
 }
