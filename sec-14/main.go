@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class108()
+	class109()
 }
 
 func class108() {
@@ -23,6 +24,15 @@ func class108() {
 	}
 
 	for i, v := range arr {
+		fmt.Printf("index: %v, value: %v, type: %T\n", i, v, v)
+	}
+}
+
+func class109() {
+	fmt.Println("\nClass 109 - Hands-on exercise #43")
+	// composite literal
+	slice := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
+	for i, v := range slice {
 		fmt.Printf("index: %v, value: %v, type: %T\n", i, v, v)
 	}
 }
