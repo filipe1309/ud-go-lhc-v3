@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class115()
 	class116()
+	class117()
 }
 
 func class115() {
@@ -73,4 +74,20 @@ func class116() {
 	for i := range xi {
 		fmt.Printf("Index: %v\n", i)
 	}
+}
+
+func class117() {
+	fmt.Println("\nClass 117 - Map - delete element")
+
+	am := map[string]int {
+		"Todd": 42,
+		"Henry": 16,
+		"Padget": 14,
+	}
+
+	fmt.Println(am)
+	delete(am, "Todd")
+	delete(am, "NotExists") // no error, won't panic
+	fmt.Println(am)
+	fmt.Println(am["NotExists"]) // zero value, no error, won't panic
 }
