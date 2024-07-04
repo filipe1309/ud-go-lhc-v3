@@ -12,6 +12,13 @@ run:
 	@echo "🏁 Running code..."
 	go run sec-$(SEC)/main.go 
 
+# create new section using scripts/new-section.sh
+# example: make new-section SEC=03
+new-section:
+	@echo "📝 Creating new section $(SEC)..."
+	./scripts/new-section.sh $(SEC)
+	
+
 help:
 	@echo "📖 Available commands:"
 	@echo "  make run SEC=03"

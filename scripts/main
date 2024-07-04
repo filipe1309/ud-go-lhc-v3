@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+)
+
+func init() {
+	fmt.Println("Init function")
+	fmt.Println("Section {{ SEC }} - ")
+}
+
+func main() {
+	fmt.Println("Main function")
+	class42()
+}
+
+func class42() {
+	fmt.Println("\nClass 42")
+}
