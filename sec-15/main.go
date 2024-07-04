@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class115()
+	class116()
 }
 
 func class115() {
@@ -34,4 +35,42 @@ func class115() {
 	fmt.Println(an)
 	fmt.Printf("%#v\n", an)
 	fmt.Printf("len: %v\n", len(an))
+}
+
+func class116() {
+	fmt.Println("\nClass 116 - Map - for range over a map")
+
+	// for range over a map
+	am := map[string]int {
+		"Todd": 42,
+		"Henry": 16,
+		"Padget": 14,
+	}
+
+	for k, v := range am {
+		fmt.Printf("Key: %v, Value: %v\n", k, v)
+	}
+
+	for _, v := range am {
+		fmt.Printf("Value: %v\n", v)
+	}
+
+	for k := range am {
+		fmt.Printf("Key: %v\n", k)
+	}
+
+	// for range with a slice
+	xi := []int{42, 43, 44}
+
+	for i, v := range xi {
+		fmt.Printf("Index: %v, Value: %v\n", i, v)
+	}
+
+	for _, v := range xi {
+		fmt.Printf("Value: %v\n", v)
+	}
+
+	for i := range xi {
+		fmt.Printf("Index: %v\n", i)
+	}
 }
