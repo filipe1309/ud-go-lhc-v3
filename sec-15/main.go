@@ -20,9 +20,9 @@ func main() {
 
 func class115() {
 	fmt.Println("\nClass 115 - Map - introduction")
-	am := map[string]int {
-		"Todd": 42,
-		"Henry": 16,
+	am := map[string]int{
+		"Todd":   42,
+		"Henry":  16,
 		"Padget": 14,
 	}
 
@@ -44,9 +44,9 @@ func class116() {
 	fmt.Println("\nClass 116 - Map - for range over a map")
 
 	// for range over a map
-	am := map[string]int {
-		"Todd": 42,
-		"Henry": 16,
+	am := map[string]int{
+		"Todd":   42,
+		"Henry":  16,
 		"Padget": 14,
 	}
 
@@ -81,9 +81,9 @@ func class116() {
 func class117() {
 	fmt.Println("\nClass 117 - Map - delete element")
 
-	am := map[string]int {
-		"Todd": 42,
-		"Henry": 16,
+	am := map[string]int{
+		"Todd":   42,
+		"Henry":  16,
 		"Padget": 14,
 	}
 
@@ -97,9 +97,9 @@ func class117() {
 func class118() {
 	fmt.Println("\nClass 118 - Map - comma ok idiom")
 
-	am := map[string]int {
-		"Todd": 42,
-		"Henry": 16,
+	am := map[string]int{
+		"Todd":   42,
+		"Henry":  16,
 		"Padget": 14,
 	}
 
@@ -117,11 +117,10 @@ func class118() {
 	} else {
 		fmt.Printf("if !ok - Value: %v, Exists: %v\n", v, ok)
 	}
-	
 
 	v, ok = am["NotExists"]
 	fmt.Printf("Value: %v, Exists: %v\n", v, ok)
-	
+
 	if v, ok := am["NotExists"]; ok {
 		fmt.Printf("if ok - Value: %v, Exists: %v\n", v, ok)
 	} else {
