@@ -15,6 +15,7 @@ func main() {
 	class116()
 	class117()
 	class118()
+	class119()
 }
 
 func class115() {
@@ -126,4 +127,24 @@ func class118() {
 	} else {
 		fmt.Printf("if ok - Key doesn't exists\n")
 	}
+}
+
+func class119() {
+	fmt.Println("\nClass 119 - Map - counting words in a book")
+
+	a := 0
+	fmt.Println(a)
+	a++
+	fmt.Println(a)
+
+	fmt.Println("-------")
+
+	m := make(map[string]int)
+	fmt.Println(m["beautiful"])
+	m["beautiful"]++
+	fmt.Println(m["beautiful"])
+	m["beautiful"]++
+	fmt.Println(m["beautiful"])
+	m["beautiful"]++
+	fmt.Println(m["beautiful"])
 }
