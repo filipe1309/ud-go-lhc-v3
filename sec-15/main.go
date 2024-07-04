@@ -14,6 +14,7 @@ func main() {
 	class115()
 	class116()
 	class117()
+	class118()
 }
 
 func class115() {
@@ -90,4 +91,39 @@ func class117() {
 	delete(am, "NotExists") // no error, won't panic
 	fmt.Println(am)
 	fmt.Println(am["NotExists"]) // zero value, no error, won't panic
+}
+
+func class118() {
+	fmt.Println("\nClass 118 - Map - comma ok idiom")
+
+	am := map[string]int {
+		"Todd": 42,
+		"Henry": 16,
+		"Padget": 14,
+	}
+
+	v, ok := am["Todd"]
+	fmt.Printf("Value: %v, Exists: %v\n", v, ok)
+
+	if v, ok := am["Todd"]; ok {
+		fmt.Printf("if ok - Value: %v, Exists: %v\n", v, ok)
+	} else {
+		fmt.Printf("if ok - Key doesn't exists\n")
+	}
+
+	if v, ok := am["Todd"]; !ok {
+		fmt.Printf("if !ok - Key doesn't exists\n")
+	} else {
+		fmt.Printf("if !ok - Value: %v, Exists: %v\n", v, ok)
+	}
+	
+
+	v, ok = am["NotExists"]
+	fmt.Printf("Value: %v, Exists: %v\n", v, ok)
+	
+	if v, ok := am["NotExists"]; ok {
+		fmt.Printf("if ok - Value: %v, Exists: %v\n", v, ok)
+	} else {
+		fmt.Printf("if ok - Key doesn't exists\n")
+	}
 }
