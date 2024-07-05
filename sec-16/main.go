@@ -57,7 +57,7 @@ func class123() {
 	for _, v := range xs {
 		countMap[v]++
 	}
-	
+
 	for k, v := range countMap {
 		fmt.Printf("%v: %v\n", k, v)
 	}
