@@ -36,7 +36,7 @@ func (p person) writeOut(w io.Writer) {
 }
 
 func (p person) speak() {
-	fmt.Println("I am",  p.first)
+	fmt.Println("I am", p.first)
 }
 
 type secretAgent struct {
@@ -45,7 +45,7 @@ type secretAgent struct {
 }
 
 func (sa secretAgent) speak() {
-	fmt.Println("I am a secret agent",  sa.first)
+	fmt.Println("I am a secret agent", sa.first)
 }
 
 func init() {
@@ -237,7 +237,7 @@ func class143() {
 	}
 
 	var b bytes.Buffer
-	
+
 	p.writeOut(f)
 	p.writeOut(&b)
 	fmt.Println(b.String())
@@ -248,11 +248,11 @@ func class144() {
 
 	foo()
 
-	func(){
+	func() {
 		fmt.Println("Anonymous func ran")
 	}()
 
-	func(s string){
+	func(s string) {
 		fmt.Println(s)
 	}("Anonymous func with param: Hello")
 }
@@ -262,14 +262,14 @@ func class145() {
 
 	foo()
 
-	x := func(){
+	x := func() {
 		fmt.Println("Anonymous func ran")
 	}
 
-	y := func(s string){
+	y := func(s string) {
 		fmt.Println(s)
 	}
-	
+
 	x()
 	y("Anonymous func with param: Hello")
 }
@@ -293,7 +293,7 @@ func foo2() int {
 }
 
 func bar2() func() int {
-	return func () int {
+	return func() int {
 		return 21
 	}
 }
@@ -323,7 +323,6 @@ func sub(a, b int) int {
 	return a - b
 }
 
-
 func class148() {
 	fmt.Println("\nClass 148 - Closure")
 	f := incrementor()
@@ -343,7 +342,7 @@ func class148() {
 
 func incrementor() func() int {
 	x := 0
-	return func () int {
+	return func() int {
 		x++
 		return x
 	}
@@ -361,7 +360,7 @@ func factorialRecursive(n int) int {
 	if n == 0 {
 		return 1
 	}
-	return n * factorialRecursive(n - 1)
+	return n * factorialRecursive(n-1)
 }
 
 func factorialLoop(n int) int {
