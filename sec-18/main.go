@@ -10,15 +10,15 @@ type engine struct {
 
 type vehicle struct {
 	engine
-	make string
+	make  string
 	model string
 	doors int
 	color string
 }
 
 type person struct {
-	first string
-	last string
+	first   string
+	last    string
 	flavors []string
 }
 
@@ -39,14 +39,14 @@ func class128() {
 	fmt.Println("\nClass 128 - Hands-on exercise #53 - struct with slice")
 
 	p1 := person{
-		first: "John",
-		last: "Doe",
+		first:   "John",
+		last:    "Doe",
 		flavors: []string{"vanilla", "cream"},
 	}
 
 	p2 := person{
-		first: "Elvis",
-		last: "Presley",
+		first:   "Elvis",
+		last:    "Presley",
 		flavors: []string{"chocolate", "strwberry", "lemon"},
 	}
 
@@ -67,14 +67,14 @@ func class129() {
 	fmt.Println("\nClass 129 - Hands-on exercise #54 - map struct")
 
 	p1 := person{
-		first: "John",
-		last: "Doe",
+		first:   "John",
+		last:    "Doe",
 		flavors: []string{"vanilla", "cream"},
 	}
 
 	p2 := person{
-		first: "Elvis",
-		last: "Presley",
+		first:   "Elvis",
+		last:    "Presley",
 		flavors: []string{"chocolate", "strwberry", "lemon"},
 	}
 
@@ -91,7 +91,6 @@ func class129() {
 	}
 }
 
-
 func class130() {
 	fmt.Println("\nClass 130 - Hands-on exercise #55 - embed struct")
 
@@ -99,7 +98,7 @@ func class130() {
 		engine: engine{
 			electric: true,
 		},
-		make: "BYD",
+		make:  "BYD",
 		model: "Dolphin",
 		doors: 2,
 		color: "red",
@@ -109,7 +108,7 @@ func class130() {
 		engine: engine{
 			electric: false,
 		},
-		make: "Ford",
+		make:  "Ford",
 		model: "Ka",
 		doors: 4,
 		color: "black",
@@ -125,12 +124,12 @@ func class131() {
 	fmt.Println("\nClass 131 - Hands-on exercise #55 - anonymous struct")
 
 	p1 := struct {
-		fisrt string
-		friends map[string]int
+		fisrt     string
+		friends   map[string]int
 		favDrinks []string
 	}{
-		fisrt: "John",
-		friends: map[string]int{"Elvis": 38, "James": 42},
+		fisrt:     "John",
+		friends:   map[string]int{"Elvis": 38, "James": 42},
 		favDrinks: []string{"Martini", "Vodka"},
 	}
 
@@ -145,4 +144,3 @@ func class131() {
 		fmt.Printf("Index: %v \t Value: %v\n", i, v)
 	}
 }
-
