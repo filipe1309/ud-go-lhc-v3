@@ -326,11 +326,19 @@ Named types vs Anonymous types
  Define with `parameters`
  Call with `arguments`
 
- Everything in Go is pass by `value`, which means that when we pass a value to a function, a copy of the value is passed.
+ Everything in Go is pass by `value` (copy), which means that when we pass a value to a function, a copy of the value is passed.
 
 ```go
 func (r receiver) identifier(parameters) (return(s)) {
 	// code
 }
 ```
+
+### Interfaces & polymorphism
+
+An interface in Go defines a set of methods that a type must implement in order to satisfy the interface.
+
+Polymorphism is the ability of a VALUE of a certain TYPE to be treated as a VALUE of another TYPE.
+
+Values can be of more than one type in Go.
 

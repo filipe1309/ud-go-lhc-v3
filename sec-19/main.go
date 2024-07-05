@@ -8,8 +8,21 @@ type person struct {
 	first string
 }
 
+type secretAgent struct {
+	person
+	ltk bool
+}
+
+type human interface {
+	speak()
+}
+
 func (p person) speak() {
 	fmt.Println("I am",  p.first)
+}
+
+func (sa secretAgent) speak() {
+	fmt.Println("I am a secret agent",  sa.first)
 }
 
 func init() {
@@ -24,6 +37,7 @@ func main() {
 	class135()
 	class136()
 	class137()
+	class138()
 }
 
 func class133() {
@@ -92,4 +106,27 @@ func class137() {
 	}
 	p1.speak()
 	p2.speak()
+}
+
+func class138() {
+	fmt.Println("\nClass 138 - Interfaces & polymorphism")
+	sa := secretAgent{
+		person: person{
+			first: "James",
+		},
+		ltk: true,
+	}
+	p2 := person{
+		first: "Jenny",
+	}
+	sa.speak()
+	p2.speak()
+
+	saySomething(sa)
+	saySomething(p2)
+}
+
+func saySomething(h human) {
+	fmt.Printf("Human of type %T is saying: ", h)
+	h.speak()
 }
