@@ -72,6 +72,7 @@ func main() {
 	class147()
 	class148()
 	class150()
+	class151()
 }
 
 func class133() {
@@ -375,4 +376,22 @@ func factorialLoop(n int) int {
 	}
 
 	return total
+}
+
+func class151() {
+	fmt.Println("\nClass 151 - Wrapper function")
+	xb, err := readFile("sec-19/poem.txt")
+	if err != nil {
+		log.Fatalf("readFile in class151: %s", err)
+	}
+	fmt.Println(xb)
+	fmt.Println(string(xb))
+}
+
+func readFile(fileName string) ([]byte, error) {
+	xb, err := os.ReadFile(fileName)
+	if err != nil {
+		return nil, fmt.Errorf("error in readFile func: %s", err)
+	}
+	return xb, nil
 }
