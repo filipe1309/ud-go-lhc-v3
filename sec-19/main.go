@@ -4,6 +4,14 @@ import (
 	"fmt"
 )
 
+type person struct {
+	first string
+}
+
+func (p person) speak() {
+	fmt.Println("I am",  p.first)
+}
+
 func init() {
 	fmt.Println("Init function")
 	fmt.Println("Section 19 - Functions in the Go Programming Language")
@@ -15,6 +23,7 @@ func main() {
 	class134()
 	class135()
 	class136()
+	class137()
 }
 
 func class133() {
@@ -73,3 +82,14 @@ func class136() {
 	bar("Quiky")
 }
 
+func class137() {
+	fmt.Println("\nClass 137 - Methods")
+	p1 := person{
+		first: "James",
+	}
+	p2 := person{
+		first: "Jenny",
+	}
+	p1.speak()
+	p2.speak()
+}
