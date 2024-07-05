@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 )
 
@@ -56,6 +57,7 @@ func main() {
 	class138()
 	class139()
 	class140()
+	class141()
 }
 
 func class133() {
@@ -176,4 +178,19 @@ func class140() {
 
 func logExtraInfo(s fmt.Stringer) {
 	log.Println("LOG FROM 140", s.String())
+}
+
+func class141() {
+	fmt.Println("\nClass 141 - Writer interface & writing to a file")
+	f, err := os.Create("sec-19/output.txt")
+	if err != nil {
+		log.Fatalf("error %s", err)
+	}
+	defer f.Close()
+
+	s := []byte("Hello Gophers!")
+	_, err = f.Write(s)
+	if err != nil {
+		log.Fatalf("error %s", err)
+	}
 }
