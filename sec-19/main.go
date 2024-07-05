@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class133()
+	class134()
 }
 
 func class133() {
@@ -39,4 +40,20 @@ func aloha(s string) string {
 func dogYears(name string, age int) (string, int) {
 	age *= 7
 	return fmt.Sprint(name, " dog years age is:"), age
+}
+
+func class134() {
+	fmt.Println("\nClass 134 - Variadic parameter")
+	x := sum(1, 2, 3, 4, 5, 6, 7, 8, 9)
+	fmt.Println("The sum is:", x)
+}
+
+func sum(ii ...int) int {
+	fmt.Printf("%v \t %T\n", ii, ii)
+	n := 0
+	for _, v := range ii {
+		n += v
+	}
+
+	return n
 }
