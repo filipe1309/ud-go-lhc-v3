@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"log"
 	"os"
@@ -58,6 +59,7 @@ func main() {
 	class139()
 	class140()
 	class141()
+	class142()
 }
 
 func class133() {
@@ -193,4 +195,20 @@ func class141() {
 	if err != nil {
 		log.Fatalf("error %s", err)
 	}
+}
+
+func class142() {
+	fmt.Println("\nClass 142 - Writer interface & writing to a byte buffer")
+	b := bytes.NewBufferString("Hello ")
+	fmt.Println(b.String())
+	b.WriteString("Gophers!")
+	fmt.Println(b.String())
+
+	b.Reset()
+	b.WriteString("TGIF!!!")
+	fmt.Println(b.String())
+
+	b.Write([]byte("Happy Happy"))
+	fmt.Println(b.String())
+
 }
