@@ -69,6 +69,7 @@ func main() {
 	class144()
 	class145()
 	class146()
+	class147()
 }
 
 func class133() {
@@ -282,7 +283,6 @@ func class146() {
 	fmt.Printf("foo2 \t Type: %T\n", foo2)
 	fmt.Printf("bar2 \t Type: %T\n", bar2)
 	fmt.Printf("y \t Type: %T\n", y)
-
 }
 
 func foo2() int {
@@ -293,4 +293,29 @@ func bar2() func() int {
 	return func () int {
 		return 21
 	}
+}
+
+func class147() {
+	fmt.Println("\nClass 147 - Callback")
+	x := doMath(42, 16, add)
+	fmt.Println(x)
+
+	y := doMath(42, 16, sub)
+	fmt.Println(y)
+
+	fmt.Printf("add - Type: %T\n", add)
+	fmt.Printf("sub - Type: %T\n", sub)
+	fmt.Printf("doMath - Type: %T\n", doMath)
+}
+
+func doMath(a, b int, f func(int, int) int) int {
+	return f(a, b)
+}
+
+func add(a int, b int) int {
+	return a + b
+}
+
+func sub(a, b int) int {
+	return a - b
 }
