@@ -15,6 +15,8 @@ func main() {
 	printMap(things)
 	class121(things)
 	printMap(things)
+	class122(things)
+	printMap(things)
 }
 
 func printMap(things map[string][]string) {
@@ -40,4 +42,9 @@ func class120() map[string][]string {
 func class121(things map[string][]string) {
 	fmt.Println("\nClass 121 - Hands-on exercise #50 - add a record")
 	things["fleming_ian"] = []string{"streaks", "cigars", "espionage"}
+}
+
+func class122(things map[string][]string) {
+	fmt.Println("\nClass 122 - Hands-on exercise #51 - delete a record")
+	delete(things, "no_dr")
 }
