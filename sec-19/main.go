@@ -14,6 +14,7 @@ func main() {
 	class133()
 	class134()
 	class135()
+	class136()
 }
 
 func class133() {
@@ -65,3 +66,10 @@ func class135() {
 	x := sum(xi...)
 	fmt.Println("The sum is:", x)
 }
+
+func class136() {
+	fmt.Println("\nClass 136 - Defer")
+	defer foo()
+	bar("Quiky")
+}
+

@@ -328,5 +328,9 @@ Named types vs Anonymous types
 
  Everything in Go is pass by `value`, which means that when we pass a value to a function, a copy of the value is passed.
 
-
+```go
+func (r receiver) identifier(parameters) (return(s)) {
+	// code
+}
+```
 
