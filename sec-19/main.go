@@ -71,6 +71,7 @@ func main() {
 	class146()
 	class147()
 	class148()
+	class150()
 }
 
 func class133() {
@@ -345,4 +346,33 @@ func incrementor() func() int {
 		x++
 		return x
 	}
+}
+
+func class150() {
+	fmt.Println("\nClass 150 - Recursion")
+	// 4!
+	fmt.Println(4 * 3 * 2 * 1)
+	fmt.Println(factorialRecursive(4))
+	fmt.Println(factorialLoop(4))
+}
+
+func factorialRecursive(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n * factorialRecursive(n - 1)
+}
+
+func factorialLoop(n int) int {
+	total := 1
+	// for i := 2; i <= n; i++ {
+	// 	total *= i
+	// }
+
+	for n > 0 {
+		total *= n
+		n--
+	}
+
+	return total
 }
