@@ -4,6 +4,18 @@ import (
 	"fmt"
 )
 
+type engine struct {
+	electric bool
+}
+
+type vehicle struct {
+	engine
+	make string
+	model string
+	doors int
+	color string
+}
+
 type person struct {
 	first string
 	last string
@@ -19,6 +31,7 @@ func main() {
 	fmt.Println("Main function")
 	class128()
 	class129()
+	class130()
 }
 
 func class128() {
@@ -75,4 +88,34 @@ func class129() {
 			fmt.Printf("\t Value: %v\n", v2)
 		}
 	}
+}
+
+
+func class130() {
+	fmt.Println("\nClass 130 - Hands-on exercise #55 - embed struct")
+
+	v1 := vehicle{
+		engine: engine{
+			electric: true,
+		},
+		make: "BYD",
+		model: "Dolphin",
+		doors: 2,
+		color: "red",
+	}
+
+	v2 := vehicle{
+		engine: engine{
+			electric: false,
+		},
+		make: "Ford",
+		model: "Ka",
+		doors: 4,
+		color: "black",
+	}
+
+	fmt.Println(v1)
+	fmt.Println(v2)
+	fmt.Printf("Engine: %v, Make: %v, Model: %v, Doors: %v, Color: %v\n", v1.electric, v1.make, v1.model, v1.doors, v1.color)
+	fmt.Printf("Engine: %v, Make: %v, Model: %v, Doors: %v, Color: %v\n", v2.engine.electric, v2.make, v2.model, v2.doors, v2.color)
 }
