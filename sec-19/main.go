@@ -66,6 +66,7 @@ func main() {
 	class141()
 	class142()
 	class143()
+	class144()
 }
 
 func class133() {
@@ -234,4 +235,18 @@ func class143() {
 	p.writeOut(f)
 	p.writeOut(&b)
 	fmt.Println(b.String())
+}
+
+func class144() {
+	fmt.Println("\nClass 144 - Anonymous func")
+
+	foo()
+
+	func(){
+		fmt.Println("Anonymous func ran")
+	}()
+
+	func(s string){
+		fmt.Println(s)
+	}("Anonymous func with param: Hello")
 }
