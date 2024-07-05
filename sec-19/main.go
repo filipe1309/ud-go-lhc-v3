@@ -2,23 +2,38 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
-type person struct {
-	first string
+type book struct {
+	title string
 }
 
-type secretAgent struct {
-	person
-	ltk bool
+func (b book) String() string {
+	return fmt.Sprint("This is the book ", b.title)
+}
+
+type count int
+
+func (c count) String() string {
+	return fmt.Sprint("The number is ", strconv.Itoa(int(c)))
 }
 
 type human interface {
 	speak()
 }
 
+type person struct {
+	first string
+}
+
 func (p person) speak() {
 	fmt.Println("I am",  p.first)
+}
+
+type secretAgent struct {
+	person
+	ltk bool
 }
 
 func (sa secretAgent) speak() {
@@ -38,6 +53,7 @@ func main() {
 	class136()
 	class137()
 	class138()
+	class139()
 }
 
 func class133() {
@@ -129,4 +145,15 @@ func class138() {
 func saySomething(h human) {
 	fmt.Printf("Human of type %T is saying: ", h)
 	h.speak()
+}
+
+func class139() {
+	fmt.Println("\nClass 139 - Exploring the stringer interface")
+	b := book{
+		title: "Refactoring",
+	}
+	var c count = 42
+
+	fmt.Println(b)
+	fmt.Println(c)
 }
