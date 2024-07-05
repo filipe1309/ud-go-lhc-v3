@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class133()
 	class134()
+	class135()
 }
 
 func class133() {
@@ -56,4 +57,11 @@ func sum(ii ...int) int {
 	}
 
 	return n
+}
+
+func class135() {
+	fmt.Println("\nClass 135 - Unfurling a slice")
+	xi := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	x := sum(xi...)
+	fmt.Println("The sum is:", x)
 }
