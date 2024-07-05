@@ -320,5 +320,13 @@ Named types vs Anonymous types
  - Logically organize your fields together
  - Readability & clarity trump performance as a design concern
  - Go will be performant. Go fo readability first. However, if you need to optimize: lay the fields out in the order of largest to smallest, eg: `int64` first, then `int32`, then `int16`, then `int8`
-  
+
+ ## Section 19 - Functions in the Go Programming Language
+
+ Define with `parameters`
+ Call with `arguments`
+
+ Everything in Go is pass by `value`, which means that when we pass a value to a function, a copy of the value is passed.
+
+
 
