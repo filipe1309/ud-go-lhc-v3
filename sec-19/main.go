@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"strconv"
@@ -28,6 +29,10 @@ type human interface {
 
 type person struct {
 	first string
+}
+
+func (p person) writeOut(w io.Writer) {
+	w.Write([]byte(p.first))
 }
 
 func (p person) speak() {
@@ -60,6 +65,7 @@ func main() {
 	class140()
 	class141()
 	class142()
+	class143()
 }
 
 func class133() {
@@ -210,5 +216,22 @@ func class142() {
 
 	b.Write([]byte("Happy Happy"))
 	fmt.Println(b.String())
+}
 
+func class143() {
+	fmt.Println("\nClass 143 - Writing to either a file or a byte buffer")
+	f, err := os.Create("sec-19/output2.txt")
+	if err != nil {
+		log.Fatalf("error %s", err)
+	}
+	defer f.Close()
+	p := person{
+		first: "Jenny",
+	}
+
+	var b bytes.Buffer
+	
+	p.writeOut(f)
+	p.writeOut(&b)
+	fmt.Println(b.String())
 }
