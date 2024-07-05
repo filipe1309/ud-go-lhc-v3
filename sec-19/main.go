@@ -68,6 +68,7 @@ func main() {
 	class143()
 	class144()
 	class145()
+	class146()
 }
 
 func class133() {
@@ -267,4 +268,29 @@ func class145() {
 	
 	x()
 	y("Anonymous func with param: Hello")
+}
+
+func class146() {
+	fmt.Println("\nClass 146 - Returning a func")
+
+	x := foo2()
+	fmt.Printf("Value: %v \t Type: %T\n", x, x)
+
+	y := bar2()
+	fmt.Printf("Value: %v \t Type: %T\n", y(), y())
+
+	fmt.Printf("foo2 \t Type: %T\n", foo2)
+	fmt.Printf("bar2 \t Type: %T\n", bar2)
+	fmt.Printf("y \t Type: %T\n", y)
+
+}
+
+func foo2() int {
+	return 42
+}
+
+func bar2() func() int {
+	return func () int {
+		return 21
+	}
 }
