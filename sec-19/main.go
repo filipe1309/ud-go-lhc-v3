@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 )
 
@@ -54,6 +55,7 @@ func main() {
 	class137()
 	class138()
 	class139()
+	class140()
 }
 
 func class133() {
@@ -156,4 +158,22 @@ func class139() {
 
 	fmt.Println(b)
 	fmt.Println(c)
+}
+
+func class140() {
+	fmt.Println("\nClass 140 - Expanding on the stringer interface - wrapper func for logging")
+	b := book{
+		title: "Refactoring",
+	}
+	var c count = 42
+
+	log.Println(b)
+	log.Println(c)
+
+	logExtraInfo(b)
+	logExtraInfo(c)
+}
+
+func logExtraInfo(s fmt.Stringer) {
+	log.Println("LOG FROM 140", s.String())
 }
