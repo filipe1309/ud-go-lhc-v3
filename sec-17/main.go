@@ -15,6 +15,18 @@ type secretAgent struct {
 	ltk bool
 }
 
+
+type Engine struct {}
+
+func (e * Engine) Start() {
+	fmt.Println("Engine started")
+}
+
+type Car struct {
+	Engine // embedded struct
+	// Car-specific fields
+}
+
 func init() {
 	fmt.Println("Init function")
 	fmt.Println("Section 17 - Grouping data values - structs")
@@ -25,6 +37,7 @@ func main() {
 	class124()
 	class125()
 	class126()
+	class127()
 }
 
 func class124() {
@@ -72,7 +85,7 @@ func class125() {
 }
 
 func class126() {
-	fmt.Println("\nClass 124 - Anonymous structs")
+	fmt.Println("\nClass 126 - Anonymous structs")
 	p1 := struct { // anonymous struct
 		first string
 		last string
@@ -90,4 +103,10 @@ func class126() {
 
 	fmt.Printf("Type: %T \t Value: %#v\n", p1, p1)
 	fmt.Printf("Type: %T \t\t\t\t\t Value: %#v\n", p2, p2)
+}
+
+func class127() {
+	fmt.Println("\nClass 127 - Composition")
+	car := Car{}
+	car.Start() // Calling Start() method from the embedded Engine struct
 }

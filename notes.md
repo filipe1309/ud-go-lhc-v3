@@ -274,3 +274,51 @@ Everything is passed by value in Go.
 
 https://go.dev/play/p/ZBz2jFnL8oc
 
+
+## Secttion 17 - Grounping data values - structs
+
+### Composition
+
+Composition is a way to combine multiple types into a single type, creating a new type that has all the fields and methods of the types it is composed of.
+
+- It's all about types
+ - Go has OOP aspects. But is all about TYPE.
+- Go is Object Oriented
+ - Encapsulation: state (fields) + behavior (methods) + exported/unexported
+ - Reusability: inheritance (embedded types)
+ - Polymorphism: interfaces
+ - Overriding: promotion
+
+ In Go:
+ - We don't have `classes`, we have `types`
+ - We don't have `inheritance`, we have `composition`
+ - We don't have `instance of a class`, we have `value of a type`
+ - We don't have `super`, we have `promotion`
+ - We don't have `method overloading`, we have `method overriding`
+
+ User defined types
+ - We can declare our own types
+ - We can declare types based on existing types
+ - Why?
+	- To make our code more descriptive
+	- To make our code more type-safe
+	- If we need to attach methods to a type
+
+
+Go is about easy of programming.
+
+Named types vs Anonymous types
+- Anonymous types are indeterminate
+ - They have not been declared as a type yet
+ - The compiler will infer the type
+ - Ex: `var x int`
+- Named types are determinate
+ - They have been declared as a type
+ - The compiler will not infer the type
+ - Ex: `type hotdog int`
+- Padding & architectural alignment conventions
+ - Logically organize your fields together
+ - Readability & clarity trump performance as a design concern
+ - Go will be performant. Go fo readability first. However, if you need to optimize: lay the fields out in the order of largest to smallest, eg: `int64` first, then `int32`, then `int16`, then `int8`
+  
+
