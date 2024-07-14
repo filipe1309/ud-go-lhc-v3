@@ -342,3 +342,40 @@ Polymorphism is the ability of a VALUE of a certain TYPE to be treated as a VALU
 
 Values can be of more than one type in Go.
 
+## Section 20 - Hands-on exercises
+
+### Documentation
+Class 161. Hands-on exercise #66 - documenting code with comments
+
+```sh
+go doc -cmd -all # to see all the documentation
+```
+
+1. Package documentation
+```sh
+// Package dog converts human years to dog years.
+package dog
+```
+
+2. Function documentation
+```sh
+// Years converts human years to dog years.
+func Years(humanYears int) int {
+	return humanYears * 7
+}
+```
+
+3. Type documentation
+```sh
+// Dog is a type that represents a dog.
+type Dog struct {
+	Name string
+	Age  int
+}
+```
+
+4. Const and variable documentation
+```sh
+// DogYears is a constant that represents the number of dog years in a human year.
+const DogYears = 7
+```

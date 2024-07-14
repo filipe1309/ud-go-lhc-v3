@@ -185,9 +185,10 @@ func doMath(a, b int, f func(int, int) int) int {
 
 func class160() {
 	fmt.Println("\nClass 160 - Hands-on exercise #65 - tests in go #3 - unit tests")
-	fmt.Println(paradise("Buenos Aires"))
+	fmt.Println(Paradise("Buenos Aires"))
 }
 
-func paradise(loc string) string {
+// Paradise prints out the user's input of paradise as a setence
+func Paradise(loc string) string {
 	return fmt.Sprintf("My idea of paradise is %s", loc)
 }

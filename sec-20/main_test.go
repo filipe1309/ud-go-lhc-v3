@@ -47,7 +47,7 @@ func TestSquareArea(t *testing.T) {
 }
 
 func TestParadise(t *testing.T) {
-	got := paradise("Buenos Aires")
+	got := Paradise("Buenos Aires")
 	want := "My idea of paradise is Buenos Aires"
 	if got != want {
 		log.Fatalf("error - want: %v, got: %v", want, got)
