@@ -19,6 +19,7 @@ func main() {
 	class156()
 	class157()
 	class158()
+	class159()
 }
 
 func class152() {
@@ -153,9 +154,30 @@ func info(s shape) {
 
 func class158() {
 	fmt.Println("\nClass 158 - Hands-on exercise #63 - tests in go #1")
-	fmt.Println(Add(3, 4))
+	fmt.Println(add(3, 4))
 }
 
-func Add(a, b int) int {
+func add(a, b int) int {
 	return a + b
+}
+
+func class159() {
+	fmt.Println("\nClass 159 - Hands-on exercise #64 - tests in go #2 - unit tests")
+	fmt.Printf("%T\n", add)
+	fmt.Printf("%T\n", subtract)
+	fmt.Printf("%T\n", doMath)
+
+	x := doMath(42, 16, add)
+	fmt.Println(x)
+
+	y := doMath(42, 16, subtract)
+	fmt.Println(y)
+}
+
+func subtract(a, b int) int {
+	return a - b
+}
+
+func doMath(a, b int, f func(int, int) int) int {
+	return f(a, b)
 }
