@@ -18,6 +18,7 @@ func main() {
 	class155()
 	class156()
 	class157()
+	class158()
 }
 
 func class152() {
@@ -97,14 +98,14 @@ func class156() {
 	fmt.Println("\nClass 156 - Hands-on exercise #61 - method")
 	p1 := person{
 		first: "John",
-		age: 42,
+		age:   42,
 	}
 	p1.speak()
 }
 
 type person struct {
 	first string
-	age int
+	age   int
 }
 
 func (p person) speak() {
@@ -115,7 +116,7 @@ func class157() {
 	fmt.Println("\nClass 157 - Hands-on exercise #62 - interfaces")
 	s := square{
 		length: 5,
-		width: 8,
+		width:  8,
 	}
 	c := circle{
 		radius: 4,
@@ -127,7 +128,7 @@ func class157() {
 
 type square struct {
 	length float64
-	width float64
+	width  float64
 }
 
 func (s square) area() float64 {
@@ -148,4 +149,13 @@ type shape interface {
 
 func info(s shape) {
 	fmt.Printf("%T - area: %v\n", s, s.area())
+}
+
+func class158() {
+	fmt.Println("\nClass 158 - Hands-on exercise #63 - tests in go #1")
+	fmt.Println(Add(3, 4))
+}
+
+func Add(a, b int) int {
+	return a + b
 }
