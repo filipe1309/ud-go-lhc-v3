@@ -14,6 +14,7 @@ func main() {
 	class152()
 	class153()
 	class154()
+	class155()
 }
 
 func class152() {
@@ -77,4 +78,14 @@ func bar2(xi []int) int {
 		total += v
 	}
 	return total
+}
+
+func class155() {
+	fmt.Println("\nClass 155 - Hands-on exercise #60 - defer func")
+	fmt.Println("Before defer funcs")
+	// LIFO
+	defer fmt.Println("Deferred func 1")
+	defer fmt.Println("Deferred func 2")
+	defer fmt.Println("Deferred func 3")
+	fmt.Println("After defer funcs")
 }
