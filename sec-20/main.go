@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class152()
+	class153()
 }
 
 func class152() {
@@ -30,10 +31,26 @@ func sumNamedReturn(ii []int) (total int) {
 	return
 }
 
-func sum(ii []int) (int) {
+func sum(ii []int) int {
 	total := 0
 	for _, v := range ii {
 		total += v
 	}
 	return total
+}
+
+func class153() {
+	fmt.Println("\nClass 153 - Hands-on exercise #58 - basic funcs")
+	x := foo()
+	fmt.Println(x)
+	y, z := bar()
+	fmt.Println(y, z)
+}
+
+func foo() int {
+	return 42
+}
+
+func bar() (int, string) {
+	return 21, "James Bond"
 }
