@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func init() {
@@ -15,6 +16,8 @@ func main() {
 	class153()
 	class154()
 	class155()
+	class156()
+	class157()
 }
 
 func class152() {
@@ -88,4 +91,61 @@ func class155() {
 	defer fmt.Println("Deferred func 2")
 	defer fmt.Println("Deferred func 3")
 	fmt.Println("After defer funcs")
+}
+
+func class156() {
+	fmt.Println("\nClass 156 - Hands-on exercise #61 - method")
+	p1 := person{
+		first: "John",
+		age: 42,
+	}
+	p1.speak()
+}
+
+type person struct {
+	first string
+	age int
+}
+
+func (p person) speak() {
+	fmt.Printf("Name: %v, Age: %v\n", p.first, p.age)
+}
+
+func class157() {
+	fmt.Println("\nClass 157 - Hands-on exercise #62 - interfaces")
+	s := square{
+		length: 5,
+		width: 8,
+	}
+	c := circle{
+		radius: 4,
+	}
+
+	info(s)
+	info(c)
+}
+
+type square struct {
+	length float64
+	width float64
+}
+
+func (s square) area() float64 {
+	return s.length * s.width
+}
+
+type circle struct {
+	radius float64
+}
+
+func (c circle) area() float64 {
+	return math.Pi * math.Pow(c.radius, 2)
+}
+
+type shape interface {
+	area() float64
+}
+
+func info(s shape) {
+	fmt.Printf("%T - area: %v\n", s, s.area())
 }
