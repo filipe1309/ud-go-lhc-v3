@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class152()
 	class153()
+	class154()
 }
 
 func class152() {
@@ -53,4 +54,27 @@ func foo() int {
 
 func bar() (int, string) {
 	return 21, "James Bond"
+}
+
+func class154() {
+	fmt.Println("\nClass 154 - Hands-on exercise #59 - variadic func")
+	xi := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Println(foo2(xi...))
+	fmt.Println(bar2(xi))
+}
+
+func foo2(xi ...int) int {
+	total := 0
+	for _, v := range xi {
+		total += v
+	}
+	return total
+}
+
+func bar2(xi []int) int {
+	total := 0
+	for _, v := range xi {
+		total += v
+	}
+	return total
 }
