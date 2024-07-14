@@ -1,6 +1,12 @@
-# run tests
+# run section test
 test:
 	@echo "🟢 Running tests..."
+	go test -v ./sec-$(SEC)/...
+
+# run all tests
+test-all:
+	@echo "🟢 Running all tests..."
+	go test -v ./...
 
 build:
 	@echo "🔨 Building code..."
