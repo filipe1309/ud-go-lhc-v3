@@ -33,3 +33,23 @@ func TestDoMath(t *testing.T) {
 		log.Fatalf("error - want: %d, got: %d", want, got)
 	}
 }
+
+func TestSquareArea(t *testing.T) {
+	s := square{
+		length: 2,
+		width: 3,
+	}
+	got := s.area()
+	want := 6.0
+	if got != want {
+		log.Fatalf("error - want: %v, got: %v", want, got)
+	}
+}
+
+func TestParadise(t *testing.T) {
+	got := paradise("Buenos Aires")
+	want := "My idea of paradise is Buenos Aires"
+	if got != want {
+		log.Fatalf("error - want: %v, got: %v", want, got)
+	}
+}

@@ -20,6 +20,7 @@ func main() {
 	class157()
 	class158()
 	class159()
+	class160()
 }
 
 func class152() {
@@ -180,4 +181,13 @@ func subtract(a, b int) int {
 
 func doMath(a, b int, f func(int, int) int) int {
 	return f(a, b)
+}
+
+func class160() {
+	fmt.Println("\nClass 160 - Hands-on exercise #65 - tests in go #3 - unit tests")
+	fmt.Println(paradise("Buenos Aires"))
+}
+
+func paradise(loc string) string {
+	return fmt.Sprintf("My idea of paradise is %s", loc)
 }
