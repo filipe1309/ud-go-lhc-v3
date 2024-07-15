@@ -16,6 +16,7 @@ func main() {
 	class171()
 	class172()
 	class173()
+	class175()
 }
 
 func class169() {
@@ -108,4 +109,13 @@ func addOneValue(a int) int {
 func addOnePointer(a *int) int {
 	*a++
 	return *a
+}
+
+func class175() {
+	fmt.Println("\nClass 175 - Pointers, values, the stack & the heap")
+	a := 1
+	fmt.Println(a) // "a escapes to heap", stays in stack, because it is not passed to a function by value
+
+	b := 1
+	fmt.Println(&b) // "moved to heap: b", because it is passed to a function by reference
 }

@@ -432,3 +432,21 @@ type hmap struct {
 	extra *mapextra // optional fields
 }
 ```
+
+## Section 21 - Pointers
+
+### Pointers, values, the stack & the heap
+
+- Everything in Go is pass by value
+- When we pass a value to a function, a copy of the value is passed
+- Pointers allow us to share a value stored in memory with a function
+
+Value semantics & the stack: In Go, when we pass a value to a function, a copy of the value is passed. This is known as value semantics. The value is stored on the stack, which is a region of memory that is fast and has low overhead. The stack is used for local variables and function calls.
+
+Pointers & the heap: When we pass a pointer to a function, the memory address of the value is passed. This is known as reference semantics. The value is stored on the heap, which is a region of memory that is slower and has higher overhead. The heap is used for dynamically allocated memory.
+
+Escape analysis: The Go compiler performs escape analysis to determine whether a value can be allocated on the stack or must be allocated on the heap. If a value escapes to the heap, it is said to escape to the heap.
+
+```sh
+go run -gcflags "-m" main.go # to see the escape analysis
+```
