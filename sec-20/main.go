@@ -25,6 +25,7 @@ func main() {
 	class162()
 	class163()
 	class164()
+	class165()
 }
 
 func class152() {
@@ -285,6 +286,7 @@ func class162() {
 }
 
 func class163() {
+	fmt.Println("\nClass 163 - Hands-on exercise #68 - anonymous func")
 	// func(){}()
 	func () {
 		fmt.Println("My anonymous func")
@@ -297,4 +299,16 @@ func class164() {
 		fmt.Println("My func expression")
 	}
 	x()
+}
+
+func class165() {
+	fmt.Println("\nClass 165 - Hands-on exercise #70 - func return")
+	f := myOuterFunc()
+	fmt.Println(f())
+}
+
+func myOuterFunc() func () int {
+	return func () int {
+		return 42
+	}
 }
