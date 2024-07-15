@@ -17,6 +17,7 @@ func main() {
 	class172()
 	class173()
 	class175()
+	class176()
 }
 
 func class169() {
@@ -118,4 +119,36 @@ func class175() {
 
 	b := 1
 	fmt.Println(&b) // "moved to heap: b", because it is passed to a function by reference
+}
+
+type dog struct {
+	first string
+}
+
+func (d dog) walk() {
+	fmt.Println(d.first, "is walking")
+}
+
+func (d *dog) run() {
+	d.first = "Rex"
+	fmt.Println(d.first, "is running")
+}
+
+func class176() {
+	fmt.Println("\nClass 176 - Exploring method sets part 1")
+	d1 := dog{
+		first: "Buddy",
+	}
+	fmt.Println(d1)
+	d1.walk()
+	d1.run()
+	fmt.Println(d1)
+
+	d2 := &dog{
+		first: "Quiky",
+	}
+	fmt.Println(d2)
+	d2.walk()
+	d2.run()
+	fmt.Println(d2)
 }
