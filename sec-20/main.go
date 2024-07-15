@@ -26,6 +26,7 @@ func main() {
 	class163()
 	class164()
 	class165()
+	class166()
 }
 
 func class152() {
@@ -312,3 +313,18 @@ func myOuterFunc() func () int {
 		return 42
 	}
 }
+
+func class166() {
+	fmt.Println("\nClass 166 - Hands-on exercise #71 - callback")
+	fmt.Println(genSquareText(5, calcSquare))
+}
+
+func genSquareText(i int, f func(int) int) string {
+	s := f(i)
+	return fmt.Sprintf("the number %v squared is %v", i, s)
+}
+
+func calcSquare(i int) int {
+	return i * i
+}
+
