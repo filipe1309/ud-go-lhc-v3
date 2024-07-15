@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"math"
+	"time"
 )
 
 func init() {
@@ -28,6 +29,7 @@ func main() {
 	class165()
 	class166()
 	class167()
+	class168()
 }
 
 func class152() {
@@ -200,7 +202,6 @@ func Paradise(loc string) string {
 	return fmt.Sprintf("My idea of paradise is %s", loc)
 }
 
-
 // User represents a user with an id and first name.
 type User struct {
 	ID    int
@@ -290,14 +291,14 @@ func class162() {
 func class163() {
 	fmt.Println("\nClass 163 - Hands-on exercise #68 - anonymous func")
 	// func(){}()
-	func () {
+	func() {
 		fmt.Println("My anonymous func")
 	}()
 }
 
 func class164() {
 	fmt.Println("\nClass 164 - Hands-on exercise #69 - func expression")
-	x := func () {
+	x := func() {
 		fmt.Println("My func expression")
 	}
 	x()
@@ -309,8 +310,8 @@ func class165() {
 	fmt.Println(f())
 }
 
-func myOuterFunc() func () int {
-	return func () int {
+func myOuterFunc() func() int {
+	return func() int {
 		return 42
 	}
 }
@@ -331,28 +332,47 @@ func calcSquare(i int) int {
 
 func class167() {
 	fmt.Println("\nClass 167 - Hands-on exercise #72 - closure")
-	pow0 := powinator(2) 
+	pow0 := powinator(2)
 	fmt.Println(pow0()) // 2^1 pow
 	fmt.Println(pow0()) // 2^2 pow
 	fmt.Println(pow0()) // 2^3 pow
 	fmt.Println(pow0()) // 2^4 pow
 
-	pow1 := powinator(3) 
+	pow1 := powinator(3)
 	fmt.Println(pow1()) // 3^1 pow
 	fmt.Println(pow1()) // 3^2 pow
 	fmt.Println(pow1()) // 3^3 pow
 	fmt.Println(pow1()) // 3^4 pow
 
-	pow2 := powinator(4) 
+	pow2 := powinator(4)
 	fmt.Println(pow2()) // 4^1 pow
 	fmt.Println(pow2()) // 4^2 pow
 	fmt.Println(pow2()) // 4^3 pow
 }
 
-func powinator(i float64) func () float64 {
+func powinator(i float64) func() float64 {
 	c := 0.0
-	return func () float64 {
+	return func() float64 {
 		c++
 		return math.Pow(i, c)
 	}
+}
+
+
+func class168() {
+	fmt.Println("\nClass 168 - Hands-on exercise #73 - wrapper")
+	timeFunc(doWork)
+}
+
+func doWork() {
+	for i := 0; i < 2_000; i++ {
+		fmt.Println(i)
+	}
+}
+
+func timeFunc(f func()) {
+	start := time.Now()
+	f()
+	elapsed := time.Since(start)
+	fmt.Println(elapsed)
 }
