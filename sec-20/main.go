@@ -27,6 +27,7 @@ func main() {
 	class164()
 	class165()
 	class166()
+	class167()
 }
 
 func class152() {
@@ -328,3 +329,30 @@ func calcSquare(i int) int {
 	return i * i
 }
 
+func class167() {
+	fmt.Println("\nClass 167 - Hands-on exercise #72 - closure")
+	pow0 := powinator(2) 
+	fmt.Println(pow0()) // 2^1 pow
+	fmt.Println(pow0()) // 2^2 pow
+	fmt.Println(pow0()) // 2^3 pow
+	fmt.Println(pow0()) // 2^4 pow
+
+	pow1 := powinator(3) 
+	fmt.Println(pow1()) // 3^1 pow
+	fmt.Println(pow1()) // 3^2 pow
+	fmt.Println(pow1()) // 3^3 pow
+	fmt.Println(pow1()) // 3^4 pow
+
+	pow2 := powinator(4) 
+	fmt.Println(pow2()) // 4^1 pow
+	fmt.Println(pow2()) // 4^2 pow
+	fmt.Println(pow2()) // 4^3 pow
+}
+
+func powinator(i float64) func () float64 {
+	c := 0.0
+	return func () float64 {
+		c++
+		return math.Pow(i, c)
+	}
+}
