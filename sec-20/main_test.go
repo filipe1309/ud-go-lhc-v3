@@ -37,7 +37,7 @@ func TestDoMath(t *testing.T) {
 func TestSquareArea(t *testing.T) {
 	s := square{
 		length: 2,
-		width: 3,
+		width:  3,
 	}
 	got := s.area()
 	want := 6.0
