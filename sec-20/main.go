@@ -23,6 +23,7 @@ func main() {
 	class159()
 	class160()
 	class162()
+	class163()
 }
 
 func class152() {
@@ -280,4 +281,17 @@ func class162() {
 
 	fmt.Println(u1)
 	fmt.Println(u1Returned)
+}
+
+func class163() {
+	fmt.Println("\nClass 163 - Hands-on exercise #68 - anonymous func")
+	x := func () {
+		fmt.Println("My anonymous func")
+	}
+	x()
+
+	// func(){}()
+	func () {
+		fmt.Println("My second anonymous func")
+	}()
 }
