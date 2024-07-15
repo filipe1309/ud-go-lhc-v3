@@ -14,6 +14,7 @@ func main() {
 	class169()
 	class170()
 	class171()
+	class172()
 }
 
 func class169() {
@@ -46,4 +47,39 @@ func class171() {
 	*y = 43
 	fmt.Printf("x value: %v, x type: %T\n", x, x)
 	fmt.Printf("*y value: %v, *y type: %T\n", *y, *y)
+}
+
+func class172() {
+	fmt.Println("\nClass 172 - Hands-on exercise #65 - Pass by value, pointers / reference types, and mutability")
+	a := 42
+	fmt.Println(a)
+	intDelta(&a)
+	fmt.Println(a)
+
+	// slice is a reference type, it is a pointer to an array, so it is passed by reference
+	xi := []int{1, 2, 3, 4}
+	fmt.Println(xi)
+	sliceDelta(xi)
+	fmt.Println(xi)
+
+	// map is a reference type, it is a pointer to a hash table, so it is passed by reference
+	m := map[string]int{
+		"James": 32,
+		"Jenny": 27,
+	}
+	fmt.Println(m)
+	mapDelta(m, "James")
+	fmt.Println(m)
+}
+
+func intDelta(a *int) {
+	*a = 43
+}
+
+func sliceDelta(ii []int) {
+	ii[0] = 99
+}
+
+func mapDelta(mm map[string]int, s string) {
+	mm[s] = 42
 }
