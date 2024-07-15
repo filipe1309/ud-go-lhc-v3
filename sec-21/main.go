@@ -18,6 +18,7 @@ func main() {
 	class173()
 	class175()
 	class176()
+	class177()
 }
 
 func class169() {
@@ -150,5 +151,26 @@ func class176() {
 	fmt.Println(d2)
 	d2.walk()
 	d2.run()
+	fmt.Println(d2)
+}
+
+type yougin interface {
+	walk()
+	run()
+}
+
+func yougRun(y yougin) {
+	y.run()
+}
+
+func class177() {
+	fmt.Println("\nClass 177 - Exploring method sets part 2")
+	d1 := dog{"Buddy"}
+	fmt.Println(d1)
+	// yougRun(d1) // cannot use d1 (type dog) as type yougin in argument to yougRun, because d1 is not a pointer
+
+	d2 := &dog{"Quiky"}
+	fmt.Println(d2)
+	yougRun(d2)
 	fmt.Println(d2)
 }
