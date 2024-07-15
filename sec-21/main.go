@@ -24,7 +24,7 @@ func main() {
 func class169() {
 	fmt.Println("\nClass 169 - What are pointers?")
 	x := 42
-	fmt.Println(x) // x value
+	fmt.Println(x)  // x value
 	fmt.Println(&x) // x address
 }
 
@@ -91,14 +91,14 @@ func mapDelta(mm map[string]int, s string) {
 func class173() {
 	fmt.Println("\nClass 173 - Pointer & value semantics")
 	a := 1
-	fmt.Println(a) // 1
+	fmt.Println(a)              // 1
 	fmt.Println(addOneValue(a)) // 2
-	fmt.Println(a) // 1
+	fmt.Println(a)              // 1
 
 	b := 1
-	fmt.Println(b) // 1
+	fmt.Println(b)                 // 1
 	fmt.Println(addOnePointer(&b)) // 2
-	fmt.Println(b) // 2
+	fmt.Println(b)                 // 2
 }
 
 // value semantics
