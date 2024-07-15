@@ -15,6 +15,7 @@ func main() {
 	class170()
 	class171()
 	class172()
+	class173()
 }
 
 func class169() {
@@ -50,7 +51,7 @@ func class171() {
 }
 
 func class172() {
-	fmt.Println("\nClass 172 - Hands-on exercise #65 - Pass by value, pointers / reference types, and mutability")
+	fmt.Println("\nClass 172 - Pass by value, pointers / reference types, and mutability")
 	a := 42
 	fmt.Println(a)
 	intDelta(&a)
@@ -82,4 +83,29 @@ func sliceDelta(ii []int) {
 
 func mapDelta(mm map[string]int, s string) {
 	mm[s] = 42
+}
+
+func class173() {
+	fmt.Println("\nClass 173 - Pointer & value semantics")
+	a := 1
+	fmt.Println(a) // 1
+	fmt.Println(addOneValue(a)) // 2
+	fmt.Println(a) // 1
+
+	b := 1
+	fmt.Println(b) // 1
+	fmt.Println(addOnePointer(&b)) // 2
+	fmt.Println(b) // 2
+}
+
+// value semantics
+func addOneValue(a int) int {
+	a++
+	return a
+}
+
+// pointer semantics
+func addOnePointer(a *int) int {
+	*a++
+	return *a
 }
