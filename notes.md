@@ -450,3 +450,34 @@ Escape analysis: The Go compiler performs escape analysis to determine whether a
 ```sh
 go run -gcflags "-m" main.go # to see the escape analysis
 ```
+
+## Section 23 - Generics
+
+https://go.dev/doc/tutorial/generics
+
+Concrete types: A type that is fully defined and can be instantiated. 
+Is a type you can directtly instatiate or create a value from. 
+For example, `int`, `string`, and `float64` are concrete types.
+
+```go
+type Employee struct {
+	Name string
+	Age  int
+}
+emp := Employee{Name: "John Doe", Age:  30}
+```
+
+Interface types: A type that defines a contract, or set of methods, that a concrete type must implement in order to satisfy the interface.
+Interface types are abstract, they represent behavior or type but not a specific set of values.
+
+```go
+type Stringer interface {
+	String() string
+}
+```
+
+```go
+type Reader interface {
+	Read(p []byte) (n int, err error)
+}
+```
