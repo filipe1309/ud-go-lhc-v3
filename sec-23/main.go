@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"golang.org/x/exp/constraints"
 )
 
 func init() {
@@ -14,6 +15,7 @@ func main() {
 	class182()
 	class183()
 	class184()
+	class185()
 }
 
 func class182() {
@@ -66,5 +68,18 @@ func class184() {
 	var a myAlias = 1
 	fmt.Println(addT3(a, 2))
 	fmt.Println(addT3(1.1, 2.2))
+}
+
+type myNumbers3 interface {
+	constraints.Integer | constraints.Float // constraints.Integer means that myNumbers3 can accept any underlying type of int, or | constraints.Float could be used
+}
+
+func addT4[T myNumbers3](a, b T) T {
+	return a + b
+}
+
+func class185() {
+	fmt.Println("\nClass 185 - Package constraint")
+	fmt.Println(addT4(1, 2))
 }
 
