@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class182()
 	class183()
+	class184()
 }
 
 func class182() {
@@ -48,3 +49,22 @@ func class183() {
 	fmt.Println(addT2(1, 2))
 	fmt.Println(addT2(1.1, 2.2))
 }
+
+type myAlias int
+
+type myNumbers2 interface {
+	~int | float64 // ~int means that myNumbers2 can accept any underlying type of int, or | myAlias could be used
+}
+
+func addT3[T myNumbers2](a, b T) T {
+	return a + b
+}
+
+func class184() {
+	fmt.Println("\nClass 184 - Type alias & underlying type constraint")
+	// https://go.dev/blog/deconstructing-type-parameters
+	var a myAlias = 1
+	fmt.Println(addT3(a, 2))
+	fmt.Println(addT3(1.1, 2.2))
+}
+
