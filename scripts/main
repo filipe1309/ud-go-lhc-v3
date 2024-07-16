@@ -15,5 +15,5 @@ func main() {
 }
 
 func class42() {
-	fmt.Println("\nClass 42")
+	fmt.Println("\nClass 42 - ")
 }
