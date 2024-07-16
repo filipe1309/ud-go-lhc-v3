@@ -82,4 +82,3 @@ func class185() {
 	fmt.Println("\nClass 185 - Package constraint")
 	fmt.Println(addT4(1, 2))
 }
-
