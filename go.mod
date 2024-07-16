@@ -10,4 +10,5 @@ require (
 require (
 	github.com/GoesToEleven/dog v0.0.0-20230428023317-90bef1c76cb9 // indirect
 	github.com/filipe1309/my-go-library-2 v1.0.0 // indirect
+	golang.org/x/exp v0.0.0-20240716175740-e3f259677ff7
 )
