@@ -14,6 +14,7 @@ func main() {
 	class178()
 	class179()
 	class180()
+	class181()
 }
 
 func class178() {
@@ -22,12 +23,10 @@ func class178() {
 	fmt.Printf("x value: %v, x type: %T, x address: %v\n", x, x, &x)
 }
 
-
 var (
 	a, b, c *string
 	d       *int
 )
-
 
 func class179() {
 	fmt.Println("\nClass 179 - Hands-on exercise #75 - dereference an address")
@@ -82,4 +81,30 @@ func class180() {
 func (d dog) changeName(newName string) dog {
 	d.first = newName
 	return d
+}
+
+func class181() {
+	fmt.Println("\nClass 181 - Hands-on exercise #77 - value & pointer semantics")
+	p1 := person{"Alice"}
+	fmt.Printf("p1: %v\n", p1)
+	p1 = changeNameValue(p1, "Alice2")
+	fmt.Printf("p1: %v\n", p1)
+
+	p2 := person{"Bob"}
+	fmt.Printf("p2: %v\n", p2)
+	changeNamePointer(&p2, "Bob2")
+	fmt.Printf("p2: %v\n", p2)
+}
+
+type person struct {
+	first string
+}
+
+func changeNameValue(p person, n string) person {
+	p.first = n
+	return p
+}
+
+func changeNamePointer(p *person, n string) {
+	p.first = n
 }
