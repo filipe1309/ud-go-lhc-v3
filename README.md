@@ -40,9 +40,9 @@ cd ud-go-lhc-v3
 ## :runner: Running
 
 ```sh
-make run SEC=1
+make run [SEC=1]
 ```
-> Change `SEC` to the desired section
+> Change `SEC` to the desired section, if not provided, it will run the last section
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -58,9 +58,9 @@ make test-all
 Run tests for a specific section:
 
 ```sh
-make test SEC=1
+make test [SEC=1]
 ```
-> Change `SEC` to the desired section
+> Change `SEC` to the desired section, if not provided, it will run the last section
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
