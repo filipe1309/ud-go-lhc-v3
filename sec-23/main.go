@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class182()
+	class183()
 }
 
 func class182() {
@@ -32,4 +33,18 @@ func addF(a, b float64) float64 {
 
 func addT[T int | float64](a, b T) T {
 	return a + b
+}
+
+type myNumbers interface {
+	int | float64
+}
+
+func addT2[T myNumbers](a, b T) T {
+	return a + b
+}
+
+func class183() {
+	fmt.Println("\nClass 183 - Type constraint & type set interface example")
+	fmt.Println(addT2(1, 2))
+	fmt.Println(addT2(1.1, 2.2))
 }
