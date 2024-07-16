@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class178()
 	class179()
+	class180()
 }
 
 func class178() {
@@ -45,3 +46,40 @@ func class179() {
 	fmt.Printf("d value: %v, d type: %T,\t d content: %v\n", d, d, *d)
 }
 
+type dog struct {
+	first string
+}
+
+func (d dog) run() {
+	fmt.Printf("%v is running\n", d.first)
+}
+
+func (d dog) walk() {
+	fmt.Printf("%v is walking\n", d.first)
+}
+
+type yougin interface {
+	run()
+	walk()
+}
+
+func youngMove(y yougin) {
+	y.walk()
+	y.run()
+}
+
+func class180() {
+	fmt.Println("\nClass 180 - Hands-on exercise #76 - interface implementation & method sets")
+	d1 := dog{"Bob"}
+	youngMove(d1)
+
+	d2 := dog{"Alice"}
+	youngMove(d2)
+	d2 = d2.changeName("Alice2")
+	youngMove(d2)
+}
+
+func (d dog) changeName(newName string) dog {
+	d.first = newName
+	return d
+}
