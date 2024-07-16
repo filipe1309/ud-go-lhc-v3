@@ -28,5 +28,6 @@ new-section:
 help:
 	@echo "📖 Available commands:"
 	@echo "  make run SEC=03"
-	@echo "  make test"
+	@echo "  make test SEC=03"
+	@echo "  make test-all"
 	@echo "  make help"

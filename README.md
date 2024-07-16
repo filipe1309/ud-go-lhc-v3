@@ -40,19 +40,32 @@ cd ud-go-lhc-v3
 ## :runner: Running
 
 ```sh
-make run
+make run SEC=1
 ```
+> Change `SEC` to the desired section
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ## :white_check_mark: Tests
+## :white_check_mark: Tests
 
-After up the container:
+Run all tests:
 
 ```sh
-docker-compose exec -t {{ CONTAINER_SERVICE_NAME }} ./vendor/bin/phpunit
+make test-all
 ```
+
+Run tests for a specific section:
+
+```sh
+make test SEC=1
+```
+> Change `SEC` to the desired section
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- 
 
 ## Contributing
 
