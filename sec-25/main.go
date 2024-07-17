@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 )
 
 func init() {
@@ -14,6 +15,7 @@ func main() {
 	fmt.Println("Main function")
 	class195()
 	class196()
+	class197()
 }
 
 type user struct {
@@ -70,5 +72,24 @@ func class196() {
 		for j, s := range p.Sayings {
 			fmt.Println("\tSaying", j, ":", s)
 		}
+	}
+}
+
+func class197() {
+	fmt.Println("\nClass 197 - Hands-on exercise #3")
+	u1 := user{
+		First: "James",
+		Age:   32,
+	}
+
+	u2 := user{
+		First: "Moneypenny",
+		Age:   27,
+	}
+	users := []user{u1, u2}
+
+	err := json.NewEncoder(os.Stdout).Encode(users)
+	if err != nil {
+		fmt.Println(err)
 	}
 }
