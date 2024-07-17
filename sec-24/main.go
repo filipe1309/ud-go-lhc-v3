@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"sort"
 )
 
 func init() {
@@ -17,6 +18,7 @@ func main() {
 	class189()
 	class190()
 	class191()
+	class192()
 }
 
 type person struct {
@@ -79,4 +81,20 @@ func class191() {
 	fmt.Println("Hello World!")
 	fmt.Fprintln(os.Stdout, "Hello World!") // os.Stdout implements Writer interface
 	io.WriteString(os.Stdout, "Hello World!\n")
+}
+
+func class192() {
+	fmt.Println("\nClass 192 - ")
+	xi := []int{4, 7, 3, 42, 99, 18, 16, 56, 12}
+	xs := []string{"James", "Q", "M", "Moneypenny", "Dr. No"}
+
+	fmt.Println(xi)
+	sort.Ints(xi)
+	fmt.Println(xi)
+
+	fmt.Println("--------------")
+
+	fmt.Println(xs)
+	sort.Strings(xs)
+	fmt.Println(xs)
 }
