@@ -112,6 +112,7 @@ Please make sure to update tests as appropriate. -->
 - [Tour](https://go.dev/tour/list)
 - [Generics](https://go.dev/doc/tutorial/generics)
 - [JSON to Go](https://mholt.github.io/json-to-go/)
+- [Building and testing Go](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
