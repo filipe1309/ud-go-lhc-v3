@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
+	"os"
 )
 
 func init() {
@@ -14,6 +16,7 @@ func main() {
 	fmt.Println("Main function")
 	class189()
 	class190()
+	class191()
 }
 
 type person struct {
@@ -69,4 +72,11 @@ func class190() {
 		fmt.Println("\tLast:", v.Last)
 		fmt.Println("\tAge:", v.Age)
 	}
+}
+
+func class191() {
+	fmt.Println("\nClass 191 - Writer interface")
+	fmt.Println("Hello World!")
+	fmt.Fprintln(os.Stdout, "Hello World!") // os.Stdout implements Writer interface
+	io.WriteString(os.Stdout, "Hello World!\n")
 }
