@@ -481,3 +481,7 @@ type Reader interface {
 	Read(p []byte) (n int, err error)
 }
 ```
+
+## Section 24 - Application
+
+https://mholt.github.io/json-to-go/

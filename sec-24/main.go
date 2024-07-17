@@ -13,6 +13,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class189()
+	class190()
 }
 
 type person struct {
@@ -41,4 +42,31 @@ func class189() {
 		fmt.Println(err)
 	}
 	fmt.Println(string(xb))
+}
+
+type person2 struct {
+	First string `json:"First"`
+	Last  string `json:"Last"`
+	Age   int    `json:"Age"`
+}
+
+func class190() {
+	fmt.Println("\nClass 190 - JSON Unmarshal")
+	s := `[{"First":"James","Last":"Bond","Age":32},{"First":"Miss","Last":"Moneypenny","Age":27}]`
+	bs := []byte(s)
+	fmt.Printf("%T - %v\n", s, s)
+	fmt.Printf("%T - %v\n", bs, bs)
+
+	var people []person2
+	err := json.Unmarshal(bs, &people)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(people)
+	for i, v := range people {
+		fmt.Println("Person #", i)
+		fmt.Println("\tFirst:", v.First)
+		fmt.Println("\tLast:", v.Last)
+		fmt.Println("\tAge:", v.Age)
+	}
 }
