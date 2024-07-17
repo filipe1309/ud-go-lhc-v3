@@ -19,6 +19,7 @@ func main() {
 	class190()
 	class191()
 	class192()
+	class193()
 }
 
 type person struct {
@@ -84,7 +85,7 @@ func class191() {
 }
 
 func class192() {
-	fmt.Println("\nClass 192 - ")
+	fmt.Println("\nClass 192 - Sort")
 	xi := []int{4, 7, 3, 42, 99, 18, 16, 56, 12}
 	xs := []string{"James", "Q", "M", "Moneypenny", "Dr. No"}
 
@@ -97,4 +98,40 @@ func class192() {
 	fmt.Println(xs)
 	sort.Strings(xs)
 	fmt.Println(xs)
+}
+
+type Person3 struct {
+	first string
+	age   int
+}
+
+type ByAge []Person3
+// Implementing sort.Interface, that is used by sort.Sort
+func (a ByAge) Len() int           { return len(a) }
+func (a ByAge) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByAge) Less(i, j int) bool { return a[i].age < a[j].age }
+
+type ByName []Person3
+func (a ByName) Len() int           { return len(a) }
+func (a ByName) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByName) Less(i, j int) bool { return a[i].first < a[j].first }
+
+func class193() {
+	fmt.Println("\nClass 193 - Sort custom")
+	p1:= Person3{"James", 32}
+	p2:= Person3{"Moneypenny", 27}
+	p3:= Person3{"Q", 64}
+	p4:= Person3{"M", 56}
+
+	people := []Person3{p1, p2, p3, p4}
+
+	fmt.Println(people)
+	sort.Sort(ByAge(people))
+	fmt.Println(people)
+
+	fmt.Println("--------------")
+
+	fmt.Println(people)
+	sort.Sort(ByName(people))
+	fmt.Println(people)
 }
