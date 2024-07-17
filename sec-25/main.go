@@ -18,6 +18,7 @@ func main() {
 	class196()
 	class197()
 	class198()
+	class199()
 }
 
 type user struct {
@@ -108,4 +109,86 @@ func class198() {
 	fmt.Println(xs)
 	sort.Strings(xs)
 	fmt.Println(xs)
+}
+
+type byFirst []person
+
+func (a byFirst) Len() int           { return len(a) }
+func (a byFirst) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a byFirst) Less(i, j int) bool { return a[i].First < a[j].First }
+
+type byLast []person
+
+func (a byLast) Len() int           { return len(a) }
+func (a byLast) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a byLast) Less(i, j int) bool { return a[i].Last < a[j].Last }
+
+func class199() {
+	fmt.Println("\nClass 199 - Hands-on exercise #5")
+	p1 := person{
+		First:   "James",
+		Last:    "Bond",
+		Age:     32,
+		Sayings: []string{"Shaken, not stirred", "Youth is no guarantee of innovation", "In his majesty's royal service"},
+	}
+
+	p2 := person{
+		First:   "Miss",
+		Last:    "Moneypenny",
+		Age:     27,
+		Sayings: []string{"James! It is so good to see you!", "Would you like me to take care of that for you, James?"},
+	}
+	p3 := person{
+		First:   "Q",
+		Last:    "A",
+		Age:     64,
+		Sayings: []string{"I can do more damage on my laptop before my first cup of Earl Grey", "Oh, grow up, 007!"},
+	}
+	p4 := person{
+		First:   "M",
+		Last:    "M",
+		Age:     56,
+		Sayings: []string{"Oh, James. You didn't.", "Dear God, what has James done now?"},
+	}
+
+	people := []person{p1, p2, p3, p4}
+	fmt.Println(people)
+
+	fmt.Println("---------Original---------")
+	for i, p := range people {
+		fmt.Println("Person", i)
+		fmt.Println("\tFirst:", p.First)
+		fmt.Println("\tLast:", p.Last)
+		fmt.Println("\tAge:", p.Age)
+		for j, s := range p.Sayings {
+			fmt.Println("\tSaying", j, ":", s)
+		}
+	}
+
+	fmt.Println("---------By First---------")
+	sort.Sort(byFirst(people))
+	fmt.Println(people)
+	for i, p := range people {
+		fmt.Println("Person", i)
+		fmt.Println("\tFirst:", p.First)
+		fmt.Println("\tLast:", p.Last)
+		fmt.Println("\tAge:", p.Age)
+		sort.Strings(p.Sayings)
+		for j, s := range p.Sayings {
+			fmt.Println("\tSaying", j, ":", s)
+		}
+	}
+
+	fmt.Println("---------By Last---------")
+	sort.Sort(byLast(people))
+	for i, p := range people {
+		fmt.Println("Person", i)
+		fmt.Println("\tFirst:", p.First)
+		fmt.Println("\tLast:", p.Last)
+		fmt.Println("\tAge:", p.Age)
+		sort.Strings(p.Sayings)
+		for j, s := range p.Sayings {
+			fmt.Println("\tSaying", j, ":", s)
+		}
+	}
 }
