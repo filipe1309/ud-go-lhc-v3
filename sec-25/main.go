@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"sort"
 )
 
 func init() {
@@ -16,6 +17,7 @@ func main() {
 	class195()
 	class196()
 	class197()
+	class198()
 }
 
 type user struct {
@@ -92,4 +94,18 @@ func class197() {
 	if err != nil {
 		fmt.Println(err)
 	}
+}
+
+func class198() {
+	fmt.Println("\nClass 198 - Hands-on exercise #4")
+	xi := []int{5, 8, 2, 43, 17, 987, 14, 12, 21, 1, 4, 2}
+	xs := []string{"James", "M", "Bond", "Shaken, not stirred", "Miss", "Moneypenny", "Helloooooo, James."}
+
+	fmt.Println(xi)
+	sort.Ints(xi)
+	fmt.Println(xi)
+
+	fmt.Println(xs)
+	sort.Strings(xs)
+	fmt.Println(xs)
 }
