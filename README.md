@@ -99,8 +99,20 @@ Please make sure to update tests as appropriate. -->
 
 ## :clap: Acknowledgments
 
-- [AlgoExpert](https://www.algoexpert.io/)
+- [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/course/learn-how-to-code)
+- [Todd McLeod Github repo](https://github.com/GoesToEleven/learn-to-code-go-version-03)
 - [ShubcoGen Template™](https://github.com/filipe1309/shubcogen-template)
+- [Effective Go](https://go.dev/doc/effective_go)
+- [Forum](https://forum.golangbridge.org/)
+- [Playground](https://go.dev/play/)
+- [Numeral system](https://en.wikipedia.org/wiki/Numeral_system)
+- [Primitive data type](https://en.wikipedia.org/wiki/Primitive_data_type)
+- [Builtin](https://pkg.go.dev/builtin)
+- [Constants](https://go.dev/blog/constants)
+- [Tour](https://go.dev/tour/list)
+- [Generics](https://go.dev/doc/tutorial/generics)
+- [JSON to Go](https://mholt.github.io/json-to-go/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
