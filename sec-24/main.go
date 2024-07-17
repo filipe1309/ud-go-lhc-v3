@@ -6,6 +6,8 @@ import (
 	"io"
 	"os"
 	"sort"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 func init() {
@@ -20,6 +22,7 @@ func main() {
 	class191()
 	class192()
 	class193()
+	class194()
 }
 
 type person struct {
@@ -106,22 +109,24 @@ type Person3 struct {
 }
 
 type ByAge []Person3
+
 // Implementing sort.Interface, that is used by sort.Sort
 func (a ByAge) Len() int           { return len(a) }
 func (a ByAge) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByAge) Less(i, j int) bool { return a[i].age < a[j].age }
 
 type ByName []Person3
+
 func (a ByName) Len() int           { return len(a) }
 func (a ByName) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByName) Less(i, j int) bool { return a[i].first < a[j].first }
 
 func class193() {
 	fmt.Println("\nClass 193 - Sort custom")
-	p1:= Person3{"James", 32}
-	p2:= Person3{"Moneypenny", 27}
-	p3:= Person3{"Q", 64}
-	p4:= Person3{"M", 56}
+	p1 := Person3{"James", 32}
+	p2 := Person3{"Moneypenny", 27}
+	p3 := Person3{"Q", 64}
+	p4 := Person3{"M", 56}
 
 	people := []Person3{p1, p2, p3, p4}
 
@@ -134,4 +139,24 @@ func class193() {
 	fmt.Println(people)
 	sort.Sort(ByName(people))
 	fmt.Println(people)
+}
+
+func class194() {
+	fmt.Println("\nClass 194 - bcrypt")
+	s := `password123`
+	bs, err := bcrypt.GenerateFromPassword([]byte(s), bcrypt.MinCost)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(s)
+	fmt.Println(bs)
+	fmt.Println(string(bs))
+
+	loginPassword := `password1234`
+	err = bcrypt.CompareHashAndPassword(bs, []byte(loginPassword))
+	if err != nil {
+		fmt.Println("You can't login")
+		return
+	}
+	fmt.Println("You're logged in")
 }
