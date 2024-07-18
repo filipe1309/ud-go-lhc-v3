@@ -485,3 +485,13 @@ type Reader interface {
 ## Section 24 - Application
 
 https://mholt.github.io/json-to-go/
+
+## Section 26 - Concurrency
+
+Concurrency is the ability to run multiple tasks at the same time.
+
+Parallelism is the ability to run multiple tasks simultaneously.
+
+The method set of a type determines the interfaces that the type implements.
+
+

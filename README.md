@@ -9,7 +9,10 @@
 
 ## 💬 About
 
+> #### Quotes
 > "Persistently, patiently you are bound to succeed" by Todd McLeod
+>
+> "It takes time to understand the wisdom of the masters" by Todd McLeod
 
 This project was developed following Udemy's "[Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/course/learn-how-to-code)" course by Todd McLeod.
 
