@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"sync/atomic"
 )
 
 func init() {
@@ -17,6 +18,7 @@ func main() {
 	class208()
 	class209()
 	class210()
+	class211()
 }
 
 func class207() {
@@ -114,7 +116,29 @@ func class210() {
 			v := counter
 			v++
 			counter = v
+			fmt.Println("Current Counter\t", counter)
 			mu.Unlock()
+		}()
+	}
+
+	wg.Wait()
+	fmt.Println("Counter\t", counter)
+}
+
+func class211() {
+	fmt.Println("\nClass 211 - Hands-on exercise #5")
+	// verify with: go run -race main.go
+
+	var wg sync.WaitGroup
+	var counter int64
+	const gs = 100
+	wg.Add(gs)
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			defer wg.Done()
+			atomic.AddInt64(&counter, 1)
+			fmt.Println("Current Counter\t", atomic.LoadInt64(&counter))
 		}()
 	}
 
