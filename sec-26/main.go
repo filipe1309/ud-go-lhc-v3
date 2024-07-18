@@ -14,7 +14,8 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class201()
-	class202()
+	class204()
+	class205()
 }
 
 var wg sync.WaitGroup
@@ -50,8 +51,8 @@ func class201() {
 	fmt.Println("GoRoutines\t", runtime.NumGoroutine())
 }
 
-func class202() {
-	fmt.Println("\nClass 202 - Race Condition")
+func class204() {
+	fmt.Println("\nClass 204 - Race Condition")
 
 	// runtime.GOMAXPROCS(100)
 	fmt.Println("CPUs\t\t", runtime.NumCPU())
@@ -78,5 +79,37 @@ func class202() {
 	fmt.Println("GoRoutines after for\t", runtime.NumGoroutine())
 	wg2.Wait()
 	fmt.Println("GoRoutines after wg2.Wait()\t", runtime.NumGoroutine())
+	fmt.Println("Counter:", counter)
+}
+
+func class205() {
+	fmt.Println("\nClass 205 - Mutex")
+	fmt.Println("CPUs\t\t", runtime.NumCPU())
+	fmt.Println("GoRoutines before for\t", runtime.NumGoroutine())
+
+	counter := 0
+	const gs = 100
+	var wg3 sync.WaitGroup
+	wg3.Add(gs)
+
+	var mu sync.Mutex
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			defer wg3.Done()
+			mu.Lock()
+			v := counter
+			// time.Sleep(time.Second)
+			runtime.Gosched()
+			v++
+			counter = v
+			mu.Unlock()
+		}()
+		fmt.Println("GoRoutines in for\t", runtime.NumGoroutine())
+	}
+
+	fmt.Println("GoRoutines after for\t", runtime.NumGoroutine())
+	wg3.Wait()
+	fmt.Println("GoRoutines after wg3.Wait()\t", runtime.NumGoroutine())
 	fmt.Println("Counter:", counter)
 }
