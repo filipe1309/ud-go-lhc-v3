@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"sync/atomic"
 )
 
 func init() {
@@ -16,6 +17,7 @@ func main() {
 	class201()
 	class204()
 	class205()
+	class206()
 }
 
 var wg sync.WaitGroup
@@ -111,5 +113,31 @@ func class205() {
 	fmt.Println("GoRoutines after for\t", runtime.NumGoroutine())
 	wg3.Wait()
 	fmt.Println("GoRoutines after wg3.Wait()\t", runtime.NumGoroutine())
+	fmt.Println("Counter:", counter)
+}
+
+func class206() {
+	fmt.Println("\nClass 206 - Atomic")
+	fmt.Println("CPUs\t\t", runtime.NumCPU())
+	fmt.Println("GoRoutines before for\t", runtime.NumGoroutine())
+
+	var counter int64
+	const gs = 100
+	var wg4 sync.WaitGroup
+	wg4.Add(gs)
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			defer wg4.Done()
+			atomic.AddInt64(&counter, 1)
+			fmt.Println("Counter in goroutine\t", atomic.LoadInt64(&counter))
+			runtime.Gosched()
+		}()
+		fmt.Println("GoRoutines in for\t", runtime.NumGoroutine())
+	}
+
+	fmt.Println("GoRoutines after for\t", runtime.NumGoroutine())
+	wg4.Wait()
+	fmt.Println("GoRoutines after wg4.Wait()\t", runtime.NumGoroutine())
 	fmt.Println("Counter:", counter)
 }
