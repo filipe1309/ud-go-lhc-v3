@@ -19,6 +19,7 @@ func main() {
 	class209()
 	class210()
 	class211()
+	class212()
 }
 
 func class207() {
@@ -144,4 +145,10 @@ func class211() {
 
 	wg.Wait()
 	fmt.Println("Counter\t", counter)
+}
+
+func class212() {
+	fmt.Println("\nClass 212 - Hands-on exercise #6")
+	fmt.Println("OS\t", runtime.GOOS)
+	fmt.Println("ARCH\t", runtime.GOARCH)
 }
