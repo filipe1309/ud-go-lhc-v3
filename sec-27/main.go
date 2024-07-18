@@ -15,6 +15,7 @@ func main() {
 	fmt.Println("Main function")
 	class207()
 	class208()
+	class209()
 }
 
 func class207() {
@@ -69,4 +70,28 @@ func class208() {
 	}
 	saySomething(p2) // This will work, because p2 is a pointer
 	p2.speak()
+}
+
+func class209() {
+	fmt.Println("\nClass 209 - Hands-on exercise #3")
+	// verify with: go run -race main.go
+
+	var wg sync.WaitGroup
+	const gs = 100
+	counter := 0
+	wg.Add(gs)
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			defer wg.Done()
+			// race condition
+			v := counter
+			runtime.Gosched()
+			v++
+			counter = v
+		}()
+	}
+
+	wg.Wait()
+	fmt.Println("Counter\t", counter)
 }
