@@ -16,6 +16,7 @@ func main() {
 	class207()
 	class208()
 	class209()
+	class210()
 }
 
 func class207() {
@@ -89,6 +90,31 @@ func class209() {
 			runtime.Gosched()
 			v++
 			counter = v
+		}()
+	}
+
+	wg.Wait()
+	fmt.Println("Counter\t", counter)
+}
+
+func class210() {
+	fmt.Println("\nClass 210 - Hands-on exercise #4")
+	// verify with: go run -race main.go
+
+	var mu sync.Mutex
+	var wg sync.WaitGroup
+	const gs = 100
+	counter := 0
+	wg.Add(gs)
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			defer wg.Done()
+			mu.Lock()
+			v := counter
+			v++
+			counter = v
+			mu.Unlock()
 		}()
 	}
 
