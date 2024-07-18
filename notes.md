@@ -494,4 +494,10 @@ Parallelism is the ability to run multiple tasks simultaneously.
 
 The method set of a type determines the interfaces that the type implements.
 
+Race conditions occur when two or more goroutines access shared data and attempt to modify it at the same time.
+
+The `go run -race` command is used to verify that:
+```sh
+go run -race sec-26/main.go
+```
 

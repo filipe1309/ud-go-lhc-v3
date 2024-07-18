@@ -14,6 +14,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class201()
+	class202()
 }
 
 var wg sync.WaitGroup
@@ -47,4 +48,35 @@ func class201() {
 	wg.Wait()
 
 	fmt.Println("GoRoutines\t", runtime.NumGoroutine())
+}
+
+func class202() {
+	fmt.Println("\nClass 202 - Race Condition")
+
+	// runtime.GOMAXPROCS(100)
+	fmt.Println("CPUs\t\t", runtime.NumCPU())
+	fmt.Println("GoRoutines before for\t", runtime.NumGoroutine())
+
+	counter := 0
+	const gs = 100
+	var wg2 sync.WaitGroup
+	wg2.Add(gs)
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			defer wg2.Done()
+			// Simulate race condition
+			v := counter
+			// time.Sleep(time.Second)
+			runtime.Gosched()
+			v++
+			counter = v
+		}()
+		fmt.Println("GoRoutines in for\t", runtime.NumGoroutine())
+	}
+
+	fmt.Println("GoRoutines after for\t", runtime.NumGoroutine())
+	wg2.Wait()
+	fmt.Println("GoRoutines after wg2.Wait()\t", runtime.NumGoroutine())
+	fmt.Println("Counter:", counter)
 }
