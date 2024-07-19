@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"math/rand"
 	"runtime"
@@ -23,6 +24,8 @@ func main() {
 	class218()
 	class219()
 	class220()
+	class221()
+	class221_2()
 }
 
 func class213() {
@@ -311,4 +314,70 @@ func class220() {
 	}
 
 	fmt.Println("End of the function")
+}
+
+func class221() {
+	fmt.Println("\nClass 221 - Context")
+
+	fmt.Println("context.Background()")
+
+	ctx := context.Background()
+
+	fmt.Println("Context:\t", ctx)
+	fmt.Println("Context Err:\t", ctx.Err())
+	fmt.Printf("Context Type:\t%T\n", ctx)
+
+	fmt.Println("\ncontext.WithCancel(ctx)")
+
+	ctx, cancel := context.WithCancel(ctx)
+
+	fmt.Println("Context:\t", ctx)
+	fmt.Println("Context Err:\t", ctx.Err())
+	fmt.Printf("Context Type:\t%T\n", ctx)
+	fmt.Println("Cancel:\t\t", cancel)
+	fmt.Printf("Cancel Type:\t%T\n", cancel)
+
+	fmt.Println("\ncancel()")
+	cancel()
+
+	fmt.Println("Context:\t", ctx)
+	fmt.Println("Context Err:\t", ctx.Err())
+	fmt.Printf("Context Type:\t%T\n", ctx)
+	fmt.Println("Cancel:\t\t", cancel)
+	fmt.Printf("Cancel Type:\t%T\n", cancel)
+}
+
+func class221_2() {
+	fmt.Println("\nClass 221 - Context")
+
+	ctx, cancel := context.WithCancel(context.Background())
+
+	fmt.Println("Error check 1:", ctx.Err())
+	fmt.Println("Num Goroutine 1:", runtime.NumGoroutine())
+
+	go func() {
+		n := 0
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			default:
+				n++
+				time.Sleep(time.Millisecond * 200)
+				fmt.Println("working", n)
+			}
+		}
+	}()
+
+	time.Sleep(time.Second * 2)
+	fmt.Println("Error check 2:", ctx.Err())
+	fmt.Println("Num Goroutine 2:", runtime.NumGoroutine())
+
+	fmt.Println("About to cancel context")
+	cancel()
+	fmt.Println("Cancelled context")
+
+	time.Sleep(time.Second * 2)
+	fmt.Println("Error check 3:", ctx.Err())
+	fmt.Println("Num Goroutine 3:", runtime.NumGoroutine())
 }
