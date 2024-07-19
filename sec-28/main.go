@@ -15,6 +15,7 @@ func main() {
 	class214()
 	class215()
 	class216()
+	class217()
 }
 
 func class213() {
@@ -106,6 +107,47 @@ func class216() {
 	for v := range c {
 		fmt.Println(v)
 	}
+
+	fmt.Println("End of the function")
+}
+
+func sendTo(even, odd, quit chan<- int) {
+	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
+			even <- i
+		} else {
+			odd <- i
+		}
+	}
+	quit <- 0
+}
+
+func receiveFrom(even, odd, quit <-chan int) {
+	for {
+		select {
+		case v := <-even:
+			fmt.Println("Even:\t", v)
+		case v := <-odd:
+			fmt.Println("Odd:\t", v)
+		case v := <-quit:
+			fmt.Println("Quit:\t", v)
+			return
+		}
+	}
+}
+
+func class217() {
+	fmt.Println("\nClass 217 - Select")
+
+	even := make(chan int)
+	odd := make(chan int)
+	quit := make(chan int)
+
+	// Send
+	go sendTo(even, odd, quit)
+
+	// Receive
+	receiveFrom(even, odd, quit)
 
 	fmt.Println("End of the function")
 }
