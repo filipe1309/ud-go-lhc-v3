@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"runtime"
 	"sync"
+	"time"
 )
 
 func init() {
@@ -19,6 +22,7 @@ func main() {
 	class217()
 	class218()
 	class219()
+	class220()
 }
 
 func class213() {
@@ -259,6 +263,51 @@ func class219() {
 
 	for v := range fanin {
 		fmt.Println("Fan in:\t", v)
+	}
+
+	fmt.Println("End of the function")
+}
+
+func populate(c1 chan int) {
+	for i := 0; i < 5; i++ {
+		c1 <- i
+	}
+	close(c1)
+}
+
+func fanOutIn(c1, c2 chan int) {
+	var wg sync.WaitGroup
+	for v := range c1 {
+		wg.Add(1)
+		// Fan out (multiple goroutines), passing the values to the goroutines
+		go func(v2 int) {
+			// Fan in, send the result to c2
+			fmt.Printf("Go routine: %d - %d\n", runtime.NumGoroutine(), v2)
+			c2 <- timeConsumingWork(v2)
+			wg.Done()
+		}(v)
+	}
+	wg.Wait()
+	close(c2)
+}
+
+func timeConsumingWork(v int) int {
+	time.Sleep(time.Microsecond * time.Duration(rand.Intn(500)))
+	return v + rand.Intn(1000)
+}
+
+func class220() {
+	fmt.Println("\nClass 220 - Fan out")
+
+	c1 := make(chan int)
+	c2 := make(chan int)
+
+	go populate(c1)
+
+	go fanOutIn(c1, c2)
+
+	for v := range c2 {
+		fmt.Println("Fan out:\t", v)
 	}
 
 	fmt.Println("End of the function")
