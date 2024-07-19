@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 func init() {
@@ -17,6 +18,7 @@ func main() {
 	class216()
 	class217()
 	class218()
+	class219()
 }
 
 func class213() {
@@ -204,6 +206,60 @@ func class218() {
 
 	v, ok = <-c
 	fmt.Println(v, ok)
+
+	fmt.Println("End of the function")
+}
+
+func sendTo219(even, odd chan<- int) {
+	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
+			even <- i
+		} else {
+			odd <- i
+		}
+	}
+	close(even)
+	close(odd)
+}
+
+func receiveFrom219(even, odd <-chan int, fanin chan<- int) {
+	var wg sync.WaitGroup
+	wg.Add(2)
+
+	go func() {
+		defer wg.Done()
+		for v := range even {
+			fanin <- v
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+		for v := range odd {
+			fanin <- v
+		}
+	}()
+
+	wg.Wait()
+	close(fanin)
+}
+
+func class219() {
+	fmt.Println("\nClass 219 - Fan in")
+
+	even := make(chan int)
+	odd := make(chan int)
+	fanin := make(chan int)
+
+	// Send
+	go sendTo219(even, odd)
+
+	// Receive
+	go receiveFrom219(even, odd, fanin)
+
+	for v := range fanin {
+		fmt.Println("Fan in:\t", v)
+	}
 
 	fmt.Println("End of the function")
 }
