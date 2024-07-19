@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class222()
 	class223()
+	class224()
 }
 
 func class222() {
@@ -40,4 +41,31 @@ func class223() {
 
 	fmt.Println("------")
 	fmt.Printf("cs\t%T\n", cs)
+}
+
+func gen() <-chan int {
+	out := make(chan int)
+
+	go func() {
+		for i := 0; i < 100; i++ {
+			out <- i
+		}
+		close(out)
+	}()
+	return out
+}
+
+func receive(c <-chan int) {
+	for v := range c {
+		fmt.Println(v)
+	}
+}
+
+func class224() {
+	fmt.Println("\nClass 224 - Hands-on exercise #3")
+
+	c := gen()
+	receive(c)
+
+	fmt.Println("About to exit")
 }
