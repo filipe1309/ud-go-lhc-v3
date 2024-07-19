@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Main function")
 	class213()
 	class214()
+	class215()
 }
 
 func class213() {
@@ -65,4 +66,23 @@ func class214() {
 	fmt.Printf("c\t%T (send/receive)\n", c)
 	fmt.Printf("c\t%T (send)\n", (chan<- int)(c))
 	fmt.Printf("c\t%T (receive)\n", (<-chan int)(c))
+}
+
+func foo(c chan<- int) {
+	c <- 42
+}
+
+func bar(c <-chan int) {
+	fmt.Println(<-c)
+}
+
+func class215() {
+	fmt.Println("\nClass 215 - Using channels")
+
+	c := make(chan int)
+
+	go foo(c)
+	bar(c)
+
+	fmt.Println("End of the function")
 }
