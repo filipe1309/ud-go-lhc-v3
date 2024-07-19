@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class213()
+	class214()
 }
 
 func class213() {
@@ -37,4 +38,31 @@ func class213() {
 	c3 <- 43
 	fmt.Println(<-c3)
 	fmt.Println(<-c3)
+}
+
+func class214() {
+	fmt.Println("\nClass 214 - Directional channels")
+
+	c := make(chan int)
+	cr := make(<-chan int) // Receive (from channel)
+	cs := make(chan<- int) // Send (to channel)
+
+	// cr <- 42 // This will cause an error, because cr is a receive-only channel
+	go func() {
+		cs <- 42 // This will work, because cs is a send-only channel
+	}()
+
+	fmt.Println("Channel")
+	fmt.Printf("c\t%T\n", c)
+	fmt.Printf("cr\t%T\n", cr)
+	fmt.Printf("cs\t%T\n", cs)
+
+	// assign channel to directional channel
+	// cr = c // This will work, because c is a bidirectional channel
+	// cs = c // This will work, because c is a bidirectional channel
+
+	fmt.Println("General to specific converts")
+	fmt.Printf("c\t%T (send/receive)\n", c)
+	fmt.Printf("c\t%T (send)\n", (chan<- int)(c))
+	fmt.Printf("c\t%T (receive)\n", (<-chan int)(c))
 }
