@@ -14,6 +14,7 @@ func main() {
 	class222()
 	class223()
 	class224()
+	class225()
 }
 
 func class222() {
@@ -66,6 +67,43 @@ func class224() {
 
 	c := gen()
 	receive(c)
+
+	fmt.Println("About to exit")
+}
+
+func gen225(q chan<- int) <-chan int {
+	c := make(chan int)
+
+	go func() {
+		for i := 0; i < 100; i++ {
+			c <- i
+		}
+		q <- 1
+		close(c)
+	}()
+
+	return c
+}
+
+func receive225(c, q <-chan int) {
+	for {
+		select {
+		case v := <-c:
+			fmt.Println("From c:", v)
+		case v := <-q:
+			fmt.Println("From q:", v)
+			return
+		}
+	}
+}
+
+func class225() {
+	fmt.Println("\nClass 225 - Hands-on exercise #4")
+
+	q := make(chan int)
+	c := gen225(q)
+
+	receive225(c, q)
 
 	fmt.Println("About to exit")
 }
