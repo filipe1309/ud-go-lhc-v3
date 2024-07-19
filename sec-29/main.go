@@ -15,6 +15,7 @@ func main() {
 	class223()
 	class224()
 	class225()
+	class226()
 }
 
 func class222() {
@@ -106,4 +107,20 @@ func class225() {
 	receive225(c, q)
 
 	fmt.Println("About to exit")
+}
+
+func class226() {
+	fmt.Println("\nClass 226 - Hands-on exercise #5")
+
+	c := make(chan int, 1)
+
+	c <- 42
+
+	v, ok := <-c
+	fmt.Println(v, ok)
+
+	close(c)
+
+	v, ok = <-c
+	fmt.Println(v, ok)
 }
