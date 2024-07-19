@@ -16,6 +16,7 @@ func main() {
 	class215()
 	class216()
 	class217()
+	class218()
 }
 
 func class213() {
@@ -148,6 +149,61 @@ func class217() {
 
 	// Receive
 	receiveFrom(even, odd, quit)
+
+	fmt.Println("End of the function")
+}
+
+func sendTo218(even, odd chan<- int, quit chan<- bool) {
+	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
+			even <- i
+		} else {
+			odd <- i
+		}
+	}
+	close(quit)
+}
+
+func receiveFrom218(even, odd <-chan int, quit <-chan bool) {
+	for {
+		select {
+		case v := <-even:
+			fmt.Println("Even:\t", v)
+		case v := <-odd:
+			fmt.Println("Odd:\t", v)
+		case v, ok := <-quit:
+			fmt.Println("Quit:\t", v)
+			if !ok {
+				fmt.Println("Quit channel closed")
+				return
+			}
+		}
+	}
+}
+
+func class218() {
+	fmt.Println("\nClass 218 - Comma ok idiom")
+
+	even := make(chan int)
+	odd := make(chan int)
+	quit := make(chan bool)
+
+	// Send
+	go sendTo218(even, odd, quit)
+
+	// Receive
+	receiveFrom218(even, odd, quit)
+
+	c := make(chan int)
+	go func() {
+		c <- 42
+		close(c)
+	}()
+	v, ok := <-c
+	fmt.Println(v, ok)
+
+	v, ok = <-c
+	fmt.Println(v, ok)
 
 	fmt.Println("End of the function")
 }
