@@ -14,6 +14,7 @@ func main() {
 	class213()
 	class214()
 	class215()
+	class216()
 }
 
 func class213() {
@@ -83,6 +84,28 @@ func class215() {
 
 	go foo(c)
 	bar(c)
+
+	fmt.Println("End of the function")
+}
+
+func class216() {
+	fmt.Println("\nClass 216 - Range")
+
+	c := make(chan int)
+
+	// Send
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		close(c) // Close the channel, so the receiver will know that there is no more value to receive
+	}()
+
+	// Receive
+	// range wait for the channel to be closed
+	for v := range c {
+		fmt.Println(v)
+	}
 
 	fmt.Println("End of the function")
 }
