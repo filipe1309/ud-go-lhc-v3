@@ -509,3 +509,6 @@ go run -race sec-26/main.go
 Channels block!!!
 
 Channels are a way for goroutines to communicate with each other and synchronize their execution.
+
+Range over a channel will block until the channel is closed.
+
