@@ -12,6 +12,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class222()
+	class223()
 }
 
 func class222() {
@@ -25,4 +26,18 @@ func class222() {
 	}()
 
 	fmt.Println(<-c)
+}
+
+func class223() {
+	fmt.Println("\nClass 223 - Hands-on exercise #2")
+
+	cs := make(chan int)
+
+	go func() {
+		cs <- 42
+	}()
+	fmt.Println(<-cs)
+
+	fmt.Println("------")
+	fmt.Printf("cs\t%T\n", cs)
 }
