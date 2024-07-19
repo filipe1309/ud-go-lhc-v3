@@ -488,6 +488,8 @@ https://mholt.github.io/json-to-go/
 
 ## Section 26 - Concurrency
 
+**Do not communicate by sharing memory; instead, share memory by communicating.**
+
 Concurrency is the ability to run multiple tasks at the same time.
 
 Parallelism is the ability to run multiple tasks simultaneously.
@@ -501,3 +503,9 @@ The `go run -race` command is used to verify that:
 go run -race sec-26/main.go
 ```
 
+
+## Section 28 - Channels
+
+Channels block!!!
+
+Channels are a way for goroutines to communicate with each other and synchronize their execution.
