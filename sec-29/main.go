@@ -17,6 +17,7 @@ func main() {
 	class225()
 	class226()
 	class227()
+	class228()
 }
 
 func class222() {
@@ -140,6 +141,26 @@ func class227() {
 
 	for v := range c {
 		fmt.Println(v)
+	}
+
+	fmt.Println("About to exit")
+}
+
+func class228() {
+	fmt.Println("\nClass 228 - Hands-on exercise #7")
+
+	c := make(chan int)
+
+	for i := 0; i < 10; i++ {
+		go func() {
+			for i := 0; i < 10; i++ {
+				c <- i
+			}
+		}()
+	}
+
+	for k := 0; k < 100; k++ {
+		fmt.Println(k, <-c)
 	}
 
 	fmt.Println("About to exit")
