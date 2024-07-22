@@ -16,6 +16,7 @@ func main() {
 	class234()
 	class235()
 	class236()
+	class237()
 }
 
 type person struct {
@@ -93,4 +94,32 @@ func class236() {
 		info: "need more coffee",
 	}
 	foo(c1)
+}
+
+type sqrtError struct {
+	lat  string
+	long string
+	err  error
+}
+
+func (se sqrtError) Error() string {
+	return fmt.Sprintf("a sqrt error occurred: %v %v %v", se.lat, se.long, se.err)
+}
+
+func sqrt(f float64) (float64, error) {
+	if f < 0 {
+		// e :=  errors.New("more coffee needed")
+		e := fmt.Errorf("norgate math redux: square root of negative number: %v", f)
+		return 0, sqrtError{"50.2289 N", "99.4656 W", e}
+	}
+	return 42, nil
+}
+
+func class237() {
+	fmt.Println("\nClass 237 - Hands-on exercise #4")
+
+	_, err := sqrt(-10.23)
+	if err != nil {
+		log.Println(err)
+	}
 }
