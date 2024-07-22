@@ -18,7 +18,8 @@ func main() {
 	// class230()
 	// class230_3()
 	// class230_4()
-	class231()
+	// class231()
+	class232()
 }
 
 func class230() {
@@ -118,4 +119,32 @@ func class231() {
 	}
 
 	fmt.Println("Check the log.txt file in the directory")
+}
+
+func f() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered in f()", r)
+		}
+	}()
+	fmt.Println("Calling g.")
+	g(0)
+	fmt.Println("Returned normally from g.")
+}
+
+func g(i int) {
+	if i > 3 {
+		fmt.Println("Panicking!")
+		panic(fmt.Sprint("%v", i))
+	}
+	defer fmt.Println("Defer in g", i)
+	fmt.Println("Printing in g", i)
+	g(i + 1)
+}
+
+func class232() {
+	fmt.Println("\nClass 232 - Recover")
+
+	f()
+	fmt.Println("Returned normally from f()")
 }
