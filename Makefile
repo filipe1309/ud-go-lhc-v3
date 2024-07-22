@@ -4,9 +4,9 @@ test:
 	@if [ -z "$(SEC)" ]; then \
 		SEC=$$(ls -d sec-* | tail -n 1 | cut -d '-' -f 2); \
 		echo "🔍 No section provided, running last section: $$SEC"; \
-		go test -v sec-$$SEC/...; \
+		go test -v sec-$$SEC-*/*; \
 	else \
-		go test -v sec-$(SEC)/...; \
+		go test -v sec-$(SEC)-*/*; \
 	fi
 
 # run all tests
@@ -19,9 +19,9 @@ build:
 	@if [ -z "$(SEC)" ]; then \
 		SEC=$$(ls -d sec-* | tail -n 1 | cut -d '-' -f 2); \
 		echo "🔍 No section provided, running last section: $$SEC"; \
-		go build sec-$$SEC/main.go; \
+		go build -o bin/sec-$$SEC sec-$$SEC-*/main.go; \
 	else \
-		go build sec-$(SEC)/main.go \
+		go build -o bin/sec-$(SEC) sec-$(SEC)-*/main.go; \
 	fi
 	
 
@@ -32,16 +32,16 @@ run:
 	@if [ -z "$(SEC)" ]; then \
 		SEC=$$(ls -d sec-* | tail -n 1 | cut -d '-' -f 2); \
 		echo "🔍 No section provided, running last section: $$SEC"; \
-		go run sec-$$SEC/main.go; \
+		go run sec-$$SEC-*/main.go; \
 	else \
-		go run sec-$(SEC)/main.go; \
+		go run sec-$(SEC)-*/main.go; \
 	fi
 
 # create new section using scripts/new-section.sh
-# example: make new-section [SEC=03] # default last section + 1
+# example: make new-section [SEC=03] [DESC="Section description"] # default last section + 1
 new-section:
 	@echo "📝 Creating new section $(SEC)..."
-	./scripts/new-section.sh $(SEC)
+	./scripts/new-section.sh $(SEC) $(DESC)
 	
 
 help:
@@ -50,5 +50,5 @@ help:
 	@echo "  make test SEC=03"
 	@echo "  make test-all"
 	@echo "  make build"
-	@echo "  make new-section [SEC=03] # default last section + 1"
+	@echo "  make new-section [SEC=03] [DESC="Section description"] # default last section + 1"
 	@echo "  make help"
