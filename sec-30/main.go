@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -19,7 +20,8 @@ func main() {
 	// class230_3()
 	// class230_4()
 	// class231()
-	class232()
+	// class232()
+	class233()
 }
 
 func class230() {
@@ -135,7 +137,7 @@ func f() {
 func g(i int) {
 	if i > 3 {
 		fmt.Println("Panicking!")
-		panic(fmt.Sprint("%v", i))
+		// panic(fmt.Sprint("%v", i))
 	}
 	defer fmt.Println("Defer in g", i)
 	fmt.Println("Printing in g", i)
@@ -147,4 +149,35 @@ func class232() {
 
 	f()
 	fmt.Println("Returned normally from f()")
+}
+
+var ErrorNorgateMath = errors.New("norgate math: square root of negative number")
+
+type norgateMathError struct {
+	lat, long string
+	err       error
+}
+
+func (n norgateMathError) Error() string {
+	return fmt.Sprintf("a norgate math error occurred: %v %v %v", n.lat, n.long, n.err)
+}
+
+func sqrt(f float64) (float64, error) {
+	if f < 0 {
+		// return 0, ErrorNorgateMath
+		// return 0, fmt.Errorf("norgate math again: square root of negative number: %v", f) // = errors.New(Sprintf())
+		name := fmt.Errorf("norgate math redux: square root of negative number: %v", f)
+		return 0, norgateMathError{"50.2289 N", "99.4656 W", name}
+	}
+	return 42, nil
+}
+
+func class233() {
+	fmt.Println("\nClass 233 - Errors with info")
+
+	fmt.Printf("%T\n", ErrorNorgateMath)
+	_, err := sqrt(-10)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
