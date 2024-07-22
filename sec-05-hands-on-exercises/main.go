@@ -31,6 +31,11 @@ const (
 	// YB // 1024 ZB
 )
 
+func init() {
+	fmt.Println("Init function")
+	fmt.Println("Section 5 - Hands-on exercises")
+}
+
 func main() {
 	class24()
 	class25()
@@ -40,10 +45,8 @@ func main() {
 	class29()
 }
 
-// Hands-on exercise #8
-// iota
 func class24() {
-	fmt.Println("\nClass 24")
+	fmt.Println("\nClass 24 - Hands-on exercise #8 - iota")
 
 	fmt.Println(c0, c1, c2)
 	fmt.Println(c3, c4, c5, c6)
@@ -73,10 +76,8 @@ func class24() {
 	fmt.Printf("%d \t %b\n", 1<<six, 1<<six)
 }
 
-// Hands-on exercise #9
-// Measuring bits with bitwise operations
 func class25() {
-	fmt.Println("\nClass 25")
+	fmt.Println("\nClass 25 - Hands-on exercise #9 - Measuring bits with bitwise operations")
 	fmt.Printf("KB dec: %d \t\t\t bin: %b\n", KB, KB)
 	fmt.Printf("MB dec: %d \t\t bin: %b\n", MB, MB)
 	fmt.Printf("GB dec: %d \t\t bin: %b\n", GB, GB)
@@ -93,9 +94,8 @@ func class25() {
 	*/
 }
 
-// zero value, :=, type specificity, blank identifier
 func class26() {
-	fmt.Println("\nClass 26")
+	fmt.Println("\nClass 26 - Hands-on exercise #10 - zero value, :=, type specificity, blank identifier")
 
 	// var for zero value
 	var zero int
@@ -118,30 +118,24 @@ func class26() {
 	fmt.Println(fourth)
 }
 
-// Hands-on exercise #11
-// Printf verbs to show values and types
 func class27() {
-	fmt.Println("\nClass 27")
+	fmt.Println("\nClass 27 - Hands-on exercise #11 - Printf verbs to show values and types")
 	myString, myInt, myFloat := "Hello, World!", 42, 42.42
 	fmt.Printf("Value: %v \t Type: %T\n", myString, myString)
 	fmt.Printf("Value: %v \t\t Type: %T\n", myInt, myInt)
 	fmt.Printf("Value: %v \t\t Type: %T\n", myFloat, myFloat)
 }
 
-// Hands-on exercise #12
-// Printf binary, decimal & hexadecimal
 func class28() {
-	fmt.Println("\nClass 28")
+	fmt.Println("\nClass 28 - Hands-on exercise #12 - Hands-on exercise #12")
 	valOne, valTwo, valThree := 747, 911, 90210
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valOne, valOne, valOne)
 	fmt.Printf("Decimal: %d \t Binary: %b \t\t Hexadecimal: %#X\n", valTwo, valTwo, valTwo)
 	fmt.Printf("Decimal: %d \t Binary: %b \t Hexadecimal: %#X\n", valThree, valThree, valThree)
 }
 
-// Hands-on exercise #13
-// Signed and Unsigned integers
 func class29() {
-	fmt.Println("\nClass 29")
+	fmt.Println("\nClass 29 - Hands-on exercise #13 - Signed and Unsigned integers")
 	var mySignedVar int8 = 127
 	fmt.Printf("mySignedVar \t Decimal: %d \t Binary: %b\n", mySignedVar, mySignedVar)
 	var myUnsignedVar uint8 = 255

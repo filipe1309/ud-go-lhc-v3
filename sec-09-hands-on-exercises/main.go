@@ -10,9 +10,14 @@ var myVarAtPackageLevel = "My var at package level"
 
 const myConstAtPackageLevel = "My const at package level"
 
+func init() {
+	fmt.Println("Init function")
+	fmt.Println("Section 9 - Hands-on exercises")
+}
+
 func main() {
 	fmt.Println("Main function")
-	fmt.Println("Class 54")
+	fmt.Println("Class 54 - Hands-on exercise #14")
 	fmt.Printf("myVarAtPackageLevel: %v\n", myVarAtPackageLevel)
 	fmt.Printf("myConstAtPackageLevel: %v\n", myConstAtPackageLevel)
 
@@ -26,11 +31,11 @@ func main() {
 }
 
 func class59() {
-	fmt.Println("\nClass 59")
+	fmt.Println("\nClass 59 - Hands-on exercise #19")
 	mygolibrary.HelloFromL1v120()
 }
 
 func class60() {
-	fmt.Println("\nClass 60")
+	fmt.Println("\nClass 60 - Hands-on exercise #20")
 	fmt.Printf("puppy.Barks(): %v\n", puppy.Barks())
 }

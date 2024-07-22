@@ -364,7 +364,7 @@ func class168() {
 }
 
 func doWork() {
-	for i := 0; i < 2_000; i++ {
+	for i := 0; i < 2_0; i++ {
 		fmt.Println(i)
 	}
 }

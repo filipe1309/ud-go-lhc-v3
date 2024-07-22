@@ -9,6 +9,7 @@ import (
 // https://go.dev/doc/effective_go#init
 func init() {
 	fmt.Println("Init function")
+	fmt.Println("Section 12 - Hands-on exercises")
 	class78()
 }
 
@@ -30,7 +31,7 @@ func main() {
 }
 
 func class76() {
-	fmt.Println("\nClass 76")
+	fmt.Println("\nClass 76 - Hands-on exercise #23")
 	x := rand.Intn(251)
 	fmt.Printf("x: %v\n", x)
 	if x <= 100 {
@@ -64,12 +65,12 @@ func class76() {
 }
 
 func class78() {
-	fmt.Println("\nClass 78")
+	fmt.Println("\nClass 78 - Hands-on exercise #26")
 	fmt.Println("This is where initialization for my program occurs")
 }
 
 func class79() (x, y int) {
-	fmt.Println("\nClass 79")
+	fmt.Println("\nClass 79 - Hands-on exercise #27")
 	x = rand.Intn(10)
 	y = rand.Intn(10)
 	fmt.Printf("x: %v, y: %v\n", x, y)
@@ -90,7 +91,7 @@ func class79() (x, y int) {
 }
 
 func class80(x, y int) {
-	fmt.Println("\nClass 80")
+	fmt.Println("\nClass 80 - Hands-on exercise #28")
 	class80Switch(x, y)
 	for i := 0; i < 100; i++ {
 		x = rand.Intn(10)
@@ -116,14 +117,14 @@ func class80Switch(x, y int) {
 }
 
 func class81() {
-	fmt.Println("\nClass 81")
+	fmt.Println("\nClass 81 - Hands-on exercise #29")
 	for i := 0; i < 100; i++ {
 		fmt.Println(i)
 	}
 }
 
 func class82() {
-	fmt.Println("\nClass 82")
+	fmt.Println("\nClass 82 - Hands-on exercise #30")
 	for i := 0; i < 42; i++ {
 		x := rand.Intn(5)
 		switch x {
@@ -142,7 +143,7 @@ func class82() {
 }
 
 func class83() {
-	fmt.Println("\nClass 83")
+	fmt.Println("\nClass 83 - Hands-on exercise #31")
 	x := 0
 	for x < 10 {
 		fmt.Println(x)
@@ -151,7 +152,7 @@ func class83() {
 }
 
 func class84() {
-	fmt.Println("\nClass 84")
+	fmt.Println("\nClass 84 - Hands-on exercise #32")
 	x := 0
 	for {
 		if x == 10 {
@@ -163,7 +164,7 @@ func class84() {
 }
 
 func class85() {
-	fmt.Println("\nClass 85")
+	fmt.Println("\nClass 85 - Hands-on exercise #33")
 
 	for i := 0; i < 10; i++ {
 		if i%2 == 0 {
@@ -174,7 +175,7 @@ func class85() {
 }
 
 func class86() {
-	fmt.Println("\nClass 86")
+	fmt.Println("\nClass 86 - Hands-on exercise #34")
 
 	for i := 0; i < 5; i++ {
 		fmt.Printf("i: %v\n", i)
@@ -185,7 +186,7 @@ func class86() {
 }
 
 func class87() {
-	fmt.Println("\nClass 87")
+	fmt.Println("\nClass 87 - Hands-on exercise #35")
 	x := []int{42, 43, 44, 45, 46, 47} // slice
 	for i, v := range x {
 		fmt.Printf("i: %v, v: %v\n", i, v)
@@ -193,7 +194,7 @@ func class87() {
 }
 
 func class88() map[string]int {
-	fmt.Println("\nClass 88")
+	fmt.Println("\nClass 88 - Hands-on exercise #36")
 	x := map[string]int{ // map
 		"James":      42,
 		"Moneypenny": 32,
@@ -205,7 +206,7 @@ func class88() map[string]int {
 }
 
 func class89(x map[string]int) {
-	fmt.Println("\nClass 89")
+	fmt.Println("\nClass 89 - Hands-on exercise #37")
 	age := x["James"]
 	fmt.Printf("James age: %v\n", age)
 	if v, ok := x["James"]; ok { // comma ok idiom
@@ -220,7 +221,7 @@ func class89(x map[string]int) {
 }
 
 func class90() {
-	fmt.Println("\nClass 90")
+	fmt.Println("\nClass 90 - Hands-on exercise #38")
 	c := 1
 	for i := 0; i < 100; i++ { // statement statement idiom
 		if x := rand.Intn(5); x == 3 {
@@ -231,7 +232,7 @@ func class90() {
 }
 
 func class91() {
-	fmt.Println("\nClass 91")
+	fmt.Println("\nClass 91 - Hands-on exercise #39")
 	// fmt.Printf("true && true: \t%v\n", true && true)
 	fmt.Printf("true && false: \t%v\n", true && false)
 	// fmt.Printf("true || true: \t%v\n", true || true)
@@ -240,7 +241,7 @@ func class91() {
 }
 
 func class92() {
-	fmt.Println("\nClass 92")
+	fmt.Println("\nClass 92 - Additional code")
 	// https://go.dev/play/p/DpZ_FLfn5s
 	x := "James Bond"
 
