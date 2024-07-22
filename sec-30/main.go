@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strings"
 )
@@ -14,9 +15,10 @@ func init() {
 
 func main() {
 	fmt.Println("Main function")
-	class230()
-	class230_3()
-	class230_4()
+	// class230()
+	// class230_3()
+	// class230_4()
+	class231()
 }
 
 func class230() {
@@ -87,4 +89,33 @@ func class230_4() {
 	}
 
 	fmt.Println(string(bs))
+}
+
+func foo() {
+	fmt.Println("foo")
+}
+
+func class231() {
+	fmt.Println("\nClass 231 - Printing and logging")
+
+	defer foo()
+
+	// Config log to write to a file
+	f, err := os.Create("sec-30/log.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+	log.SetOutput(f)
+
+	_, err = os.Open("no-file.txt")
+	if err != nil {
+		// fmt.Println("err happened", err)
+		// log.Println("err happened", err)
+		// log.Panicln(err) // = Println() + panic()
+		panic(err)
+		// log.Fatalln(err) // = Println() + os.Exit(1)
+	}
+
+	fmt.Println("Check the log.txt file in the directory")
 }
