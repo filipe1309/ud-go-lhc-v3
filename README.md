@@ -122,8 +122,9 @@ Please make sure to update tests as appropriate. -->
 - [JSON to Go](https://mholt.github.io/json-to-go/)
 - [Building and testing Go](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go)
 - [Concurrency is not Parallelism by Rob Pike](https://www.youtube.com/watch?v=oV9rvDllKEg&ab_channel=gnbitcom)
+[Go Proverbs](https://go-proverbs.github.io/)
 - [Go Proverbs](https://go-proverbs.github.io/)
-
+- [Go Packages](https://pkg.go.dev/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
