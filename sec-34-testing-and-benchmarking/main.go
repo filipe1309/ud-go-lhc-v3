@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/filipe1309/ud-go-lhc-v3/sec-34-testing-and-benchmarking/acdc"
+	"github.com/filipe1309/ud-go-lhc-v3/sec-34-testing-and-benchmarking/saying"
 )
 
 func init() {
@@ -15,6 +16,7 @@ func main() {
 	fmt.Println("Main function")
 	class245()
 	class247()
+	class249()
 }
 
 func mySum(xi ...int) int {
@@ -38,4 +40,10 @@ func class247() {
 
 	fmt.Println(acdc.Sum(2, 3))
 	fmt.Println(acdc.Sum(2, 3, 4, 5, 6, 7, 8, 9))
+}
+
+func class249() {
+	fmt.Println("\nClass 249 - Benchmark")
+
+	fmt.Println(saying.Greet("James"))
 }
