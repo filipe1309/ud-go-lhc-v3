@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/filipe1309/ud-go-lhc-v3/sec-35-exercises-ninja-level-13/dog"
+	"github.com/filipe1309/ud-go-lhc-v3/sec-35-exercises-ninja-level-13/mymath"
 	"github.com/filipe1309/ud-go-lhc-v3/sec-35-exercises-ninja-level-13/quote"
 	"github.com/filipe1309/ud-go-lhc-v3/sec-35-exercises-ninja-level-13/word"
 )
@@ -17,6 +18,7 @@ func main() {
 	fmt.Println("Main function")
 	class253()
 	class254()
+	class255()
 }
 
 type canine struct {
@@ -41,5 +43,23 @@ func class254() {
 
 	for k, v := range word.UseCount(quote.SunAlso) {
 		fmt.Println(v, k)
+	}
+}
+
+func gen() [][]int {
+	a := []int{1, 4, 6, 8, 100}
+	b := []int{0, 8, 10, 1000}
+	c := []int{9000, 4, 10, 8, 6, 12}
+	d := []int{123, 744, 140, 200}
+	e := [][]int{a, b, c, d}
+	return e
+}
+
+func class255() {
+	fmt.Println("\nClass 255 - Hands-on exercise #3")
+
+	xxi := gen()
+	for _, xi := range xxi {
+		fmt.Println(mymath.CenteredAvg(xi))
 	}
 }
