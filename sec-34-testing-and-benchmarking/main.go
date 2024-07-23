@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/filipe1309/ud-go-lhc-v3/sec-34-testing-and-benchmarking/acdc"
+	"github.com/filipe1309/ud-go-lhc-v3/sec-34-testing-and-benchmarking/mystr"
 	"github.com/filipe1309/ud-go-lhc-v3/sec-34-testing-and-benchmarking/saying"
 )
 
@@ -17,6 +19,7 @@ func main() {
 	class245()
 	class247()
 	class249()
+	class251()
 }
 
 func mySum(xi ...int) int {
@@ -46,4 +49,26 @@ func class249() {
 	fmt.Println("\nClass 249 - Benchmark")
 
 	fmt.Println(saying.Greet("James"))
+}
+
+const s = `We ask ourselves, Who am I to be brilliant, gorgeous, talented, fabulous? Actually, who are you not to be?
+Your playing small does not serve the world.
+There is nothing enlightened about shrinking so that other people won't feel insecure around you.
+We are all meant to shine, as children do.
+We were born to make manifest the glory that is within us.
+It's not just in some of us; it's in everyone.
+And as we let our own light shine, we unconsciously give other people permission to do the same.
+As we are liberated from our own fear, our presence automatically liberates others. - Marianne Williamson`
+
+func class251() {
+	fmt.Println("\nClass 251 - Benchmarks examples")
+
+	xs := strings.Split(s, " ")
+
+	for _, v := range xs {
+		fmt.Println(v)
+	}
+
+	fmt.Printf("\nCat: %v\n", mystr.Cat(xs))
+	fmt.Printf("\nJoin: %v\n", mystr.Join(xs))
 }

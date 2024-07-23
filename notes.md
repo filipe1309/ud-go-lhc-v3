@@ -545,4 +545,37 @@ go doc github.com/filipe1309/my-go-library # to see the documentation for the my
 - `go test -benchmem`
 - `go test -bench . -benchtime 3s`
 
+### Remember to BET
+
+- Benchmark
+- Example
+- Test
+
+```go
+func BenchmarkHello(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Hello()
+	}
+}
+```
+
+```go
+func ExampleHello() {
+	fmt.Println(Hello())
+	// Output: Hello, Gophers!
+}
+```
+
+```go
+func TestHello(t *testing.T) {
+	got := Hello()
+	want := "Hello, Gophers!"
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}
+```
+
+
+
 
