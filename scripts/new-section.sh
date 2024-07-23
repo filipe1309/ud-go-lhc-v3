@@ -27,8 +27,11 @@ fi
 
 echo -e "${BOLD}📝 Creating section $SEC - $DESC${NC}"
 
+# remove special characters from description
+DESC_CLEAN=$(echo $DESC | sed 's/[^a-zA-Z0-9 ]//g')
+
 # convert DESC to lowercase and replace spaces with dashes
-DESC_SNAKE_CASE=$(echo $DESC | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+DESC_SNAKE_CASE=$(echo $DESC_CLEAN | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
 # create a new section directory
 mkdir sec-$SEC-$DESC_SNAKE_CASE
