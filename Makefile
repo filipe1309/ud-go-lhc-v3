@@ -44,6 +44,11 @@ new-section:
 	./scripts/new-section.sh $(SEC) $(DESC)
 	
 
+cover:
+	@echo "🔍 Running coverage..."
+	@go test -coverprofile=coverage.out ./...
+	@go tool cover -html=coverage.out
+
 help:
 	@echo "📖 Available commands:"
 	@echo "  make run SEC=03"
