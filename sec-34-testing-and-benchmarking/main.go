@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/filipe1309/ud-go-lhc-v3/sec-34-testing-and-benchmarking/acdc"
 )
 
 func init() {
@@ -12,6 +14,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class245()
+	class247()
 }
 
 func mySum(xi ...int) int {
@@ -28,4 +31,11 @@ func class245() {
 	fmt.Println("2 + 3 =", mySum(2, 3))
 	fmt.Println("4 + 7 =", mySum(4, 7))
 	fmt.Println("5 + 9 + 1 =", mySum(5, 9, 1))
+}
+
+func class247() {
+	fmt.Println("\nClass 247 - Example tests")
+
+	fmt.Println(acdc.Sum(2, 3))
+	fmt.Println(acdc.Sum(2, 3, 4, 5, 6, 7, 8, 9))
 }
