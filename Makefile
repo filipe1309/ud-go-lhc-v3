@@ -51,9 +51,10 @@ cover:
 
 help:
 	@echo "📖 Available commands:"
-	@echo "  make run SEC=03"
-	@echo "  make test SEC=03"
+	@echo "  make run [SEC=03] # default last section"
+	@echo "  make test [SEC=03] # default last section"
 	@echo "  make test-all"
-	@echo "  make build"
+	@echo "  make build [SEC=03] # default last section"
 	@echo "  make new-section [SEC=03] [DESC="Section description"] # default last section + 1"
+	@echo "  make cover"
 	@echo "  make help"
