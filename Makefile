@@ -4,9 +4,9 @@ test:
 	@if [ -z "$(SEC)" ]; then \
 		SEC=$$(ls -d sec-* | tail -n 1 | cut -d '-' -f 2); \
 		echo "🔍 No section provided, running last section: $$SEC"; \
-		go test -v sec-$$SEC-*/*; \
+		go test -v sec-$$SEC-*/*.go; \
 	else \
-		go test -v sec-$(SEC)-*/*; \
+		go test -v sec-$(SEC)-*/*.go; \
 	fi
 
 # run all tests
