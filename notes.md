@@ -533,3 +533,16 @@ https://pkg.go.dev/github.com/filipe1309/my-go-library
 go doc github.com/filipe1309/my-go-library # to see the documentation for the my-go-library package
 ```
 
+
+## Section 34 - Testing & Benchmarking
+
+- `go test`
+- `go test -v`
+- `go test -cover`
+- `go test -coverprofile c.out`
+- `go tool cover -html=c.out`
+- `go test -bench .`
+- `go test -benchmem`
+- `go test -bench . -benchtime 3s`
+
+
