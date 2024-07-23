@@ -512,3 +512,24 @@ Channels are a way for goroutines to communicate with each other and synchronize
 
 Range over a channel will block until the channel is closed.
 
+## Section 32 - Writing documentation
+
+- `go doc <pkg>`
+- `go doc <sym>[.<method>]`
+- `go doc [<pkg>.]<sym>[.<method>]`
+- `go doc [<pkg>.][<sym>.]<method>`
+
+```sh
+go doc fmt # to see the documentation for the fmt package
+```
+
+```sh
+go doc fmt.Println # to see the documentation for the fmt.Println function
+```
+
+https://pkg.go.dev/github.com/filipe1309/my-go-library
+
+```sh
+go doc github.com/filipe1309/my-go-library # to see the documentation for the my-go-library package
+```
+
