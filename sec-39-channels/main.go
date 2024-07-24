@@ -21,6 +21,7 @@ func main() {
 	class269()
 	class269V2()
 	class270()
+	class271()
 }
 
 func class264() {
@@ -290,7 +291,40 @@ func class270() {
 	fmt.Println("\nClass 270 - Channels as Arguments & Returns")
 
 	c := incrementor()
-	cSum := puller(c)
+	for n := range puller(c) {
+		fmt.Println(n)
+	}
+}
+
+func incrementor2() <-chan int {
+	out := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			out <- i
+		}
+		close(out)
+	}()
+	return out
+}
+
+// c <-chan int: receive-only channel
+func puller2(c <-chan int) <-chan int {
+	out := make(chan int) // bidirectional channel
+	go func() {
+		var sum int
+		for v := range c {
+			sum += v
+		}
+		out <- sum
+		close(out)
+	}()
+	return out
+}
+
+func class271() {
+	fmt.Println("\nClass 271 - Channel Direction")
+	c := incrementor2()
+	cSum := puller2(c)
 	for n := range cSum {
 		fmt.Println(n)
 	}
