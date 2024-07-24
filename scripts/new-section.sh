@@ -25,7 +25,7 @@ if [ -z "$DESC" ]; then
   read -p "Description: " DESC
 fi
 
-echo -e "${BOLD}📝 Creating section $SEC - $DESC${NC}"
+echo -e "${BOLD}📝 Creating Section $SEC - $DESC${NC}"
 
 # remove special characters from description
 DESC_CLEAN=$(echo $DESC | sed 's/[^a-zA-Z0-9 ]//g')
@@ -46,4 +46,4 @@ sed -i '' "s/{{ SEC }}/$SEC/g" sec-$SEC-$DESC_SNAKE_CASE/main.go
 # replace {{ DESC }} with description
 sed -i '' "s/{{ DESC }}/$DESC/g" sec-$SEC-$DESC_SNAKE_CASE/main.go
 
-echo -e "${BOLD}✅ Section $SEC-$DESC_SNAKE_CASE created${NC}"
+echo -e "${BOLD}✅ Section $SEC - $DESC (sec-$SEC-$DESC_SNAKE_CASE) created${NC}"
