@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 	"time"
 )
@@ -9,6 +10,7 @@ import (
 func init() {
 	fmt.Println("Init function")
 	fmt.Println("Section 38 - Concurrency")
+	runtime.GOMAXPROCS(runtime.NumCPU()) // Use all the cores - Parallelism
 }
 
 func main() {
