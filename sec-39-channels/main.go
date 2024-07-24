@@ -18,6 +18,8 @@ func main() {
 	class266()
 	class267()
 	class268()
+	class269()
+	class269V2()
 }
 
 func class264() {
@@ -186,5 +188,75 @@ func class268() {
 	// Receive values from channel
 	for v := range c {
 		fmt.Println("Received from channel:\t", v)
+	}
+}
+
+func class269() {
+	fmt.Println("\nClass 269 - 1-to-N")
+
+	c := make(chan int)
+	done := make(chan bool)
+
+	go func() {
+		for i := 0; i < 1000; i++ {
+			// Send value to channel
+			c <- i
+		}
+		close(c)
+	}()
+
+	go func() {
+		printWithBorders("#g2 -> Waiting for goroutines to finish")
+		// Receive values from channel
+		for v := range c {
+			fmt.Println("#g2 -> Received from channel:\t", v)
+		}
+		fmt.Println("#g2 -> Done receiving from channel")
+		done <- true
+	}()
+
+	go func() {
+		printWithBorders("#g3 -> Waiting for goroutines to finish")
+		// Receive values from channel
+		for v := range c {
+			fmt.Println("#g3 -> Received from channel:\t", v)
+		}
+		fmt.Println("#g3 -> Done receiving from channel")
+		done <- true
+	}()
+
+	<-done
+	<-done
+}
+
+func class269V2() {
+	fmt.Println("\nClass 269 - 1-to-N (n times)")
+
+	n := 10
+	c := make(chan int)
+	done := make(chan bool)
+
+	go func() {
+		for i := 0; i < 100; i++ {
+			// Send value to channel
+			c <- i
+		}
+		close(c)
+	}()
+
+	for i := 0; i < n; i++ {
+		go func(i int) {
+			printWithBorders(fmt.Sprintf("#g%d -> Waiting for goroutines to finish", i))
+			// Receive values from channel
+			for v := range c {
+				fmt.Printf("#g%d -> Received from channel:\t %v\n", i, v)
+			}
+			fmt.Printf("#g%d -> Done receiving from channel\n", i)
+			done <- true
+		}(i)
+	}
+
+	for i := 0; i < n; i++ {
+		<-done
 	}
 }
