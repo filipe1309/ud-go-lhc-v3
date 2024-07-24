@@ -16,6 +16,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class258()
+	class260()
 }
 
 func foo() {
@@ -68,4 +69,27 @@ func class258() {
 
 	fmt.Println("\nWith Concurrency")
 	class258WithConcurrency()
+}
+
+var counter int
+
+func incrementor(s string) {
+	for i := 0; i < 20; i++ {
+		x := counter
+		x++
+		time.Sleep(time.Duration(3 * time.Millisecond))
+		counter = x
+		fmt.Println(s, i, "Counter:", counter)
+	}
+	wg.Done()
+}
+
+// go run -race sec-38-concurrency/main.go
+func class260() {
+	fmt.Println("\nClass 260 - Race Conditions")
+	wg.Add(2)
+	go incrementor("foo:")
+	go incrementor("bar:")
+	wg.Wait()
+	fmt.Println("Final Counter:", counter)
 }
