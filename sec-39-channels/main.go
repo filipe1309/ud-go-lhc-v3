@@ -20,6 +20,7 @@ func main() {
 	class268()
 	class269()
 	class269V2()
+	class270()
 }
 
 func class264() {
@@ -237,7 +238,7 @@ func class269V2() {
 	done := make(chan bool)
 
 	go func() {
-		for i := 0; i < 100; i++ {
+		for i := 0; i < 10; i++ {
 			// Send value to channel
 			c <- i
 		}
@@ -258,5 +259,39 @@ func class269V2() {
 
 	for i := 0; i < n; i++ {
 		<-done
+	}
+}
+
+func incrementor() chan int {
+	out := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			out <- i
+		}
+		close(out)
+	}()
+	return out
+}
+
+func puller(c chan int) chan int {
+	out := make(chan int)
+	go func() {
+		var sum int
+		for v := range c {
+			sum += v
+		}
+		out <- sum
+		close(out)
+	}()
+	return out
+}
+
+func class270() {
+	fmt.Println("\nClass 270 - Channels as Arguments & Returns")
+
+	c := incrementor()
+	cSum := puller(c)
+	for n := range cSum {
+		fmt.Println(n)
 	}
 }
