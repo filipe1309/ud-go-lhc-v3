@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"runtime"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
@@ -18,6 +20,7 @@ func main() {
 	class258()
 	class260()
 	class261()
+	class262()
 }
 
 func foo() {
@@ -116,4 +119,24 @@ func class261() {
 	go incrementorWithMutex("bar:")
 	wg.Wait()
 	fmt.Println("Final Counter:", counter)
+}
+
+var counter2 int64
+
+func incrementorWithAtomicity(s string) {
+	for i := 0; i < 20; i++ {
+		time.Sleep(time.Duration(rand.Intn(3)) * time.Millisecond)
+		atomic.AddInt64(&counter2, 1)
+		fmt.Println(s, i, "Counter:", atomic.LoadInt64(&counter2))
+	}
+	wg.Done()
+}
+
+func class262() {
+	fmt.Println("\nClass 262 - Atomicity")
+	wg.Add(2)
+	go incrementorWithAtomicity("foo:")
+	go incrementorWithAtomicity("bar:")
+	wg.Wait()
+	fmt.Println("Final Counter:", counter2)
 }
