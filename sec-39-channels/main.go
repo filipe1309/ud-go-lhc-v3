@@ -16,6 +16,7 @@ func main() {
 	class264()
 	class265()
 	class266()
+	class267()
 }
 
 func class264() {
@@ -97,5 +98,52 @@ func class266() {
 	// Receive values from channel
 	for v := range c {
 		fmt.Println("Received value from channel:", v)
+	}
+}
+
+func class267() {
+	fmt.Println("\nClass 267 - Semaphores - Part 1")
+
+	c := make(chan int)
+	done := make(chan bool)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println("Sending\t", i, "to channel (goroutine 1)")
+			// Send value to channel
+			c <- i
+		}
+		done <- true
+	}()
+
+	go func() {
+		for i := 0; i < 100; i++ {
+			fmt.Println("Sending\t", i, "to channel (goroutine 2)")
+			// Send value to channel
+			c <- i
+		}
+		done <- true
+	}()
+
+	go func() {
+		fmt.Println("--------------------------------")
+		fmt.Println("Waiting for goroutines to finish (goroutine 3)")
+		fmt.Println("--------------------------------")
+		<-done
+		fmt.Println("--------------------------------")
+		fmt.Println("One goroutine finished")
+		fmt.Println("--------------------------------")
+		<-done
+		fmt.Println("--------------------------------")
+		fmt.Println("Two goroutines finished")
+		fmt.Println("--------------------------------")
+		fmt.Println("Closing channel (goroutine 3)")
+		fmt.Println("--------------------------------")
+		close(c)
+	}()
+
+	// Receive values from channel
+	for v := range c {
+		fmt.Println("Received from channel:\t", v)
 	}
 }
