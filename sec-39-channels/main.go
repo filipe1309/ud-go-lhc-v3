@@ -17,6 +17,7 @@ func main() {
 	class265()
 	class266()
 	class267()
+	class268()
 }
 
 func class264() {
@@ -117,7 +118,7 @@ func class267() {
 	}()
 
 	go func() {
-		for i := 0; i < 100; i++ {
+		for i := 0; i < 10; i++ {
 			fmt.Println("Sending\t", i, "to channel (goroutine 2)")
 			// Send value to channel
 			c <- i
@@ -139,6 +140,46 @@ func class267() {
 		fmt.Println("--------------------------------")
 		fmt.Println("Closing channel (goroutine 3)")
 		fmt.Println("--------------------------------")
+		close(c)
+	}()
+
+	// Receive values from channel
+	for v := range c {
+		fmt.Println("Received from channel:\t", v)
+	}
+}
+
+func printWithBorders(s string) {
+	fmt.Println("--------------------------------")
+	fmt.Println(s)
+	fmt.Println("--------------------------------")
+}
+
+func class268() {
+	fmt.Println("\nClass 268 - Semaphores - Part 2")
+
+	n := 10
+	c := make(chan int)
+	done := make(chan bool)
+
+	for i := 0; i < n; i++ {
+		go func(i int) {
+			for i2 := 0; i2 < 10; i2++ {
+				fmt.Println("Sending\t", i2, "to channel ( goroutine", i, ")")
+				// Send value to channel
+				c <- i2
+			}
+			done <- true
+		}(i)
+	}
+
+	go func() {
+		printWithBorders("Waiting for goroutines to finish (goroutine 3)")
+		for i := 0; i < n; i++ {
+			<-done
+			printWithBorders(fmt.Sprintf("%d goroutine(s) finished (goroutine 3)", i+1))
+		}
+		printWithBorders("Closing channel (goroutine 3)")
 		close(c)
 	}()
 
