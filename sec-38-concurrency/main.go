@@ -17,6 +17,7 @@ func main() {
 	fmt.Println("Main function")
 	class258()
 	class260()
+	class261()
 }
 
 func foo() {
@@ -90,6 +91,29 @@ func class260() {
 	wg.Add(2)
 	go incrementor("foo:")
 	go incrementor("bar:")
+	wg.Wait()
+	fmt.Println("Final Counter:", counter)
+}
+
+var mu sync.Mutex
+
+func incrementorWithMutex(s string) {
+	for i := 0; i < 20; i++ {
+		time.Sleep(time.Duration(20 * time.Millisecond))
+		mu.Lock()
+		counter++
+		fmt.Println(s, i, "Counter:", counter)
+		mu.Unlock()
+	}
+	wg.Done()
+}
+
+func class261() {
+	fmt.Println("\nClass 261 - Mutex")
+	counter = 0
+	wg.Add(2)
+	go incrementorWithMutex("foo:")
+	go incrementorWithMutex("bar:")
 	wg.Wait()
 	fmt.Println("Final Counter:", counter)
 }
