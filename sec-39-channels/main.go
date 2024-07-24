@@ -13,6 +13,7 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class264()
+	class265()
 }
 
 func class264() {
@@ -35,5 +36,26 @@ func class264() {
 		}
 	}()
 
-	time.Sleep(time.Second)
+	time.Sleep(time.Second) // Sleep for a second to allow the goroutines to finish
+}
+
+func class265() {
+	fmt.Println("\nClass 265 - Range clause")
+
+	c := make(chan int)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println("Sending value to channel:", i)
+			// Send value to channel
+			c <- i
+		}
+		close(c) // Close the channel, no more values can be sent, but can still receive values
+	}()
+
+	// Receive values from channel
+	for v := range c {
+		fmt.Println("Received value from channel:", v)
+		fmt.Println(v)
+	}
 }
