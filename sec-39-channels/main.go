@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -14,6 +15,7 @@ func main() {
 	fmt.Println("Main function")
 	class264()
 	class265()
+	class266()
 }
 
 func class264() {
@@ -57,5 +59,43 @@ func class265() {
 	for v := range c {
 		fmt.Println("Received value from channel:", v)
 		fmt.Println(v)
+	}
+}
+
+func class266() {
+	fmt.Println("\nClass 266 - N-to-1")
+
+	c := make(chan int)
+	var wg sync.WaitGroup
+	wg.Add(2)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println("Sending value to channel:", i, "from goroutine 1")
+			// Send value to channel
+			c <- i
+		}
+		wg.Done()
+	}()
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println("Sending value to channel:", i, "from goroutine 2")
+			// Send value to channel
+			c <- i
+		}
+		wg.Done()
+	}()
+
+	go func() {
+		fmt.Println("Waiting for goroutines to finish from goroutine 3")
+		wg.Wait()
+		fmt.Println("Closing channel from goroutine 3")
+		close(c)
+	}()
+
+	// Receive values from channel
+	for v := range c {
+		fmt.Println("Received value from channel:", v)
 	}
 }
