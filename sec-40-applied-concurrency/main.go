@@ -14,6 +14,7 @@ func main() {
 	class272()
 	class273()
 	class273_2()
+	class274()
 }
 
 func incrementor(s string) chan int {
@@ -81,6 +82,42 @@ func class273_2() {
 	// }
 
 	for v := range c {
-			fmt.Println(v)
+		fmt.Println(v)
+	}
+}
+
+func factorial(n int) int {
+	total := 1
+	for i := n; i > 0; i-- {
+		total *= i
+	}
+	return total
+}
+
+func factorialGoroutAndChan(n int) chan int {
+	out := make(chan int)
+	go func() {
+		total := 1
+		for i := n; i > 0; i-- {
+			total *= i
 		}
+		out <- total
+		close(out)
+	}()
+	return out
+}
+
+func class274() {
+	fmt.Println("\nClass 274 - Factorial Challenge")
+
+	f := factorial(4)
+	fmt.Println("Total:", f)
+
+	// This version o factorial with goroutines and channel will have a better performance
+	// if you need to calculate thousands os factorial operations, because you will be
+	// able to use all CPU cores of your machine to do that
+	c := factorialGoroutAndChan(4)
+	for v := range c {
+		fmt.Println("Total 2:", v)
+	}
 }
