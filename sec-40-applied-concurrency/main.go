@@ -16,6 +16,7 @@ func main() {
 	class273_2()
 	class274()
 	class275()
+	class276()
 }
 
 func incrementor(s string) chan int {
@@ -148,6 +149,10 @@ func sqrt(in <-chan int) <-chan int {
 func class275() {
 	fmt.Println("\nClass 275 - Pipeline Pattern")
 
+	// for v := range sqrt(sqrt(gen(2, 3))) {
+	// 	fmt.Println(v) // 16, 81
+	// }
+
 	// Set up the pipeline
 	c := gen(2, 3)
 	out := sqrt(c)
@@ -155,4 +160,40 @@ func class275() {
 	// Consume the output
 	fmt.Println(<-out) // 4
 	fmt.Println(<-out) // 9
+}
+
+func gen276() <-chan int {
+	out := make(chan int)
+	go func() {
+		// insert 100 number in out channel
+		for i := 0; i < 10; i++ {
+			for j := 3; j < 13; j++ {
+				out <- j
+			}
+		}
+		close(out)
+	}()
+	return out
+}
+
+func factorial276(in <-chan int) <-chan int {
+	out := make(chan int)
+	go func() {
+		for v := range in {
+			out <- factorial(v)
+		}
+		close(out)
+	}()
+	return out
+}
+
+func class276() {
+	fmt.Println("\nClass 276 - Factorial Challenge Redux")
+
+	in := gen276()
+	f := factorial276(in)
+
+	for v := range f {
+		fmt.Println(v)
+	}
 }
