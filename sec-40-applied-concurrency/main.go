@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
@@ -20,6 +21,7 @@ func main() {
 	class275()
 	class276()
 	class279()
+	class280()
 }
 
 func incrementor(s string) chan int {
@@ -234,4 +236,40 @@ func class279() {
 		fmt.Println(<-c)
 	}
 	fmt.Println("You're both boring; I'm leaving.")
+}
+
+func mergeFanIn(cs ...<-chan int) <-chan int {
+	out := make(chan int)
+	var wg sync.WaitGroup
+	wg.Add(len(cs))
+	for _, v := range cs {
+		go func(ch <-chan int) {
+			for c := range ch {
+				out <- c
+			}
+			wg.Done()
+		}(v)
+	}
+
+	go func() {
+		wg.Wait()
+		close(out)
+	}()
+
+	return out
+}
+
+func class280() {
+	fmt.Println("\nClass 280 - Fan Out / Fan In - Example")
+
+	// Fan Out
+	// Distribute the sqrt work across two goroutines that both read from in.
+	in := gen(2, 3)
+	c1 := sqrt(in)
+	c2 := sqrt(in)
+
+	// Fan In
+	for v := range mergeFanIn(c1, c2) {
+		fmt.Println(v) // 4, 9 or 9, 4
+	}
 }
