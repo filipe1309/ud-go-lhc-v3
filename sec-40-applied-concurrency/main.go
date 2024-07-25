@@ -12,6 +12,8 @@ func init() {
 func main() {
 	fmt.Println("Main function")
 	class272()
+	class273()
+	class273_2()
 }
 
 func incrementor(s string) chan int {
@@ -47,4 +49,38 @@ func class272() {
 	c3 := puller(c1)
 	c4 := puller(c2)
 	fmt.Println("Final Counter:", <-c3+<-c4)
+}
+
+func class273() {
+	fmt.Println("\nClass 273 - Deadlock Challenge")
+
+	// c := make(chan int)
+	// 	c <- 1 // deadlock because there is no goroutine to receive the value, so it blocks. Or use a buffered channel
+	// fmt.Println(<-c)
+
+	c := make(chan int)
+	go func() {
+		c <- 1
+	}()
+	fmt.Println(<-c)
+}
+
+func class273_2() {
+	fmt.Println("\nClass 273 - Deadlock Challenge 2")
+
+	c := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		close(c) // for range loop
+	}()
+
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(<-c)
+	// }
+
+	for v := range c {
+			fmt.Println(v)
+		}
 }
