@@ -15,6 +15,7 @@ func main() {
 	class273()
 	class273_2()
 	class274()
+	class275()
 }
 
 func incrementor(s string) chan int {
@@ -120,4 +121,38 @@ func class274() {
 	for v := range c {
 		fmt.Println("Total 2:", v)
 	}
+}
+
+func gen(nums ...int) <-chan int {
+	out := make(chan int)
+	go func() {
+		for _, v := range nums {
+			out <- v
+		}
+		close(out)
+	}()
+	return out
+}
+
+func sqrt(in <-chan int) <-chan int {
+	out := make(chan int)
+	go func() {
+		for v := range in {
+			out <- v * v
+		}
+		close(out)
+	}()
+	return out
+}
+
+func class275() {
+	fmt.Println("\nClass 275 - Pipeline Pattern")
+
+	// Set up the pipeline
+	c := gen(2, 3)
+	out := sqrt(c)
+
+	// Consume the output
+	fmt.Println(<-out) // 4
+	fmt.Println(<-out) // 9
 }
