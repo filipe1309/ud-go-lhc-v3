@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
@@ -19,6 +20,7 @@ func main() {
 	// class283V2()
 	class283V3()
 	class285()
+	class287()
 }
 
 var workerID int
@@ -221,4 +223,24 @@ func class285() {
 	for v := range merge(xc...) {
 		fmt.Println(v)
 	}
+}
+
+var counter int64
+
+func incrementor(s string) {
+	for i := 0; i < 20; i++ {
+		atomic.AddInt64(&counter, 1)
+		fmt.Println("Process", s, "printing:", i)
+	}
+	wg.Done()
+}
+
+func class287() {
+	fmt.Println("\nClass 287 - Incrementor Challenge Revisited")
+
+	wg.Add(2)
+	go incrementor("1")
+	go incrementor("2")
+	wg.Wait()
+	fmt.Println("Final Counter:", counter) // 40
 }
