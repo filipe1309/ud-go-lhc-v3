@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"strconv"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -21,6 +22,7 @@ func main() {
 	class283V3()
 	class285()
 	class287()
+	class288()
 }
 
 var workerID int
@@ -227,7 +229,7 @@ func class285() {
 
 var counter int64
 
-func incrementor(s string) {
+func class287Incrementor(s string) {
 	for i := 0; i < 20; i++ {
 		atomic.AddInt64(&counter, 1)
 		fmt.Println("Process", s, "printing:", i)
@@ -239,8 +241,43 @@ func class287() {
 	fmt.Println("\nClass 287 - Incrementor Challenge Revisited")
 
 	wg.Add(2)
-	go incrementor("1")
-	go incrementor("2")
+	go class287Incrementor("1")
+	go class287Incrementor("2")
 	wg.Wait()
 	fmt.Println("Final Counter:", counter) // 40
+}
+
+func class288Incrementor(n int) chan string {
+	c := make(chan string)
+	done := make(chan bool)
+
+	for i := 0; i < n; i++ {
+		go func(i int) {
+			for k := 0; k < 20; k++ {
+				c <- fmt.Sprint("Process: "+strconv.Itoa(i)+" printing: ", k)
+			}
+			done <- true
+		}(i)
+	}
+
+	go func() {
+		for i := 0; i < n; i++ {
+			<-done
+		}
+		close(c)
+	}()
+
+	return c
+}
+
+func class288() {
+	fmt.Println("\nClass 288 - Incrementor Solution")
+
+	c := class288Incrementor(2)
+	var counter2 int
+	for v := range c {
+		counter2++
+		fmt.Println(v)
+	}
+	fmt.Println("Final Counter:", counter2) // 40
 }
