@@ -125,6 +125,11 @@ Please make sure to update tests as appropriate. -->
 [Go Proverbs](https://go-proverbs.github.io/)
 - [Go Proverbs](https://go-proverbs.github.io/)
 - [Go Packages](https://pkg.go.dev/)
+- [Memory, variables in memory, and pointers](https://golangtutorials.blogspot.com/2011/06/memory-variables-in-memory-and-pointers.html)
+- [How can I store reference to the result of an operation in Go?](https://stackoverflow.com/questions/34197248/how-can-i-store-reference-to-the-result-of-an-operation-in-go)
+- [Dancing with Go’s Mutexes](https://medium.com/hackernoon/dancing-with-go-s-mutexes-92407ae927bf)
+- [Visualizing Concurrency in Go](https://divan.dev/posts/go_concurrency_visualize/)
+- [Ardan Labs - Go Training Repo](https://github.com/ardanlabs/gotraining/tree/master/topics)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
