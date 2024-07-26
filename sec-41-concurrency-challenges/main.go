@@ -18,6 +18,7 @@ func main() {
 	// class283()
 	// class283V2()
 	class283V3()
+	class285()
 }
 
 var workerID int
@@ -195,6 +196,29 @@ func class283V3() {
 
 	// Fan In
 	for v := range merge(chans...) {
+		fmt.Println(v)
+	}
+}
+
+func class285FanOut(in <-chan int, n int) []<-chan int {
+	// xc := make([]<-chan int, n) // This will create a deadlock
+	var xc []<-chan int
+	for i := 0; i < n; i++ {
+		xc = append(xc, class283V2FactorialRoutine(in))
+	}
+	return xc
+}
+
+func class285() {
+	fmt.Println("\nClass 285 - Deadlock Challenge")
+
+	in := class283Gen(10)
+
+	// Fan Out
+	xc := class285FanOut(in, 10)
+
+	// Fan In
+	for v := range merge(xc...) {
 		fmt.Println(v)
 	}
 }
