@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"runtime"
+	"sync"
 	"time"
 )
 
@@ -12,7 +14,10 @@ func init() {
 
 func main() {
 	fmt.Println("Main function")
-	class281()
+	// class281()
+	// class283()
+	// class283V2()
+	class283V3()
 }
 
 var workerID int
@@ -54,4 +59,142 @@ func class281() {
 	go publisher(input)
 	go publisher(input)
 	time.Sleep(time.Millisecond)
+}
+
+var wg sync.WaitGroup
+
+func class283Gen(n int) <-chan int {
+	out := make(chan int)
+	go func() {
+		// insert n number in out channel
+		for i := 1; i <= n; i++ {
+			out <- (i % 10) // to avoid big numbers
+		}
+		close(out)
+	}()
+	return out
+}
+
+func class283FactorialRoutine(in <-chan int) chan int {
+	out := make(chan int)
+	for v := range in {
+		go func(value int) {
+			out <- class283Factorial(value)
+			wg.Done()
+		}(v)
+	}
+	return out
+}
+
+func class283Factorial(n int) int {
+	total := 1
+	for i := n; i > 0; i-- {
+		total *= i
+	}
+	return total
+}
+
+func class283() {
+	fmt.Println("\nClass 283 - Fan Out / Fan In - Challenge: Factorial")
+
+	n := 100
+	wg.Add(n)
+	in := class283Gen(n)
+	f := class283FactorialRoutine(in)
+
+	go func() {
+		fmt.Println("#goroutine:", runtime.NumGoroutine())
+		wg.Wait()
+		close(f)
+	}()
+
+	for v := range f {
+		fmt.Println(v)
+	}
+}
+
+func class283V2FactorialRoutine(in <-chan int) chan int {
+	out := make(chan int)
+	go func() {
+		for v := range in {
+			out <- class283Factorial(v)
+		}
+		close(out)
+	}()
+	return out
+}
+
+func merge(cs ...<-chan int) <-chan int {
+	out := make(chan int)
+	var wg2 sync.WaitGroup
+	wg2.Add(len(cs))
+
+	output := func(c <-chan int) {
+		for n := range c {
+			out <- n
+		}
+		wg2.Done()
+	}
+
+	// launch output goroutines
+	for _, c := range cs {
+		go output(c)
+	}
+
+	go func() {
+		fmt.Println("#goroutine:", runtime.NumGoroutine())
+		wg2.Wait()
+		close(out)
+	}()
+
+	return out
+}
+
+func class283V2() {
+	fmt.Println("\nClass 283 v2 - Fan Out / Fan In - Challenge: Factorial")
+
+	n := 10
+	in := class283Gen(n)
+
+	// Fan Out
+	// launch 10 goroutines
+	c0 := class283V2FactorialRoutine(in)
+	c1 := class283V2FactorialRoutine(in)
+	c2 := class283V2FactorialRoutine(in)
+	c3 := class283V2FactorialRoutine(in)
+	c4 := class283V2FactorialRoutine(in)
+	c5 := class283V2FactorialRoutine(in)
+	c6 := class283V2FactorialRoutine(in)
+	c7 := class283V2FactorialRoutine(in)
+	c8 := class283V2FactorialRoutine(in)
+	c9 := class283V2FactorialRoutine(in)
+
+	fmt.Println("#goroutine:", runtime.NumGoroutine())
+
+	// Fan In
+	for v := range merge(c0, c1, c2, c3, c4, c5, c6, c7, c8, c9) {
+		fmt.Println(v)
+	}
+}
+
+func class283V3() {
+	fmt.Println("\nClass 283 v3 - Fan Out / Fan In - Challenge: Factorial")
+
+	n := 100
+	in := class283Gen(n)
+
+	// Fan Out
+	chans := make([]<-chan int, n)
+	// launch n goroutines
+	for i := 0; i < n; i++ {
+		ch := class283V2FactorialRoutine(in)
+		chans[i] = ch
+	}
+
+	fmt.Println("#goroutine:", runtime.NumGoroutine())
+
+	// Fan In
+	for v := range merge(chans...) {
+		fmt.Println(v)
+	}
 }
