@@ -576,6 +576,48 @@ func TestHello(t *testing.T) {
 }
 ```
 
+## Section 43 - Error handling 
+> also in Section 30
+
+"Error values in Go aren't special, they are just values like any other, and so you have the entire language at your disposal to deal with them." - Rob Pike
+
+```go
+if err != nil {
+	log.Fatal(err)
+}
+```
+
+```go
+if err != nil {
+	log.Fatalf("an error occurred: %v", err)
+}
+```
+
+```go
+if err != nil {
+	log.Panic(err)
+}
+```
+
+```go
+if err != nil {
+	log.Panicf("an error occurred: %v", err)
+}
+```
+
+```go
+if err != nil {
+	log.Println(err)
+}
+```
+
+```go
+if err != nil {
+	log.Printf("an error occurred: %v", err)
+}
+```
+
+https://go.dev/doc/effective_go#errors
 
 
 

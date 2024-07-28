@@ -130,6 +130,8 @@ Please make sure to update tests as appropriate. -->
 - [Dancing with Go’s Mutexes](https://medium.com/hackernoon/dancing-with-go-s-mutexes-92407ae927bf)
 - [Visualizing Concurrency in Go](https://divan.dev/posts/go_concurrency_visualize/)
 - [Ardan Labs - Go Training Repo](https://github.com/ardanlabs/gotraining/tree/master/topics)
+- [Effective Go - Errors](https://go.dev/doc/effective_go#errors)
+- [Error handling and Go](https://go.dev/blog/error-handling-and-go)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
